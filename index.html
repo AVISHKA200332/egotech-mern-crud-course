@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Complete MERN CRUD Application for Beginners | EgoTECH World</title>
+  <meta name="description" content="Learn to build a complete MERN CRUD Application from scratch. Beginner-friendly course covering MongoDB, Express.js, React, and Node.js." />
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <!-- Custom CSS -->
+  <link href="assets/css/style.css" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════
+     NAVBAR — injected from components/navbar.html
+════════════════════════════════════════════════════════════ -->
+<div id="navbar-placeholder"></div>
+
+<!-- ══════════════════════════════════════════════════════════
+     HERO SECTION
+════════════════════════════════════════════════════════════ -->
+<section class="hero-section" aria-label="Course Hero">
+  <div class="container position-relative" style="z-index:1">
+    <div class="row align-items-center g-5">
+      <!-- Left copy -->
+      <div class="col-lg-7 animate-fadeInUp">
+        <div class="hero-badge"><i class="bi bi-stars me-1"></i>Beginner Friendly Course</div>
+        <h1 class="hero-title">Complete MERN CRUD<br>Application for Beginners</h1>
+        <p class="hero-subtitle">
+          Learn MongoDB, Express.js, React, and Node.js by building a complete
+          CRUD application from scratch — no prior experience needed.
+        </p>
+        <div class="hero-meta mb-4">
+          <span><i class="bi bi-bar-chart-fill"></i> Beginner</span>
+          <span><i class="bi bi-clock-fill"></i> 8–10 Hours</span>
+          <span><i class="bi bi-collection-fill"></i> 10 Modules</span>
+          <span><i class="bi bi-translate"></i> English</span>
+        </div>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="module1.html" class="btn btn-light btn-lg fw-600 px-5">
+            <i class="bi bi-play-circle-fill me-2 text-primary"></i>Start Learning
+          </a>
+          <a href="#modules" class="btn btn-outline-light btn-lg px-4">
+            <i class="bi bi-grid-3x3-gap me-1"></i>View Modules
+          </a>
+        </div>
+      </div>
+      <!-- Right card -->
+      <div class="col-lg-5 animate-fadeInUp animate-delay-2">
+        <div class="hero-card">
+          <div class="hero-card-header">
+            <div class="hero-card-dot" style="background:#f38ba8"></div>
+            <div class="hero-card-dot" style="background:#f9e2af"></div>
+            <div class="hero-card-dot" style="background:#a6e3a1"></div>
+            <span class="text-white ms-2" style="font-size:.75rem;opacity:.6;font-family:'Fira Code',monospace">mern-app/</span>
+          </div>
+          <div class="hero-card-body">
+            <p class="text-muted small mb-3 fw-600">Tech Stack</p>
+            <div class="d-flex flex-wrap">
+              <span class="tech-stack-pill bg-success bg-opacity-10 text-success"><i class="bi bi-database-fill"></i>MongoDB</span>
+              <span class="tech-stack-pill bg-warning bg-opacity-10 text-warning"><i class="bi bi-server"></i>Express.js</span>
+              <span class="tech-stack-pill bg-info bg-opacity-10 text-info"><i class="bi bi-braces"></i>React</span>
+              <span class="tech-stack-pill bg-primary bg-opacity-10 text-primary"><i class="bi bi-cpu"></i>Node.js</span>
+            </div>
+            <hr class="my-3">
+            <p class="text-muted small fw-600 mb-2">Course Progress</p>
+            <div class="progress mb-2" style="height:8px">
+              <div class="progress-bar bg-primary" role="progressbar" style="width:10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="d-flex justify-content-between">
+              <small class="text-muted">Module 1 of 10</small>
+              <small class="text-primary fw-600">10%</small>
+            </div>
+            <a href="module1.html" class="btn btn-primary w-100 mt-3">
+              <i class="bi bi-arrow-right-circle me-1"></i>Begin Module 1
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     COURSE OVERVIEW STATS
+════════════════════════════════════════════════════════════ -->
+<section class="py-4 bg-white border-bottom">
+  <div class="container">
+    <div class="row g-3 text-center">
+      <div class="col-6 col-md-3">
+        <div class="p-3">
+          <div class="fs-1 fw-800 text-primary">10</div>
+          <div class="text-muted small fw-600">Modules</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="p-3">
+          <div class="fs-1 fw-800 text-primary">8–10h</div>
+          <div class="text-muted small fw-600">Learning Time</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="p-3">
+          <div class="fs-1 fw-800 text-primary">50+</div>
+          <div class="text-muted small fw-600">Code Examples</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="p-3">
+          <div class="fs-1 fw-800 text-primary">1</div>
+          <div class="text-muted small fw-600">Full-Stack Project</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     LEARNING OUTCOMES
+════════════════════════════════════════════════════════════ -->
+<section class="py-5 bg-light" id="outcomes">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill mb-2">What You'll Learn</span>
+      <h2 class="section-title">Learning Outcomes</h2>
+      <div class="section-divider mx-auto"></div>
+      <p class="section-subtitle">By the end of this course you will be able to build production-ready full-stack applications.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="card outcome-card h-100 p-3">
+          <div class="d-flex gap-3 align-items-start">
+            <div class="prereq-icon"><i class="bi bi-database-fill-check"></i></div>
+            <div>
+              <h6 class="fw-700 mb-1">MongoDB & Mongoose</h6>
+              <p class="text-muted small mb-0">Design schemas, connect to Atlas, and perform database operations using Mongoose ODM.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card outcome-card h-100 p-3">
+          <div class="d-flex gap-3 align-items-start">
+            <div class="prereq-icon"><i class="bi bi-hdd-network-fill"></i></div>
+            <div>
+              <h6 class="fw-700 mb-1">REST API with Express.js</h6>
+              <p class="text-muted small mb-0">Build RESTful APIs with proper routing, middleware, error handling, and HTTP methods.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card outcome-card h-100 p-3">
+          <div class="d-flex gap-3 align-items-start">
+            <div class="prereq-icon"><i class="bi bi-braces-asterisk"></i></div>
+            <div>
+              <h6 class="fw-700 mb-1">React Frontend</h6>
+              <p class="text-muted small mb-0">Create dynamic UIs with components, hooks, state management, and Axios API calls.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card outcome-card h-100 p-3">
+          <div class="d-flex gap-3 align-items-start">
+            <div class="prereq-icon"><i class="bi bi-cpu-fill"></i></div>
+            <div>
+              <h6 class="fw-700 mb-1">Node.js Server</h6>
+              <p class="text-muted small mb-0">Set up and configure a Node.js server, manage packages with npm, and understand the event loop.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card outcome-card h-100 p-3">
+          <div class="d-flex gap-3 align-items-start">
+            <div class="prereq-icon"><i class="bi bi-arrows-fullscreen"></i></div>
+            <div>
+              <h6 class="fw-700 mb-1">Full CRUD Operations</h6>
+              <p class="text-muted small mb-0">Implement Create, Read, Update, and Delete operations end-to-end from database to UI.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card outcome-card h-100 p-3">
+          <div class="d-flex gap-3 align-items-start">
+            <div class="prereq-icon"><i class="bi bi-cloud-arrow-up-fill"></i></div>
+            <div>
+              <h6 class="fw-700 mb-1">Deploy to Production</h6>
+              <p class="text-muted small mb-0">Deploy your MERN app to Render, Vercel, and MongoDB Atlas with environment variables.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     PREREQUISITES & SOFTWARE
+════════════════════════════════════════════════════════════ -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <div class="row g-5 align-items-start">
+      <!-- Prerequisites -->
+      <div class="col-lg-6">
+        <span class="badge bg-warning-subtle text-warning px-3 py-2 rounded-pill mb-2">Before You Start</span>
+        <h2 class="section-title">Prerequisites</h2>
+        <div class="section-divider"></div>
+        <p class="text-muted mb-4">You don't need to be an expert, but the following basics will help you follow along more easily.</p>
+        <div class="prereq-item">
+          <div class="prereq-icon"><i class="bi bi-filetype-html"></i></div>
+          <div><h6 class="fw-700 mb-0">Basic HTML & CSS</h6><p class="text-muted small mb-0">Know how to create a webpage and style it.</p></div>
+        </div>
+        <div class="prereq-item">
+          <div class="prereq-icon"><i class="bi bi-filetype-js"></i></div>
+          <div><h6 class="fw-700 mb-0">Basic JavaScript</h6><p class="text-muted small mb-0">Variables, functions, loops, and objects.</p></div>
+        </div>
+        <div class="prereq-item">
+          <div class="prereq-icon"><i class="bi bi-terminal-fill"></i></div>
+          <div><h6 class="fw-700 mb-0">Command Line Basics</h6><p class="text-muted small mb-0">Able to open a terminal and run simple commands.</p></div>
+        </div>
+        <div class="prereq-item">
+          <div class="prereq-icon"><i class="bi bi-git"></i></div>
+          <div><h6 class="fw-700 mb-0">Git Basics (Optional)</h6><p class="text-muted small mb-0">Basic git knowledge is helpful but we'll cover what's needed.</p></div>
+        </div>
+      </div>
+      <!-- Software Needed -->
+      <div class="col-lg-6">
+        <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill mb-2">Tools Required</span>
+        <h2 class="section-title">Software You'll Need</h2>
+        <div class="section-divider"></div>
+        <p class="text-muted mb-4">All tools are free. Install them before starting Module 2.</p>
+        <div class="row g-3">
+          <div class="col-6"><div class="tool-card"><span class="tool-icon">🟢</span><h6 class="fw-700 mb-1">Node.js</h6><p class="text-muted small mb-0">v18+ LTS recommended</p></div></div>
+          <div class="col-6"><div class="tool-card"><span class="tool-icon">🍃</span><h6 class="fw-700 mb-1">MongoDB</h6><p class="text-muted small mb-0">Atlas (cloud) or local</p></div></div>
+          <div class="col-6"><div class="tool-card"><span class="tool-icon">💙</span><h6 class="fw-700 mb-1">VS Code</h6><p class="text-muted small mb-0">Any modern editor works</p></div></div>
+          <div class="col-6"><div class="tool-card"><span class="tool-icon">🌐</span><h6 class="fw-700 mb-1">Postman</h6><p class="text-muted small mb-0">For API testing</p></div></div>
+          <div class="col-6"><div class="tool-card"><span class="tool-icon">🐙</span><h6 class="fw-700 mb-1">Git</h6><p class="text-muted small mb-0">Version control</p></div></div>
+          <div class="col-6"><div class="tool-card"><span class="tool-icon">📦</span><h6 class="fw-700 mb-1">npm</h6><p class="text-muted small mb-0">Comes with Node.js</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     COURSE ROADMAP
+════════════════════════════════════════════════════════════ -->
+<section class="py-5 bg-light" id="roadmap">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="badge bg-info-subtle text-info px-3 py-2 rounded-pill mb-2">Learning Path</span>
+      <h2 class="section-title">Course Roadmap</h2>
+      <div class="section-divider mx-auto"></div>
+      <p class="section-subtitle">A structured path from zero to a deployed full-stack application.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="card p-4 h-100">
+          <h5 class="fw-700 mb-3 text-primary"><i class="bi bi-layers me-2"></i>Phase 1 — Foundation (Modules 1–3)</h5>
+          <div class="roadmap-item"><div class="roadmap-dot"></div><div><strong>Module 1:</strong> Introduction to MERN Stack — concepts & architecture</div></div>
+          <div class="roadmap-item"><div class="roadmap-dot"></div><div><strong>Module 2:</strong> Dev Environment Setup — tools, Node.js, VS Code extensions</div></div>
+          <div class="roadmap-item"><div class="roadmap-dot"></div><div><strong>Module 3:</strong> Node.js & Express Server — routing, middleware, structure</div></div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card p-4 h-100">
+          <h5 class="fw-700 mb-3 text-success"><i class="bi bi-database me-2"></i>Phase 2 — Backend (Modules 4–5)</h5>
+          <div class="roadmap-item"><div class="roadmap-dot" style="background:var(--success);box-shadow:0 0 0 4px #d1e7dd"></div><div><strong>Module 4:</strong> MongoDB Database — Atlas setup, Mongoose, schemas, models</div></div>
+          <div class="roadmap-item"><div class="roadmap-dot" style="background:var(--success);box-shadow:0 0 0 4px #d1e7dd"></div><div><strong>Module 5:</strong> REST API Development — CRUD endpoints, testing with Postman</div></div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card p-4 h-100">
+          <h5 class="fw-700 mb-3 text-warning"><i class="bi bi-window me-2"></i>Phase 3 — Frontend (Modules 6–7)</h5>
+          <div class="roadmap-item"><div class="roadmap-dot" style="background:#ffc107;box-shadow:0 0 0 4px #fff3cd"></div><div><strong>Module 6:</strong> React Frontend — components, hooks, forms, routing</div></div>
+          <div class="roadmap-item"><div class="roadmap-dot" style="background:#ffc107;box-shadow:0 0 0 4px #fff3cd"></div><div><strong>Module 7:</strong> Connecting Frontend & Backend — Axios, CORS, environment variables</div></div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card p-4 h-100">
+          <h5 class="fw-700 mb-3 text-danger"><i class="bi bi-rocket-takeoff me-2"></i>Phase 4 — Full App (Modules 8–10)</h5>
+          <div class="roadmap-item"><div class="roadmap-dot" style="background:#dc3545;box-shadow:0 0 0 4px #f8d7da"></div><div><strong>Module 8:</strong> Full CRUD Operations — integrate all layers end-to-end</div></div>
+          <div class="roadmap-item"><div class="roadmap-dot" style="background:#dc3545;box-shadow:0 0 0 4px #f8d7da"></div><div><strong>Module 9:</strong> Deployment — Render, Vercel, MongoDB Atlas, env config</div></div>
+          <div class="roadmap-item"><div class="roadmap-dot" style="background:#dc3545;box-shadow:0 0 0 4px #f8d7da"></div><div><strong>Module 10:</strong> Final Project & Best Practices — clean code, security, next steps</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     MODULE CARDS
+════════════════════════════════════════════════════════════ -->
+<section class="py-5 bg-white" id="modules">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill mb-2">Course Content</span>
+      <h2 class="section-title">All 10 Modules</h2>
+      <div class="section-divider mx-auto"></div>
+      <p class="section-subtitle">Each module is a self-contained lesson with explanations, code examples, and exercises.</p>
+    </div>
+    <div class="row g-4">
+      <!-- Module 1 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card module-card h-100">
+          <div class="card-header d-flex justify-content-between align-items-start">
+            <div>
+              <div class="module-number">01</div>
+              <h6 class="fw-700 mb-0">Introduction to MERN</h6>
+            </div>
+            <span class="badge bg-white text-primary">Beginner</span>
+          </div>
+          <div class="card-body">
+            <p class="text-muted small">What is the MERN stack? Architecture overview, how MongoDB, Express, React and Node.js work together.</p>
+            <ul class="list-unstyled small text-muted mb-3">
+              <li><i class="bi bi-check-circle-fill text-success me-1"></i>MERN Architecture</li>
+              <li><i class="bi bi-check-circle-fill text-success me-1"></i>Frontend vs Backend</li>
+              <li><i class="bi bi-check-circle-fill text-success me-1"></i>How data flows</li>
+            </ul>
+          </div>
+          <div class="card-footer bg-transparent border-top-0 pt-0">
+            <a href="module1.html" class="btn btn-primary w-100">
+              <i class="bi bi-play-fill me-1"></i>Start Module 1
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Module 2 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card module-card h-100">
+          <div class="card-header d-flex justify-content-between align-items-start">
+            <div>
+              <div class="module-number">02</div>
+              <h6 class="fw-700 mb-0">Dev Environment Setup</h6>
+            </div>
+            <span class="badge bg-white text-primary">Beginner</span>
+          </div>
+          <div class="card-body">
+            <p class="text-muted small">Install all tools: Node.js, VS Code, MongoDB, Postman, Git. Configure your workspace step by step.</p>
+            <ul class="list-unstyled small text-muted mb-3">
+              <li><i class="bi bi-check-circle-fill text-success me-1"></i>Node.js Installation</li>
+              <li><i class="bi bi-check-circle-fill text-success me-1"></i>VS Code Extensions</li>
+              <li><i class="bi bi-check-circle-fill text-success me-1"></i>MongoDB Atlas Setup</li>
+            </ul>
+          </div>
+          <div class="card-footer bg-transparent border-top-0 pt-0">
+            <a href="module2.html" class="btn btn-outline-primary w-100">
+              <i class="bi bi-arrow-right me-1"></i>Go to Module 2
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Module 3 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card module-card h-100">
+          <div class="card-header d-flex justify-content-between align-items-start">
+            <div>
+              <div class="module-number">03</div>
+              <h6 class="fw-700 mb-0">Node.js & Express Server</h6>
+            </div>
+            <span class="badge bg-white text-primary">Beginner</span>
+          </div>
+          <div class="card-body">
+            <p class="text-muted small">Build your first Express server. Learn routing, middleware, and how to structure a backend project.</p>
+            <ul class="list-unstyled small text-muted mb-3">
+              <li><i class="bi bi-check-circle-fill text-success me-1"></i>Express Routing</li>
+              <li><i class="bi bi-check-circle-fill text-success me-1"></i>Middleware Concepts</li>
+              <li><i class="bi bi-check-circle-fill text-success me-1"></i>Project Structure</li>
+            </ul>
+          </div>
+          <div class="card-footer bg-transparent border-top-0 pt-0">
+            <a href="module3.html" class="btn btn-outline-primary w-100">
+              <i class="bi bi-arrow-right me-1"></i>Go to Module 3
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Module 4 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card module-card h-100">
+          <div class="card-header d-flex justify-content-between align-items-start">
+            <div>
+              <div class="module-number">04</div>
+              <h6 class="fw-700 mb-0">MongoDB Database</h6>
+            </div>
+            <span class="badge bg-white text-primary">Beginner</span>
+          </div>
+          <div class="card-body">
+            <p class="text-muted small">Connect to MongoDB Atlas, define Mongoose schemas and models, and perform basic queries.</p>
+            <ul class="list-unstyled small text-muted mb-3">
+              <li><i class="bi bi-check-circle-fill text-success me-1"></i>MongoDB Atlas</li>
+              <li><i class="bi bi-check-circle-fill text-success me-1"></i>Mongoose ODM</li>
+              <li><i class="bi bi-check-circle-fill text-success me-1"></i>Schema Design</li>
+            </ul>
+          </div>
+          <div class="card-footer bg-transparent border-top-0 pt-0">
+            <a href="module4.html" class="btn btn-outline-primary w-100">
+              <i class="bi bi-arrow-right me-1"></i>Go to Module 4
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Module 5 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card module-card h-100">
+          <div class="card-header d-flex justify-content-between align-items-start">
+            <div>
+              <div class="module-number">05</div>
+              <h6 class="fw-700 mb-0">REST API Development</h6>
+            </div>
+            <span class="badge bg-white text-primary">Beginner</span>
+          </div>
+          <div class="card-body">
+            <p class="text-muted small">Build a full REST API with GET, POST, PUT, DELETE endpoints. Test everything with Postman.</p>
+            <ul class="list-unstyled small text-muted mb-3">
+              <li><i class="bi bi-check-circle-fill text-success me-1"></i>RESTful Endpoints</li>
+              <li><i class="bi bi-check-circle-fill text-success me-1"></i>HTTP Methods</li>
+              <li><i class="bi bi-check-circle-fill text-success me-1"></i>Postman Testing</li>
+            </ul>
+          </div>
+          <div class="card-footer bg-transparent border-top-0 pt-0">
+            <a href="module5.html" class="btn btn-outline-primary w-100">
+              <i class="bi bi-arrow-right me-1"></i>Go to Module 5
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Module 6 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card module-card h-100">
+          <div class="card-header d-flex justify-content-between align-items-start">
+            <div>
+              <div class="module-number">06</div>
+              <h6 class="fw-700 mb-0">React Frontend</h6>
+            </div>
+            <span class="badge bg-white text-primary">Beginner</span>
+          </div>
+          <div class="card-body">
+            <p class="text-muted small">Bootstrap a React app with Vite. Build reusable components, use hooks, and manage state.</p>
+            <ul class="list-unstyled small text-muted mb-3">
+              <li><i class="bi bi-check-circle-fill text-success me-1"></i>React Components</li>
+              <li><i class="bi bi-check-circle-fill text-success me-1"></i>useState & useEffect</li>
+              <li><i class="bi bi-check-circle-fill text-success me-1"></i>React Router</li>
+            </ul>
+          </div>
+          <div class="card-footer bg-transparent border-top-0 pt-0">
+            <a href="module6.html" class="btn btn-outline-primary w-100">
+              <i class="bi bi-arrow-right me-1"></i>Go to Module 6
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Module 7 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card module-card h-100">
+          <div class="card-header d-flex justify-content-between align-items-start">
+            <div>
+              <div class="module-number">07</div>
+              <h6 class="fw-700 mb-0">Connecting Frontend & Backend</h6>
+            </div>
+            <span class="badge bg-white text-primary">Intermediate</span>
+          </div>
+          <div class="card-body">
+            <p class="text-muted small">Use Axios to connect React to Express. Handle CORS, environment variables, and loading states.</p>
+            <ul class="list-unstyled small text-muted mb-3">
+              <li><i class="bi bi-check-circle-fill text-success me-1"></i>Axios HTTP Client</li>
+              <li><i class="bi bi-check-circle-fill text-success me-1"></i>CORS Configuration</li>
+              <li><i class="bi bi-check-circle-fill text-success me-1"></i>.env Variables</li>
+            </ul>
+          </div>
+          <div class="card-footer bg-transparent border-top-0 pt-0">
+            <a href="module7.html" class="btn btn-outline-primary w-100">
+              <i class="bi bi-arrow-right me-1"></i>Go to Module 7
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Module 8 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card module-card h-100">
+          <div class="card-header d-flex justify-content-between align-items-start">
+            <div>
+              <div class="module-number">08</div>
+              <h6 class="fw-700 mb-0">CRUD Operations</h6>
+            </div>
+            <span class="badge bg-white text-primary">Intermediate</span>
+          </div>
+          <div class="card-body">
+            <p class="text-muted small">Wire up all CRUD operations end-to-end. Create, Read, Update and Delete from UI to database.</p>
+            <ul class="list-unstyled small text-muted mb-3">
+              <li><i class="bi bi-check-circle-fill text-success me-1"></i>Full CRUD Flow</li>
+              <li><i class="bi bi-check-circle-fill text-success me-1"></i>Form Handling</li>
+              <li><i class="bi bi-check-circle-fill text-success me-1"></i>Error Handling</li>
+            </ul>
+          </div>
+          <div class="card-footer bg-transparent border-top-0 pt-0">
+            <a href="module8.html" class="btn btn-outline-primary w-100">
+              <i class="bi bi-arrow-right me-1"></i>Go to Module 8
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Module 9 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card module-card h-100">
+          <div class="card-header d-flex justify-content-between align-items-start">
+            <div>
+              <div class="module-number">09</div>
+              <h6 class="fw-700 mb-0">Deployment</h6>
+            </div>
+            <span class="badge bg-white text-primary">Intermediate</span>
+          </div>
+          <div class="card-body">
+            <p class="text-muted small">Deploy your backend to Render and your frontend to Vercel. Configure production environment.</p>
+            <ul class="list-unstyled small text-muted mb-3">
+              <li><i class="bi bi-check-circle-fill text-success me-1"></i>Render Deployment</li>
+              <li><i class="bi bi-check-circle-fill text-success me-1"></i>Vercel Frontend</li>
+              <li><i class="bi bi-check-circle-fill text-success me-1"></i>Production Config</li>
+            </ul>
+          </div>
+          <div class="card-footer bg-transparent border-top-0 pt-0">
+            <a href="module9.html" class="btn btn-outline-primary w-100">
+              <i class="bi bi-arrow-right me-1"></i>Go to Module 9
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Module 10 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card module-card h-100">
+          <div class="card-header d-flex justify-content-between align-items-start"
+               style="background:linear-gradient(135deg,#198754,#0f6e44)">
+            <div>
+              <div class="module-number">10</div>
+              <h6 class="fw-700 mb-0">Final Project & Best Practices</h6>
+            </div>
+            <span class="badge bg-white text-success">Capstone</span>
+          </div>
+          <div class="card-body">
+            <p class="text-muted small">Build the final project applying everything learned. Code review, security tips, and next steps.</p>
+            <ul class="list-unstyled small text-muted mb-3">
+              <li><i class="bi bi-check-circle-fill text-success me-1"></i>Final MERN App</li>
+              <li><i class="bi bi-check-circle-fill text-success me-1"></i>Security Best Practices</li>
+              <li><i class="bi bi-check-circle-fill text-success me-1"></i>What to Learn Next</li>
+            </ul>
+          </div>
+          <div class="card-footer bg-transparent border-top-0 pt-0">
+            <a href="module10.html" class="btn btn-outline-success w-100">
+              <i class="bi bi-trophy me-1"></i>Go to Module 10
+            </a>
+          </div>
+        </div>
+      </div>
+    </div><!-- /row -->
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     WHY LEARN MERN?
+════════════════════════════════════════════════════════════ -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="badge bg-danger-subtle text-danger px-3 py-2 rounded-pill mb-2">Why MERN?</span>
+      <h2 class="section-title">Why Learn the MERN Stack?</h2>
+      <div class="section-divider mx-auto"></div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3">
+        <div class="why-card text-center">
+          <i class="bi bi-code-slash fs-1 mb-3 d-block"></i>
+          <h5>One Language</h5>
+          <p class="small opacity-75 mb-0">JavaScript is used across the entire stack — front-end, back-end, and database queries.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="why-card text-center" style="background:linear-gradient(135deg,#198754,#0f6e44)">
+          <i class="bi bi-lightning-charge-fill fs-1 mb-3 d-block"></i>
+          <h5>High Demand</h5>
+          <p class="small opacity-75 mb-0">MERN developers are among the most sought-after on job boards worldwide.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="why-card text-center" style="background:linear-gradient(135deg,#6f42c1,#563d7c)">
+          <i class="bi bi-boxes fs-1 mb-3 d-block"></i>
+          <h5>Scalable</h5>
+          <p class="small opacity-75 mb-0">Build everything from a small MVP to a large-scale production application.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="why-card text-center" style="background:linear-gradient(135deg,#fd7e14,#e96b02)">
+          <i class="bi bi-people-fill fs-1 mb-3 d-block"></i>
+          <h5>Huge Community</h5>
+          <p class="small opacity-75 mb-0">Millions of developers, abundant resources, libraries, and community support.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     CAREER OPPORTUNITIES
+════════════════════════════════════════════════════════════ -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill mb-2">Career Paths</span>
+        <h2 class="section-title">Career Opportunities</h2>
+        <div class="section-divider"></div>
+        <p class="text-muted mb-4">Completing this course opens doors to many exciting tech roles.</p>
+        <div class="career-item"><i class="bi bi-laptop fs-4 text-primary me-1"></i><div><strong>Full-Stack Developer</strong><br><small class="text-muted">Build both client-side and server-side applications.</small></div></div>
+        <div class="career-item"><i class="bi bi-hdd-stack fs-4 text-success me-1"></i><div><strong>Backend Developer</strong><br><small class="text-muted">Specialise in Node.js, Express, and MongoDB APIs.</small></div></div>
+        <div class="career-item"><i class="bi bi-palette fs-4 text-warning me-1"></i><div><strong>Frontend Developer</strong><br><small class="text-muted">Focus on React components, state management and UI.</small></div></div>
+        <div class="career-item"><i class="bi bi-cloud fs-4 text-info me-1"></i><div><strong>DevOps / Cloud Engineer</strong><br><small class="text-muted">Deploy and manage MERN apps on cloud platforms.</small></div></div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card p-4 border-0" style="background:var(--gray-100)">
+          <h5 class="fw-700 mb-4">Average Salaries (USD)</h5>
+          <div class="mb-3">
+            <div class="d-flex justify-content-between mb-1">
+              <span class="fw-600">Full-Stack Developer</span>
+              <span class="text-primary fw-700">$95k–$130k</span>
+            </div>
+            <div class="progress" style="height:8px">
+              <div class="progress-bar" role="progressbar" style="width:90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="d-flex justify-content-between mb-1">
+              <span class="fw-600">Backend Developer</span>
+              <span class="text-success fw-700">$85k–$120k</span>
+            </div>
+            <div class="progress" style="height:8px">
+              <div class="progress-bar bg-success" role="progressbar" style="width:80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="d-flex justify-content-between mb-1">
+              <span class="fw-600">Frontend Developer</span>
+              <span class="text-warning fw-700">$80k–$115k</span>
+            </div>
+            <div class="progress" style="height:8px">
+              <div class="progress-bar bg-warning" role="progressbar" style="width:75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+          <div class="alert alert-primary mt-3 mb-0 small">
+            <i class="bi bi-info-circle me-1"></i>
+            Salaries vary by experience, location, and company size.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     CTA BANNER
+════════════════════════════════════════════════════════════ -->
+<section class="py-5 bg-gradient-primary text-white text-center">
+  <div class="container">
+    <h2 class="fw-800 mb-3" style="color:#fff">Ready to Start Building?</h2>
+    <p class="mb-4 opacity-90" style="font-size:1.1rem">
+      Jump into Module 1 and start your journey to becoming a full-stack MERN developer.
+    </p>
+    <a href="module1.html" class="btn btn-light btn-lg px-5 fw-700">
+      <i class="bi bi-play-circle-fill me-2 text-primary"></i>Start Learning Now — It's Free
+    </a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     FOOTER — injected from components/footer.html
+════════════════════════════════════════════════════════════ -->
+<div id="footer-placeholder"></div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Mermaid.js -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<!-- Custom JS -->
+<script src="assets/js/script.js"></script>
+</body>
+</html>
