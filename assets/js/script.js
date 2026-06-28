@@ -1,6 +1,6 @@
 /* ============================================================
    EgoTECH World — MERN CRUD Tutorial Website
-   script.js  ·  Global JavaScript
+   script.js · Global JavaScript
    Author: EgoTECH World
    ============================================================
 
