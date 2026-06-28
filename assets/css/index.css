@@ -81,59 +81,7 @@ body {
   background: linear-gradient(135deg, var(--primary), var(--primary-dark));
 }
 
-/* ── 3. NAVBAR ── */
-.navbar {
-  background: var(--dark);
-  border-bottom: 1px solid rgba(255,255,255,.06);
-  padding-top: .75rem;
-  padding-bottom: .75rem;
-}
-
-.navbar-brand {
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: #fff !important;
-  letter-spacing: -.3px;
-}
-.navbar-brand span { color: var(--primary); }
-
-.navbar-nav .nav-link {
-  color: rgba(255,255,255,.75) !important;
-  font-weight: 600;
-  font-size: .875rem;
-  padding: .45rem .75rem !important;
-  border-radius: var(--radius-sm);
-  transition: color var(--transition), background var(--transition);
-}
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link.active {
-  color: #fff !important;
-  background: rgba(255,255,255,.08);
-}
-
-.navbar-toggler-icon {
-  filter: invert(1);
-}
-
-/* Dropdown */
-.dropdown-menu {
-  border-radius: var(--radius);
-  font-size: .875rem;
-  min-width: 240px;
-  animation: dropFade .18s ease;
-}
-@keyframes dropFade {
-  from { opacity:0; transform:translateY(-6px); }
-  to   { opacity:1; transform:translateY(0); }
-}
-.dropdown-item {
-  padding: .45rem 1rem;
-  border-radius: var(--radius-sm);
-  transition: background var(--transition);
-}
-.dropdown-item:hover { background: var(--gray-100); }
-
-/* ── 4. HERO SECTION ── */
+/* ── 3. HERO SECTION ── */
 .hero-section {
   background: linear-gradient(135deg, var(--dark) 0%, var(--dark-3) 100%);
   color: #fff;
@@ -353,86 +301,7 @@ body {
 }
 .career-item:last-child { border-bottom: none; }
 
-/* ── 11. CTA BANNER ── */
-.bg-gradient-primary.text-white {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-}
-
-/* ── 12. FOOTER ── */
-.footer {
-  background: var(--dark);
-  color: rgba(255,255,255,.75);
-  padding: 3.5rem 0 2rem;
-}
-.footer h5 {
-  color: #fff;
-  font-weight: 700;
-  font-size: .9rem;
-  text-transform: uppercase;
-  letter-spacing: .06em;
-  margin-bottom: .85rem;
-}
-.footer a {
-  color: rgba(255,255,255,.6);
-  text-decoration: none;
-  transition: color var(--transition);
-}
-.footer a:hover { color: #fff; }
-
-.footer-social {
-  display: flex;
-  gap: .6rem;
-}
-.footer-social a {
-  width: 34px; height: 34px;
-  background: rgba(255,255,255,.08);
-  border-radius: var(--radius-sm);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  transition: background var(--transition), color var(--transition);
-}
-.footer-social a:hover {
-  background: var(--primary);
-  color: #fff;
-}
-
-.footer-divider {
-  border-color: rgba(255,255,255,.1);
-  margin: 2rem 0 1.25rem;
-}
-
-/* ── 13. SCROLL-TO-TOP ── */
-#scrollTop {
-  position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  width: 42px; height: 42px;
-  background: var(--primary);
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  font-size: 1.1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transform: translateY(8px);
-  pointer-events: none;
-  transition: opacity .3s ease, transform .3s ease;
-  z-index: 1050;
-  cursor: pointer;
-  box-shadow: var(--shadow);
-}
-#scrollTop.show {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-#scrollTop:hover { background: var(--primary-dark); }
-
-/* ── 14. CODE BLOCKS (module pages) ── */
+/* ── 11. CODE BLOCKS (module pages) ── */
 .code-header {
   display: flex;
   align-items: center;
@@ -504,19 +373,11 @@ pre code { color: inherit; }
   font-size: .85rem;
 }
 
-/* ── 16. RESPONSIVE UTILITIES ── */
+/* ── 13. RESPONSIVE UTILITIES ── */
 @media (max-width: 991.98px) {
   .hero-section { padding: 3.5rem 0 3rem; }
   .hero-title { font-size: 2.2rem; }
   .hero-card { margin-top: 2rem; }
-
-  .navbar-collapse {
-    background: var(--dark-2);
-    padding: 1rem;
-    border-radius: var(--radius);
-    margin-top: .5rem;
-  }
-  .navbar-nav .nav-link { padding: .6rem .85rem !important; }
 }
 
 @media (max-width: 767.98px) {
@@ -525,8 +386,6 @@ pre code { color: inherit; }
 
   .hero-meta { gap: .5rem; }
   .why-card  { padding: 1.5rem 1.25rem; }
-
-  .footer    { padding: 2.5rem 0 1.5rem; }
 }
 
 @media (max-width: 575.98px) {
@@ -552,8 +411,7 @@ pre code { color: inherit; }
   }
 }
 
-/* ── 18. PRINT ── */
+/* ── 16. PRINT ── */
 @media print {
-  .navbar, .footer, #scrollTop { display: none !important; }
   .hero-section { background: #fff !important; color: #000 !important; }
 }

@@ -1,0 +1,68 @@
+/* ============================================================
+   EgoTech — Navbar Styles
+   Depends on: index.css (design tokens must load first)
+   ============================================================ */
+
+/* ── NAVBAR BASE ── */
+.navbar {
+  background: var(--dark);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+}
+
+.navbar-brand {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #fff !important;
+  letter-spacing: -.3px;
+}
+.navbar-brand span { color: var(--primary); }
+
+/* ── NAV LINKS ── */
+.navbar-nav .nav-link {
+  color: rgba(255,255,255,.75) !important;
+  font-weight: 600;
+  font-size: .875rem;
+  padding: .45rem .75rem !important;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition), background var(--transition);
+}
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: #fff !important;
+  background: rgba(255,255,255,.08);
+}
+
+.navbar-toggler-icon {
+  filter: invert(1);
+}
+
+/* ── DROPDOWN ── */
+.dropdown-menu {
+  border-radius: var(--radius);
+  font-size: .875rem;
+  min-width: 240px;
+  animation: dropFade .18s ease;
+}
+@keyframes dropFade {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.dropdown-item {
+  padding: .45rem 1rem;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition);
+}
+.dropdown-item:hover { background: var(--gray-100); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background: var(--dark-2);
+    padding: 1rem;
+    border-radius: var(--radius);
+    margin-top: .5rem;
+  }
+  .navbar-nav .nav-link { padding: .6rem .85rem !important; }
+}
