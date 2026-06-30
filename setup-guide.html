@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Setup Guide | EgoTechWorld</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="assets/css/style.css" rel="stylesheet" />
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><i class="bi bi-braces-asterisk me-1"></i>EgoTech<span>World</span></a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+          <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house-fill me-1"></i>Home</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Modules</a>
+            <ul class="dropdown-menu shadow">
+              <li><a class="dropdown-item" href="module1.html">Module 1</a></li>
+              <li><a class="dropdown-item" href="module2.html">Module 2</a></li>
+              <li><a class="dropdown-item" href="module3.html">Module 3</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link active" href="setup-guide.html"><i class="bi bi-book me-1"></i>Setup Guide</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="module-hero">
+    <div class="container">
+      <div class="module-badge"><i class="bi bi-tools"></i> Setup Guide</div>
+      <h1>Get your development environment ready</h1>
+      <p class="lead">Install the essentials, configure VS Code, and prepare your MongoDB and GitHub setup before you start building the MERN app.</p>
+    </div>
+  </section>
+
+  <div class="container py-5">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="content-section h-100">
+          <h2><i class="bi bi-download"></i>1. Install Tools</h2>
+          <p>Download and install Node.js, Git, VS Code, and MongoDB Atlas. These are the core tools for the entire course.</p>
+          <ul class="objective-list">
+            <li><div class="obj-num">1</div><span>Install Node.js LTS</span></li>
+            <li><div class="obj-num">2</div><span>Install Git and VS Code</span></li>
+            <li><div class="obj-num">3</div><span>Create a MongoDB Atlas free account</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="content-section h-100">
+          <h2><i class="bi bi-puzzle"></i>2. VS Code Extensions</h2>
+          <p>These extensions help you code faster and keep your project clean.</p>
+          <ul class="objective-list">
+            <li><div class="obj-num">1</div><span>Prettier</span></li>
+            <li><div class="obj-num">2</div><span>ES7+ React Snippets</span></li>
+            <li><div class="obj-num">3</div><span>GitLens and Thunder Client</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="content-section h-100">
+          <h2><i class="bi bi-terminal"></i>3. Verify Setup</h2>
+          <p>Run these commands in your terminal to confirm everything is working correctly.</p>
+          <div class="git-cmd">node --version</div>
+          <div class="git-cmd">npm --version</div>
+          <div class="git-cmd">git --version</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container text-center py-4" style="color: rgba(255,255,255,.7);">
+      <p class="mb-0">EgoTechWorld • Setup Guide</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
