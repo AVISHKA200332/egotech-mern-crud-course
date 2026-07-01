@@ -1,1 +1,240 @@
-﻿
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Module 6 — React Frontend | EgoTechWorld</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+	<link href="assets/css/style.css" rel="stylesheet" />
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+	<div class="container">
+		<a class="navbar-brand" href="index.html"><i class="bi bi-braces-asterisk me-1"></i>EgoTech<span>World</span></a>
+		<button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+				<li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house-fill me-1"></i>Home</a></li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Modules</a>
+					<ul class="dropdown-menu shadow">
+						<li><a class="dropdown-item" href="module1.html"><span class="badge bg-secondary me-2">01</span>Introduction to MERN</a></li>
+						<li><a class="dropdown-item" href="module2.html"><span class="badge bg-secondary me-2">02</span>Dev Environment Setup</a></li>
+						<li><a class="dropdown-item" href="module3.html"><span class="badge bg-secondary me-2">03</span>Node.js &amp; Express</a></li>
+						<li><a class="dropdown-item" href="module4.html"><span class="badge bg-secondary me-2">04</span>MongoDB</a></li>
+						<li><a class="dropdown-item" href="module5.html"><span class="badge bg-secondary me-2">05</span>REST API Development</a></li>
+						<li><a class="dropdown-item" href="module6.html"><span class="badge bg-primary me-2">06</span>React Frontend</a></li>
+						<li><a class="dropdown-item" href="module7.html"><span class="badge bg-secondary me-2">07</span>Connecting Frontend &amp; Backend</a></li>
+						<li><a class="dropdown-item" href="module8.html"><span class="badge bg-secondary me-2">08</span>CRUD Operations</a></li>
+						<li><a class="dropdown-item" href="module9.html"><span class="badge bg-secondary me-2">09</span>Deployment</a></li>
+						<li><a class="dropdown-item" href="module10.html"><span class="badge bg-secondary me-2">10</span>Final Project</a></li>
+					</ul>
+				</li>
+				<li class="nav-item"><a class="nav-link" href="index.html#roadmap"><i class="bi bi-map me-1"></i>Roadmap</a></li>
+				<li class="nav-item ms-lg-2"><a class="btn btn-primary btn-sm fw-700 px-3" href="module7.html">Next →</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<section class="module-hero">
+	<div class="container">
+		<div class="module-badge"><i class="bi bi-collection-fill"></i> Module 6</div>
+		<h1><i class="bi bi-window-sidebar me-2" style="color:#fcd34d;"></i>React Frontend</h1>
+		<p class="lead">Build the user interface for the Student Management app. Learn how React components fit together, how state and props drive the UI, and how to create the first forms and lists for your frontend.</p>
+		<div class="module-meta">
+			<span class="module-meta-pill"><i class="bi bi-clock-fill"></i> 60 min</span>
+			<span class="module-meta-pill"><i class="bi bi-braces"></i> Components</span>
+			<span class="module-meta-pill"><i class="bi bi-check2-circle"></i> Forms &amp; State</span>
+		</div>
+		<div class="progress-track"><div class="fill" style="width:60%"></div></div>
+	</div>
+</section>
+
+<div class="container py-5">
+	<div class="row g-4">
+		<aside class="col-lg-3">
+			<div class="module-sidebar">
+				<div class="sidebar-nav-card">
+					<div class="sidebar-header"><i class="bi bi-list-ul me-1"></i> This Module</div>
+					<nav class="nav flex-column py-1">
+						<a class="nav-link active" href="#objectives"><span class="snum">01</span>Learning Objectives</a>
+						<a class="nav-link" href="#react-intro"><span class="snum">02</span>What React Does</a>
+						<a class="nav-link" href="#project-setup"><span class="snum">03</span>Project Setup</a>
+						<a class="nav-link" href="#components"><span class="snum">04</span>Components &amp; Props</a>
+						<a class="nav-link" href="#state"><span class="snum">05</span>useState Example</a>
+						<a class="nav-link" href="#forms"><span class="snum">06</span>Controlled Forms</a>
+						<a class="nav-link" href="#styling"><span class="snum">07</span>Styling the UI</a>
+						<a class="nav-link" href="#wrap-up"><span class="snum">08</span>Module Checklist</a>
+					</nav>
+				</div>
+				<div class="all-modules-card">
+					<div class="p-2" style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#6c757d;padding:.6rem .85rem .2rem!important;">All Modules</div>
+					<a class="mod-link" href="module1.html"><span class="mod-num">01</span>Introduction to MERN</a>
+					<a class="mod-link" href="module2.html"><span class="mod-num">02</span>Dev Environment</a>
+					<a class="mod-link" href="module3.html"><span class="mod-num">03</span>Node.js &amp; Express</a>
+					<a class="mod-link" href="module4.html"><span class="mod-num">04</span>MongoDB</a>
+					<a class="mod-link" href="module5.html"><span class="mod-num">05</span>REST API</a>
+					<a class="mod-link current" href="module6.html"><span class="mod-num">06</span>React Frontend</a>
+					<a class="mod-link" href="module7.html"><span class="mod-num">07</span>Frontend + Backend</a>
+					<a class="mod-link" href="module8.html"><span class="mod-num">08</span>CRUD Operations</a>
+					<a class="mod-link" href="module9.html"><span class="mod-num">09</span>Deployment</a>
+					<a class="mod-link" href="module10.html"><span class="mod-num">10</span>Final Project</a>
+				</div>
+			</div>
+		</aside>
+
+		<main class="col-lg-9">
+			<section class="content-section" id="objectives">
+				<h2><i class="bi bi-bullseye"></i>Learning Objectives</h2>
+				<ul class="objective-list">
+					<li><div class="obj-num">1</div><span>Set up a React project for the frontend and understand the folder structure that supports reusable components.</span></li>
+					<li><div class="obj-num">2</div><span>Use JSX to build layout, cards, lists, and forms for the Student Management app.</span></li>
+					<li><div class="obj-num">3</div><span>Pass data with props and manage local UI state with <code>useState</code>.</span></li>
+					<li><div class="obj-num">4</div><span>Create controlled inputs for student name, email, age, and course.</span></li>
+					<li><div class="obj-num">5</div><span>Style the interface so it feels polished, readable, and easy to navigate on desktop and mobile.</span></li>
+				</ul>
+			</section>
+
+			<section class="content-section" id="react-intro">
+				<h2><i class="bi bi-window"></i>What React Does in This Project</h2>
+				<p>React is the part of the app that users interact with. It renders the list of students, shows the form for adding or editing data, and updates the screen whenever state changes. In this course, React is the layer that sits in front of your Express API.</p>
+				<div class="row g-3">
+					<div class="col-md-6">
+						<div class="tip-card h-100"><i class="bi bi-people-fill"></i><div><strong>What the user sees</strong><div class="small">Buttons, forms, tables, alerts, and navigation.</div></div></div>
+					</div>
+					<div class="col-md-6">
+						<div class="tip-card h-100"><i class="bi bi-lightning-charge-fill"></i><div><strong>What React manages</strong><div class="small">Component state, loading indicators, and UI updates after API calls.</div></div></div>
+					</div>
+				</div>
+			</section>
+
+			<section class="content-section" id="project-setup">
+				<h2><i class="bi bi-folder2-open"></i>Create the Frontend Project</h2>
+				<p>Use Vite to bootstrap the React app. It keeps the setup small, fast, and modern.</p>
+				<div class="code-wrapper">
+					<div class="code-header"><span class="filename"><i class="bi bi-terminal me-1"></i>Frontend setup</span><span class="lang-tag">CLI</span></div>
+					<pre class="code-block">npm create vite@latest frontend -- --template react
+cd frontend
+npm install
+npm run dev</pre>
+				</div>
+				<h3>Suggested Folder Structure</h3>
+				<div class="code-wrapper">
+					<div class="code-header"><span class="filename"><i class="bi bi-folder-symlink me-1"></i>frontend structure</span><span class="lang-tag">TREE</span></div>
+					<pre class="code-block">src/
+	components/
+		StudentForm.jsx
+		StudentList.jsx
+		StudentCard.jsx
+	pages/
+		Home.jsx
+	services/
+		api.js
+	App.jsx
+	main.jsx</pre>
+				</div>
+			</section>
+
+			<section class="content-section" id="components">
+				<h2><i class="bi bi-boxes"></i>Components and Props</h2>
+				<p>Break the UI into small pieces. Each component should have one clear job. The parent component decides what data to show, and child components receive that data through props.</p>
+				<div class="code-wrapper">
+					<div class="code-header"><span class="filename"><i class="bi bi-file-earmark-code me-1"></i>StudentCard.jsx</span><span class="lang-tag">JSX</span></div>
+					<pre class="code-block">export default function StudentCard({ student, onEdit, onDelete }) {
+	return (
+		&lt;div className="card shadow-sm mb-3"&gt;
+			&lt;div className="card-body d-flex justify-content-between align-items-center"&gt;
+				&lt;div&gt;
+					&lt;h5 className="mb-1"&gt;{student.name}&lt;/h5&gt;
+					&lt;p className="text-muted mb-0 small"&gt;{student.email} · {student.course}&lt;/p&gt;
+				&lt;/div&gt;
+				&lt;div className="d-flex gap-2"&gt;
+					&lt;button className="btn btn-sm btn-outline-primary" onClick={() =&gt; onEdit(student)}&gt;Edit&lt;/button&gt;
+					&lt;button className="btn btn-sm btn-outline-danger" onClick={() =&gt; onDelete(student._id)}&gt;Delete&lt;/button&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	);
+}</pre>
+				</div>
+			</section>
+
+			<section class="content-section" id="state">
+				<h2><i class="bi bi-database-fill-gear"></i>useState Example</h2>
+				<p>The state object stores the current form values. When the user types, React updates the state and re-renders the form instantly.</p>
+				<div class="code-wrapper">
+					<div class="code-header"><span class="filename"><i class="bi bi-file-earmark-code me-1"></i>StudentForm.jsx</span><span class="lang-tag">JSX</span></div>
+					<pre class="code-block">import { useState } from 'react';
+
+const initialForm = { name: '', email: '', age: '', course: 'IT' };
+
+export default function StudentForm({ onSave }) {
+	const [formData, setFormData] = useState(initialForm);
+
+	const handleChange = (event) =&gt; {
+		setFormData({ ...formData, [event.target.name]: event.target.value });
+	};
+
+	return null;
+}</pre>
+				</div>
+			</section>
+
+			<section class="content-section" id="forms">
+				<h2><i class="bi bi-ui-checks-grid"></i>Controlled Forms and Validation</h2>
+				<p>In a controlled form, every input value comes from React state. This makes validation and submission much easier to reason about.</p>
+				<div class="code-wrapper">
+					<div class="code-header"><span class="filename"><i class="bi bi-file-earmark-code me-1"></i>Form submit example</span><span class="lang-tag">JSX</span></div>
+					<pre class="code-block">const handleSubmit = async (event) =&gt; {
+	event.preventDefault();
+
+	if (!formData.name || !formData.email) {
+		setMessage('Please fill in all required fields.');
+		return;
+	}
+
+	await onSave(formData);
+	setFormData(initialForm);
+};</pre>
+				</div>
+				<div class="callout callout-info">
+					<i class="bi bi-lightbulb-fill"></i>
+					<div>Keep validation messages short and specific. Beginners should know exactly what field needs attention and why the value is invalid.</div>
+				</div>
+			</section>
+
+			<section class="content-section" id="styling">
+				<h2><i class="bi bi-palette-fill"></i>Styling the Frontend</h2>
+				<p>Use a simple layout with clear spacing, strong headings, and obvious action buttons. For this course, Bootstrap gives you the base UI and a few custom classes make it feel like a real product.</p>
+				<div class="row g-3">
+					<div class="col-md-4"><div class="tip-card h-100"><i class="bi bi-grid-1x2-fill"></i><div><strong>Layout</strong><div class="small">Use cards, rows, and consistent spacing.</div></div></div></div>
+					<div class="col-md-4"><div class="tip-card h-100"><i class="bi bi-patch-check-fill"></i><div><strong>Clarity</strong><div class="small">Make the primary action obvious on every screen.</div></div></div></div>
+					<div class="col-md-4"><div class="tip-card h-100"><i class="bi bi-phone-fill"></i><div><strong>Responsive</strong><div class="small">Check the UI on narrow screens early.</div></div></div></div>
+				</div>
+			</section>
+
+			<section class="content-section" id="wrap-up">
+				<h2><i class="bi bi-check2-square"></i>Module Checklist</h2>
+				<ul class="objective-list">
+					<li><div class="obj-num">1</div><span>You can create a React app and explain how its folders are organized.</span></li>
+					<li><div class="obj-num">2</div><span>You can pass data through props and render student cards from a list.</span></li>
+					<li><div class="obj-num">3</div><span>You can manage form state with <code>useState</code> and controlled inputs.</span></li>
+					<li><div class="obj-num">4</div><span>You can build a responsive UI that is ready to connect to the backend.</span></li>
+				</ul>
+			</section>
+
+			<div class="module-nav-bar">
+				<a class="btn-mod-prev" href="module5.html"><i class="bi bi-arrow-left"></i> Previous Module</a>
+				<div class="mod-progress-badge">Module 6 of 10<div class="mod-prog-bar"><div class="mod-prog-fill" style="width:60%"></div></div></div>
+				<a class="btn-mod-next" href="module7.html">Next Module <i class="bi bi-arrow-right"></i></a>
+			</div>
+		</main>
+	</div>
+</div>
+
+</body>
+</html>

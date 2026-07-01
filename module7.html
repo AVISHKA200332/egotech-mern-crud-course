@@ -1,1 +1,218 @@
-﻿
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Module 7 — Connecting Frontend & Backend | EgoTechWorld</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+	<link href="assets/css/style.css" rel="stylesheet" />
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+	<div class="container">
+		<a class="navbar-brand" href="index.html"><i class="bi bi-braces-asterisk me-1"></i>EgoTech<span>World</span></a>
+		<button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+				<li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house-fill me-1"></i>Home</a></li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Modules</a>
+					<ul class="dropdown-menu shadow">
+						<li><a class="dropdown-item" href="module1.html"><span class="badge bg-secondary me-2">01</span>Introduction to MERN</a></li>
+						<li><a class="dropdown-item" href="module2.html"><span class="badge bg-secondary me-2">02</span>Dev Environment Setup</a></li>
+						<li><a class="dropdown-item" href="module3.html"><span class="badge bg-secondary me-2">03</span>Node.js &amp; Express</a></li>
+						<li><a class="dropdown-item" href="module4.html"><span class="badge bg-secondary me-2">04</span>MongoDB</a></li>
+						<li><a class="dropdown-item" href="module5.html"><span class="badge bg-secondary me-2">05</span>REST API Development</a></li>
+						<li><a class="dropdown-item" href="module6.html"><span class="badge bg-secondary me-2">06</span>React Frontend</a></li>
+						<li><a class="dropdown-item" href="module7.html"><span class="badge bg-primary me-2">07</span>Connecting Frontend &amp; Backend</a></li>
+						<li><a class="dropdown-item" href="module8.html"><span class="badge bg-secondary me-2">08</span>CRUD Operations</a></li>
+						<li><a class="dropdown-item" href="module9.html"><span class="badge bg-secondary me-2">09</span>Deployment</a></li>
+						<li><a class="dropdown-item" href="module10.html"><span class="badge bg-secondary me-2">10</span>Final Project</a></li>
+					</ul>
+				</li>
+				<li class="nav-item"><a class="nav-link" href="index.html#roadmap"><i class="bi bi-map me-1"></i>Roadmap</a></li>
+				<li class="nav-item ms-lg-2"><a class="btn btn-primary btn-sm fw-700 px-3" href="module8.html">Next →</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<section class="module-hero">
+	<div class="container">
+		<div class="module-badge"><i class="bi bi-collection-fill"></i> Module 7</div>
+		<h1><i class="bi bi-plug-fill me-2" style="color:#fcd34d;"></i>Connecting Frontend &amp; Backend</h1>
+		<p class="lead">Wire React to Express using Axios, CORS, and environment variables. This module shows how data leaves the browser, reaches the API, and comes back as JSON for the UI to render.</p>
+		<div class="module-meta">
+			<span class="module-meta-pill"><i class="bi bi-clock-fill"></i> 50 min</span>
+			<span class="module-meta-pill"><i class="bi bi-arrow-left-right"></i> API Requests</span>
+			<span class="module-meta-pill"><i class="bi bi-shield-lock"></i> CORS &amp; Env Vars</span>
+		</div>
+		<div class="progress-track"><div class="fill" style="width:70%"></div></div>
+	</div>
+</section>
+
+<div class="container py-5">
+	<div class="row g-4">
+		<aside class="col-lg-3">
+			<div class="module-sidebar">
+				<div class="sidebar-nav-card">
+					<div class="sidebar-header"><i class="bi bi-list-ul me-1"></i> This Module</div>
+					<nav class="nav flex-column py-1">
+						<a class="nav-link active" href="#objectives"><span class="snum">01</span>Learning Objectives</a>
+						<a class="nav-link" href="#data-flow"><span class="snum">02</span>Data Flow</a>
+						<a class="nav-link" href="#axios"><span class="snum">03</span>Axios Service</a>
+						<a class="nav-link" href="#cors"><span class="snum">04</span>CORS Setup</a>
+						<a class="nav-link" href="#fetching"><span class="snum">05</span>Fetching Data</a>
+						<a class="nav-link" href="#env"><span class="snum">06</span>Environment Variables</a>
+						<a class="nav-link" href="#debugging"><span class="snum">07</span>Common Errors</a>
+						<a class="nav-link" href="#wrap-up"><span class="snum">08</span>Module Checklist</a>
+					</nav>
+				</div>
+				<div class="all-modules-card">
+					<div class="p-2" style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#6c757d;padding:.6rem .85rem .2rem!important;">All Modules</div>
+					<a class="mod-link" href="module1.html"><span class="mod-num">01</span>Introduction to MERN</a>
+					<a class="mod-link" href="module2.html"><span class="mod-num">02</span>Dev Environment</a>
+					<a class="mod-link" href="module3.html"><span class="mod-num">03</span>Node.js &amp; Express</a>
+					<a class="mod-link" href="module4.html"><span class="mod-num">04</span>MongoDB</a>
+					<a class="mod-link" href="module5.html"><span class="mod-num">05</span>REST API</a>
+					<a class="mod-link" href="module6.html"><span class="mod-num">06</span>React Frontend</a>
+					<a class="mod-link current" href="module7.html"><span class="mod-num">07</span>Frontend + Backend</a>
+					<a class="mod-link" href="module8.html"><span class="mod-num">08</span>CRUD Operations</a>
+					<a class="mod-link" href="module9.html"><span class="mod-num">09</span>Deployment</a>
+					<a class="mod-link" href="module10.html"><span class="mod-num">10</span>Final Project</a>
+				</div>
+			</div>
+		</aside>
+
+		<main class="col-lg-9">
+			<section class="content-section" id="objectives">
+				<h2><i class="bi bi-bullseye"></i>Learning Objectives</h2>
+				<ul class="objective-list">
+					<li><div class="obj-num">1</div><span>Configure Axios in React so your app can call the Express API with a single reusable client.</span></li>
+					<li><div class="obj-num">2</div><span>Understand why the frontend and backend need different ports during development.</span></li>
+					<li><div class="obj-num">3</div><span>Add CORS to the backend so the browser allows cross-origin requests from React.</span></li>
+					<li><div class="obj-num">4</div><span>Use environment variables for API URLs instead of hardcoding localhost everywhere.</span></li>
+					<li><div class="obj-num">5</div><span>Handle loading and error states so the UI is clear when the API is slow or unavailable.</span></li>
+				</ul>
+			</section>
+
+			<section class="content-section" id="data-flow">
+				<h2><i class="bi bi-diagram-3-fill"></i>How the Browser Talks to the API</h2>
+				<p>React is the client and Express is the server. React sends HTTP requests, Express processes them, and MongoDB stores the data. The response comes back as JSON and React uses that JSON to update the interface.</p>
+				<div class="row g-3">
+					<div class="col-md-4"><div class="tip-card h-100"><i class="bi bi-window"></i><div><strong>React</strong><div class="small">Collects input and shows the results.</div></div></div></div>
+					<div class="col-md-4"><div class="tip-card h-100"><i class="bi bi-hdd-network-fill"></i><div><strong>Express</strong><div class="small">Validates, routes, and responds with JSON.</div></div></div></div>
+					<div class="col-md-4"><div class="tip-card h-100"><i class="bi bi-database-fill"></i><div><strong>MongoDB</strong><div class="small">Stores the actual student records.</div></div></div></div>
+				</div>
+			</section>
+
+			<section class="content-section" id="axios">
+				<h2><i class="bi bi-lightning-charge-fill"></i>Create a Reusable Axios Client</h2>
+				<p>A single API client keeps your requests organized. If the base URL changes later, you only update one file.</p>
+				<div class="code-wrapper">
+					<div class="code-header"><span class="filename"><i class="bi bi-file-earmark-code me-1"></i>src/services/api.js</span><span class="lang-tag">JS</span></div>
+					<pre class="code-block">import axios from 'axios';
+
+const api = axios.create({
+	baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api',
+	headers: { 'Content-Type': 'application/json' },
+});
+
+export default api;</pre>
+				</div>
+			</section>
+
+			<section class="content-section" id="cors">
+				<h2><i class="bi bi-shield-check"></i>Enable CORS in Express</h2>
+				<p>Browsers block requests from one origin to another unless the server explicitly allows it. That is what CORS solves.</p>
+				<div class="code-wrapper">
+					<div class="code-header"><span class="filename"><i class="bi bi-file-earmark-code me-1"></i>backend/server.js</span><span class="lang-tag">JS</span></div>
+					<pre class="code-block">const cors = require('cors');
+
+app.use(cors({
+	origin: ['http://localhost:5173', 'https://your-frontend.vercel.app'],
+	methods: ['GET', 'POST', 'PUT', 'DELETE'],
+}));
+app.use(express.json());</pre>
+				</div>
+				<div class="callout callout-warn">
+					<i class="bi bi-exclamation-triangle-fill"></i>
+					<div>If CORS is missing or misconfigured, the browser will fail the request even when the API route works in Postman.</div>
+				</div>
+			</section>
+
+			<section class="content-section" id="fetching">
+				<h2><i class="bi bi-arrow-repeat"></i>Fetch Students with useEffect</h2>
+				<p>Use <code>useEffect</code> to request data when the page loads. Keep loading and error states in React so the user knows what is happening.</p>
+				<div class="code-wrapper">
+					<div class="code-header"><span class="filename"><i class="bi bi-file-earmark-code me-1"></i>src/pages/StudentPage.jsx</span><span class="lang-tag">JSX</span></div>
+					<pre class="code-block">import { useEffect, useState } from 'react';
+import api from '../services/api';
+
+export default function StudentPage() {
+	const [students, setStudents] = useState([]);
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState('');
+
+	useEffect(() => {
+		const loadStudents = async () => {
+			try {
+				const response = await api.get('/students');
+				setStudents(response.data.students);
+			} catch (err) {
+				setError('Failed to load students.');
+			} finally {
+				setLoading(false);
+			}
+		};
+
+		loadStudents();
+	}, []);
+}</pre>
+				</div>
+			</section>
+
+			<section class="content-section" id="env">
+				<h2><i class="bi bi-gear-fill"></i>Environment Variables</h2>
+				<p>Keep local and production API URLs outside the codebase. Vite exposes variables that start with <code>VITE_</code>.</p>
+				<div class="code-wrapper">
+					<div class="code-header"><span class="filename"><i class="bi bi-file-earmark-code me-1"></i>frontend/.env</span><span class="lang-tag">ENV</span></div>
+					<pre class="code-block">VITE_API_URL=http://localhost:5000/api</pre>
+				</div>
+				<div class="tip-card mt-3"><i class="bi bi-info-circle-fill"></i><div><strong>Rule of thumb:</strong> never hardcode production URLs in components. Put them in an env file so you can switch environments without rewriting code.</div></div>
+			</section>
+
+			<section class="content-section" id="debugging">
+				<h2><i class="bi bi-tools"></i>Common Connection Problems</h2>
+				<div class="row g-3">
+					<div class="col-md-6"><div class="tip-card h-100"><i class="bi bi-plug-fill"></i><div><strong>API not reachable</strong><div class="small">Check the backend port, server status, and base URL.</div></div></div></div>
+					<div class="col-md-6"><div class="tip-card h-100"><i class="bi bi-browser-chrome"></i><div><strong>CORS error</strong><div class="small">Confirm the React origin is allowed in Express.</div></div></div></div>
+					<div class="col-md-6"><div class="tip-card h-100"><i class="bi bi-file-text-fill"></i><div><strong>Empty response</strong><div class="small">Log <code>response.data</code> before rendering the list.</div></div></div></div>
+					<div class="col-md-6"><div class="tip-card h-100"><i class="bi bi-shield-lock-fill"></i><div><strong>Env variable missing</strong><div class="small">Restart the frontend dev server after editing <code>.env</code>.</div></div></div></div>
+				</div>
+			</section>
+
+			<section class="content-section" id="wrap-up">
+				<h2><i class="bi bi-check2-square"></i>Module Checklist</h2>
+				<ul class="objective-list">
+					<li><div class="obj-num">1</div><span>You can create a reusable API client with Axios.</span></li>
+					<li><div class="obj-num">2</div><span>You can explain why React and Express need CORS and environment variables.</span></li>
+					<li><div class="obj-num">3</div><span>You can fetch data in <code>useEffect</code> and show loading/error states.</span></li>
+					<li><div class="obj-num">4</div><span>You are ready to build full Create, Read, Update, and Delete flows.</span></li>
+				</ul>
+			</section>
+
+			<div class="module-nav-bar">
+				<a class="btn-mod-prev" href="module6.html"><i class="bi bi-arrow-left"></i> Previous Module</a>
+				<div class="mod-progress-badge">Module 7 of 10<div class="mod-prog-bar"><div class="mod-prog-fill" style="width:70%"></div></div></div>
+				<a class="btn-mod-next" href="module8.html">Next Module <i class="bi bi-arrow-right"></i></a>
+			</div>
+		</main>
+	</div>
+</div>
+
+</body>
+</html>
