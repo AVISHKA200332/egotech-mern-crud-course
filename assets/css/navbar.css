@@ -5,56 +5,87 @@
 
 /* ── NAVBAR BASE ── */
 .navbar {
-  background: var(--dark);
-  border-bottom: 1px solid rgba(255,255,255,.06);
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 1px 0 rgba(15, 23, 42, 0.03), 0 10px 30px rgba(15, 23, 42, 0.05);
   padding-top: .75rem;
   padding-bottom: .75rem;
 }
 
 .navbar-brand {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: 800;
-  color: #fff !important;
-  letter-spacing: -.3px;
+  color: #0f172a !important;
+  letter-spacing: -.02em;
 }
 .navbar-brand span { color: var(--primary); }
 
 /* ── NAV LINKS ── */
 .navbar-nav .nav-link {
-  color: rgba(255,255,255,.75) !important;
+  color: #475569 !important;
   font-weight: 600;
-  font-size: .875rem;
-  padding: .45rem .75rem !important;
-  border-radius: var(--radius-sm);
-  transition: color var(--transition), background var(--transition);
+  font-size: .95rem;
+  padding: .55rem .9rem !important;
+  border-radius: 999px;
+  transition: color .2s ease, background-color .2s ease;
 }
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active {
-  color: #fff !important;
-  background: rgba(255,255,255,.08);
+  color: #0f172a !important;
+  background: #f1f5f9;
 }
 
 .navbar-toggler-icon {
-  filter: invert(1);
+  filter: none;
+}
+
+.navbar .btn {
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+  font-weight: 700;
+  background: #111827;
+  border-color: #111827;
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(17, 24, 39, 0.14);
+}
+
+.navbar .btn:hover,
+.navbar .btn:focus {
+  background: #000;
+  border-color: #000;
+  color: #fff;
+}
+
+.navbar .navbar-toggler {
+  border-color: rgba(15, 23, 42, 0.12);
+}
+
+.navbar .navbar-toggler:focus {
+  box-shadow: 0 0 0 0.2rem rgba(15, 23, 42, 0.08);
 }
 
 /* ── DROPDOWN ── */
 .dropdown-menu {
-  border-radius: var(--radius);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 1rem;
   font-size: .875rem;
   min-width: 240px;
   animation: dropFade .18s ease;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+  padding: .6rem;
 }
 @keyframes dropFade {
   from { opacity: 0; transform: translateY(-6px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 .dropdown-item {
-  padding: .45rem 1rem;
-  border-radius: var(--radius-sm);
-  transition: background var(--transition);
+  padding: .5rem .85rem;
+  border-radius: .75rem;
+  transition: background .2s ease;
 }
-.dropdown-item:hover { background: var(--gray-100); }
+.dropdown-item:hover,
+.dropdown-item:focus { background: #f8fafc; }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 991.98px) {
