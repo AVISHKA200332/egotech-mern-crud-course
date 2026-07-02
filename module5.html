@@ -1,589 +1,173 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Module 5 — REST API Development | EgoTechWorld</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"/>
-  <link href="assets/css/style.css" rel="stylesheet"/>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Module 5 — REST API Development | EgoTechWorld</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+	<link href="assets/css/style.css" rel="stylesheet" />
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg sticky-top">
-  <div class="container">
-    <a class="navbar-brand" href="index.html"><i class="bi bi-braces-asterisk me-1"></i>EgoTech<span>World</span></a>
-    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
-        <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house-fill me-1"></i>Home</a></li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Modules</a>
-          <ul class="dropdown-menu shadow">
-            <li><a class="dropdown-item" href="module1.html"><span class="badge bg-secondary me-2">01</span>Introduction to MERN</a></li>
-            <li><a class="dropdown-item" href="module2.html"><span class="badge bg-secondary me-2">02</span>Dev Environment Setup</a></li>
-            <li><a class="dropdown-item" href="module3.html"><span class="badge bg-secondary me-2">03</span>Node.js &amp; Express</a></li>
-            <li><a class="dropdown-item" href="module4.html"><span class="badge bg-secondary me-2">04</span>MongoDB</a></li>
-            <li><a class="dropdown-item" href="module5.html"><span class="badge bg-primary me-2">05</span>REST API Development</a></li>
-          </ul>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="setup-guide.html"><i class="bi bi-book me-1"></i>Setup Guide</a></li>
-        <li class="nav-item ms-lg-2">
-          <a class="btn btn-success btn-sm fw-700 px-3" href="index.html">✅ Complete!</a>
-        </li>
-      </ul>
-    </div>
-  </div>
+<nav class="navbar navbar-expand-lg sticky-top navbar-light bg-white shadow-sm border-bottom">
+	<div class="container">
+		<a class="navbar-brand" href="index.html"><i class="bi bi-braces-asterisk me-1"></i>EgoTech<span>World</span></a>
+		<button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+				<li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house-fill me-1"></i>Home</a></li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Modules</a>
+					<ul class="dropdown-menu shadow">
+						<li><a class="dropdown-item" href="module1.html"><span class="badge bg-secondary me-2">01</span>Introduction to MERN</a></li>
+						<li><a class="dropdown-item" href="module2.html"><span class="badge bg-secondary me-2">02</span>Dev Environment Setup</a></li>
+						<li><a class="dropdown-item" href="module3.html"><span class="badge bg-secondary me-2">03</span>Node.js &amp; Express</a></li>
+						<li><a class="dropdown-item" href="module4.html"><span class="badge bg-secondary me-2">04</span>MongoDB</a></li>
+						<li><a class="dropdown-item" href="module5.html"><span class="badge bg-primary me-2">05</span>REST API Development</a></li>
+						<li><a class="dropdown-item" href="module6.html"><span class="badge bg-secondary me-2">06</span>React Frontend</a></li>
+						<li><a class="dropdown-item" href="module7.html"><span class="badge bg-secondary me-2">07</span>Connecting Frontend &amp; Backend</a></li>
+						<li><a class="dropdown-item" href="module8.html"><span class="badge bg-secondary me-2">08</span>CRUD Operations</a></li>
+						<li><a class="dropdown-item" href="module9.html"><span class="badge bg-secondary me-2">09</span>Deployment</a></li>
+						<li><a class="dropdown-item" href="module10.html"><span class="badge bg-secondary me-2">10</span>Final Project</a></li>
+					</ul>
+				</li>
+				<li class="nav-item"><a class="nav-link" href="index.html#roadmap"><i class="bi bi-map me-1"></i>Roadmap</a></li>
+				<li class="nav-item ms-lg-2"><a class="btn btn-primary btn-sm fw-700 px-3" href="module6.html">Next →</a></li>
+			</ul>
+		</div>
+	</div>
 </nav>
 
 <section class="module-hero">
-  <div class="container">
-    <div class="module-badge"><i class="bi bi-collection-fill"></i> Module 05  &nbsp;·&nbsp; 🏁 Final Module</div>
-    <h1><i class="bi bi-plug-fill me-2" style="color:#fca5a5;"></i>REST API Development</h1>
-    <p class="lead">Build the complete CRUD API — all five controller functions, shared error handling, full Postman test guide, requirement verification, and a comprehensive Jest + Supertest test suite with 11 tests.</p>
-    <div class="module-meta">
-      <span class="module-meta-pill"><i class="bi bi-clock-fill"></i> 75 min</span>
-      <span class="module-meta-pill"><i class="bi bi-plug-fill"></i> Full CRUD</span>
-      <span class="module-meta-pill"><i class="bi bi-bug-fill"></i> Testing</span>
-      <span class="module-meta-pill"><i class="bi bi-trophy-fill"></i> Final Module</span>
-    </div>
-    <div class="progress-track"><div class="fill" style="width:100%"></div></div>
-  </div>
+	<div class="container">
+		<div class="module-badge"><i class="bi bi-collection-fill"></i> Module 5</div>
+		<h1><i class="bi bi-hdd-network-fill me-2" style="color:#fcd34d;"></i>REST API Development</h1>
+		<p class="lead">Design RESTful endpoints for the Student Management app, test them with Postman, and learn how each HTTP method maps to a real CRUD action.</p>
+		<div class="module-meta">
+			<span class="module-meta-pill"><i class="bi bi-clock-fill"></i> 55 min</span>
+			<span class="module-meta-pill"><i class="bi bi-plug-fill"></i> HTTP Methods</span>
+			<span class="module-meta-pill"><i class="bi bi-postcard-fill"></i> Postman Testing</span>
+		</div>
+		<div class="progress-track"><div class="fill" style="width:50%"></div></div>
+	</div>
 </section>
 
 <div class="container py-5">
-  <div class="row g-4">
-    <aside class="col-lg-3">
-      <div class="module-sidebar">
-        <div class="sidebar-nav-card">
-          <div class="sidebar-header"><i class="bi bi-list-ul me-1"></i> This Module</div>
-          <nav class="nav flex-column py-1">
-            <a class="nav-link active" href="#objectives"><span class="snum">01</span>Learning Objectives</a>
-            <a class="nav-link" href="#what-rest"><span class="snum">02</span>What is REST?</a>
-            <a class="nav-link" href="#http-methods"><span class="snum">03</span>HTTP Methods</a>
-            <a class="nav-link" href="#routes-table"><span class="snum">04</span>All Routes</a>
-            <a class="nav-link" href="#controller"><span class="snum">05</span>Full Controller</a>
-            <a class="nav-link" href="#routes-file"><span class="snum">06</span>Routes File</a>
-            <a class="nav-link" href="#postman"><span class="snum">07</span>Postman Testing</a>
-            <a class="nav-link" href="#req-verify"><span class="snum">08</span>Requirement Verify</a>
-            <a class="nav-link" href="#jest-tests"><span class="snum">09</span>Jest Full Test Suite</a>
-            <a class="nav-link" href="#clean-code"><span class="snum">10</span>Clean Code Review</a>
-            <a class="nav-link" href="#git-cmds"><span class="snum">11</span>Git Commands</a>
-            <a class="nav-link" href="#final-structure"><span class="snum">12</span>Final File Structure</a>
-          </nav>
-        </div>
-        <div class="all-modules-card">
-          <div class="p-2" style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#6c757d;padding:.6rem .85rem .2rem!important;">All Modules</div>
-          <a class="mod-link" href="module1.html"><span class="mod-num">01</span>Introduction to MERN</a>
-          <a class="mod-link" href="module2.html"><span class="mod-num">02</span>Dev Environment</a>
-          <a class="mod-link" href="module3.html"><span class="mod-num">03</span>Node.js &amp; Express</a>
-          <a class="mod-link" href="module4.html"><span class="mod-num">04</span>MongoDB</a>
-          <a class="mod-link current" href="module5.html"><span class="mod-num">05</span>REST API</a>
-        </div>
-      </div>
-    </aside>
+	<div class="row g-4">
+		<aside class="col-lg-3">
+			<div class="module-sidebar">
+				<div class="sidebar-nav-card">
+					<div class="sidebar-header"><i class="bi bi-list-ul me-1"></i> This Module</div>
+					<nav class="nav flex-column py-1">
+						<a class="nav-link active" href="#objectives"><span class="snum">01</span>Learning Objectives</a>
+						<a class="nav-link" href="#rest-basics"><span class="snum">02</span>REST Basics</a>
+						<a class="nav-link" href="#endpoints"><span class="snum">03</span>Endpoint Design</a>
+						<a class="nav-link" href="#responses"><span class="snum">04</span>Status Codes</a>
+						<a class="nav-link" href="#postman"><span class="snum">05</span>Postman Testing</a>
+						<a class="nav-link" href="#wrap-up"><span class="snum">06</span>Module Checklist</a>
+					</nav>
+				</div>
+				<div class="all-modules-card">
+					<div class="p-2" style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#6c757d;padding:.6rem .85rem .2rem!important;">All Modules</div>
+					<a class="mod-link" href="module1.html"><span class="mod-num">01</span>Introduction to MERN</a>
+					<a class="mod-link" href="module2.html"><span class="mod-num">02</span>Dev Environment</a>
+					<a class="mod-link" href="module3.html"><span class="mod-num">03</span>Node.js &amp; Express</a>
+					<a class="mod-link" href="module4.html"><span class="mod-num">04</span>MongoDB</a>
+					<a class="mod-link current" href="module5.html"><span class="mod-num">05</span>REST API</a>
+					<a class="mod-link" href="module6.html"><span class="mod-num">06</span>React Frontend</a>
+					<a class="mod-link" href="module7.html"><span class="mod-num">07</span>Frontend + Backend</a>
+					<a class="mod-link" href="module8.html"><span class="mod-num">08</span>CRUD Operations</a>
+					<a class="mod-link" href="module9.html"><span class="mod-num">09</span>Deployment</a>
+					<a class="mod-link" href="module10.html"><span class="mod-num">10</span>Final Project</a>
+				</div>
+			</div>
+		</aside>
 
-    <main class="col-lg-9">
+		<main class="col-lg-9">
+			<section class="content-section" id="objectives">
+				<h2><i class="bi bi-bullseye"></i>Learning Objectives</h2>
+				<ul class="objective-list">
+					<li><div class="obj-num">1</div><span>Define REST and explain why resource-based URLs are easier to understand.</span></li>
+					<li><div class="obj-num">2</div><span>Map each CRUD action to the correct HTTP method and route.</span></li>
+					<li><div class="obj-num">3</div><span>Build predictable JSON responses with useful status codes.</span></li>
+					<li><div class="obj-num">4</div><span>Test every endpoint using Postman before connecting the frontend.</span></li>
+					<li><div class="obj-num">5</div><span>Keep the API simple enough that the React app can consume it with minimal logic.</span></li>
+				</ul>
+			</section>
 
-      <!-- OBJECTIVES -->
-      <section class="content-section" id="objectives">
-        <h2><i class="bi bi-bullseye"></i>Learning Objectives</h2>
-        <ul class="objective-list">
-          <li><div class="obj-num">1</div><span>Explain REST and why we use HTTP methods (GET, POST, PUT, DELETE) instead of action-based URLs.</span></li>
-          <li><div class="obj-num">2</div><span>Write all five CRUD controller functions with proper try/catch and HTTP status codes.</span></li>
-          <li><div class="obj-num">3</div><span>Create a shared <code>handleError()</code> helper function to eliminate duplicate error-handling code (DRY).</span></li>
-          <li><div class="obj-num">4</div><span>Test every API endpoint in Postman with correct method, URL, headers, and body.</span></li>
-          <li><div class="obj-num">5</div><span>Write 11 automated Jest + Supertest tests covering all CRUD routes, success cases, and error cases.</span></li>
-        </ul>
-      </section>
+			<section class="content-section" id="rest-basics">
+				<h2><i class="bi bi-diagram-3-fill"></i>REST in Simple Terms</h2>
+				<p>A REST API treats your data as resources. In this course the resource is <strong>student</strong>, so the routes are named around students and the HTTP method describes the action.</p>
+				<div class="row g-3">
+					<div class="col-md-6"><div class="tip-card h-100"><i class="bi bi-badge-3d-fill"></i><div><strong>Resource name</strong><div class="small">Use nouns like <code>/students</code>, not verbs like <code>/getStudents</code>.</div></div></div></div>
+					<div class="col-md-6"><div class="tip-card h-100"><i class="bi bi-arrow-repeat"></i><div><strong>HTTP method</strong><div class="small">Use GET, POST, PUT, and DELETE for predictable behavior.</div></div></div></div>
+				</div>
+			</section>
 
-      <!-- WHAT IS REST -->
-      <section class="content-section" id="what-rest">
-        <h2><i class="bi bi-globe2"></i>What is a REST API?</h2>
-        <p><strong>REST</strong> (Representational State Transfer) is a set of rules for how web services communicate using HTTP. The key rule for beginners: <strong>URLs describe things (nouns), not actions (verbs)</strong>.</p>
-        <div class="row g-3">
-          <div class="col-sm-6">
-            <div class="card border-danger-subtle h-100"><div class="card-body p-3">
-              <strong class="text-danger small d-block mb-2">❌ Wrong — action URLs</strong>
-              <div class="font-monospace" style="font-size:.76rem;line-height:2;color:#6c757d;">
-                /getStudents<br/>/createStudent<br/>/updateStudent/5<br/>/deleteStudent/5
-              </div>
-            </div></div>
-          </div>
-          <div class="col-sm-6">
-            <div class="card border-success-subtle h-100"><div class="card-body p-3">
-              <strong class="text-success small d-block mb-2">✅ Correct — resource URLs</strong>
-              <div class="font-monospace" style="font-size:.76rem;line-height:2;color:#6c757d;">
-                GET /students<br/>POST /students<br/>PUT /students/5<br/>DELETE /students/5
-              </div>
-            </div></div>
-          </div>
-        </div>
-        <div class="callout callout-info mt-3">
-          <i class="bi bi-lightbulb-fill"></i>
-          <div>The URL says <em>what</em>. The HTTP method says <em>what to do with it</em>. This is REST's core idea — clean, predictable, and universally understood.</div>
-        </div>
-      </section>
+			<section class="content-section" id="endpoints">
+				<h2><i class="bi bi-terminal-fill"></i>Endpoint Design</h2>
+				<div class="table-responsive">
+					<table class="table table-bordered align-middle">
+						<thead class="table-light"><tr><th>Method</th><th>Route</th><th>Purpose</th></tr></thead>
+						<tbody>
+							<tr><td><code>GET</code></td><td><code>/api/students</code></td><td>Return all students</td></tr>
+							<tr><td><code>GET</code></td><td><code>/api/students/:id</code></td><td>Return one student by id</td></tr>
+							<tr><td><code>POST</code></td><td><code>/api/students</code></td><td>Create a new student</td></tr>
+							<tr><td><code>PUT</code></td><td><code>/api/students/:id</code></td><td>Update a student</td></tr>
+							<tr><td><code>DELETE</code></td><td><code>/api/students/:id</code></td><td>Delete a student</td></tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
 
-      <!-- HTTP METHODS -->
-      <section class="content-section" id="http-methods">
-        <h2><i class="bi bi-arrow-left-right"></i>HTTP Methods — CRUD Mapping</h2>
-        <div class="table-responsive">
-          <table class="table table-bordered align-middle" style="font-size:.85rem;">
-            <thead class="table-dark">
-              <tr><th>HTTP Method</th><th>CRUD</th><th>SQL Equivalent</th><th>Status Code</th><th>Has Body?</th></tr>
-            </thead>
-            <tbody>
-              <tr><td><span class="http-badge http-get">GET</span></td><td class="fw-600">Read</td><td class="font-monospace text-muted" style="font-size:.78rem;">SELECT</td><td><code>200 OK</code></td><td class="text-muted">No</td></tr>
-              <tr><td><span class="http-badge http-post">POST</span></td><td class="fw-600">Create</td><td class="font-monospace text-muted" style="font-size:.78rem;">INSERT</td><td><code>201 Created</code></td><td class="text-success fw-600">Yes (JSON)</td></tr>
-              <tr><td><span class="http-badge http-put">PUT</span></td><td class="fw-600">Update</td><td class="font-monospace text-muted" style="font-size:.78rem;">UPDATE</td><td><code>200 OK</code></td><td class="text-success fw-600">Yes (JSON)</td></tr>
-              <tr><td><span class="http-badge http-delete">DELETE</span></td><td class="fw-600">Delete</td><td class="font-monospace text-muted" style="font-size:.78rem;">DELETE</td><td><code>200 OK</code></td><td class="text-muted">No</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <h3>Common Status Codes</h3>
-        <div class="row g-2">
-          <div class="col-4 col-sm-2"><div class="text-center p-2 rounded bg-success-subtle"><code class="text-success">200</code><div style="font-size:.69rem;" class="text-muted mt-1">OK</div></div></div>
-          <div class="col-4 col-sm-2"><div class="text-center p-2 rounded bg-success-subtle"><code class="text-success">201</code><div style="font-size:.69rem;" class="text-muted mt-1">Created</div></div></div>
-          <div class="col-4 col-sm-2"><div class="text-center p-2 rounded bg-warning-subtle"><code style="color:#a16207;">400</code><div style="font-size:.69rem;" class="text-muted mt-1">Bad Request</div></div></div>
-          <div class="col-4 col-sm-2"><div class="text-center p-2 rounded bg-danger-subtle"><code class="text-danger">404</code><div style="font-size:.69rem;" class="text-muted mt-1">Not Found</div></div></div>
-          <div class="col-4 col-sm-2"><div class="text-center p-2 rounded bg-danger-subtle"><code class="text-danger">409</code><div style="font-size:.69rem;" class="text-muted mt-1">Conflict</div></div></div>
-          <div class="col-4 col-sm-2"><div class="text-center p-2 rounded bg-danger-subtle"><code class="text-danger">500</code><div style="font-size:.69rem;" class="text-muted mt-1">Server Error</div></div></div>
-        </div>
-      </section>
+			<section class="content-section" id="responses">
+				<h2><i class="bi bi-chat-square-text-fill"></i>Status Codes and Response Shape</h2>
+				<p>Always return consistent JSON so the frontend knows what to expect. A clear response format reduces bugs and makes debugging faster.</p>
+				<div class="code-wrapper">
+					<div class="code-header"><span class="filename"><i class="bi bi-file-earmark-code me-1"></i>Response example</span><span class="lang-tag">JSON</span></div>
+					<pre class="code-block">{
+	"success": true,
+	"message": "Student created successfully",
+	"student": {
+		"_id": "665...",
+		"name": "Asha",
+		"email": "asha@example.com"
+	}
+}</pre>
+				</div>
+			</section>
 
-      <!-- ROUTES TABLE -->
-      <section class="content-section" id="routes-table">
-        <h2><i class="bi bi-table"></i>All API Routes — Quick Reference</h2>
-        <p>Base URL: <code>http://localhost:5000/api</code></p>
-        <div class="table-responsive">
-          <table class="route-table rounded overflow-hidden">
-            <thead><tr><th>#</th><th>Method</th><th>Endpoint</th><th>Controller Function</th><th>Description</th></tr></thead>
-            <tbody>
-              <tr><td class="font-monospace text-muted" style="font-size:.75rem;">1</td><td><span class="http-badge http-get">GET</span></td><td><code>/students</code></td><td class="font-monospace" style="font-size:.78rem;">getAllStudents</td><td class="text-muted small">Get all, newest first</td></tr>
-              <tr><td class="font-monospace text-muted" style="font-size:.75rem;">2</td><td><span class="http-badge http-get">GET</span></td><td><code>/students/:id</code></td><td class="font-monospace" style="font-size:.78rem;">getStudentById</td><td class="text-muted small">Get one by MongoDB _id</td></tr>
-              <tr><td class="font-monospace text-muted" style="font-size:.75rem;">3</td><td><span class="http-badge http-post">POST</span></td><td><code>/students</code></td><td class="font-monospace" style="font-size:.78rem;">createStudent</td><td class="text-muted small">Create and save</td></tr>
-              <tr><td class="font-monospace text-muted" style="font-size:.75rem;">4</td><td><span class="http-badge http-put">PUT</span></td><td><code>/students/:id</code></td><td class="font-monospace" style="font-size:.78rem;">updateStudent</td><td class="text-muted small">Update fields by id</td></tr>
-              <tr><td class="font-monospace text-muted" style="font-size:.75rem;">5</td><td><span class="http-badge http-delete">DELETE</span></td><td><code>/students/:id</code></td><td class="font-monospace" style="font-size:.78rem;">deleteStudent</td><td class="text-muted small">Permanently remove</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
+			<section class="content-section" id="postman">
+				<h2><i class="bi bi-box-arrow-up-right"></i>Test with Postman</h2>
+				<p>Postman is where you confirm the API works before React touches it. If it fails in Postman, fix the backend first.</p>
+				<div class="row g-3">
+					<div class="col-md-6"><div class="tip-card h-100"><i class="bi bi-send-fill"></i><div><strong>Send a POST</strong><div class="small">Pick JSON body, set <code>name</code>, <code>email</code>, <code>age</code>, and <code>course</code>.</div></div></div></div>
+					<div class="col-md-6"><div class="tip-card h-100"><i class="bi bi-list-check"></i><div><strong>Verify response</strong><div class="small">Check status codes, response body, and database changes.</div></div></div></div>
+					<div class="col-md-6"><div class="tip-card h-100"><i class="bi bi-trash3-fill"></i><div><strong>Test delete</strong><div class="small">Send a DELETE request with the student id.</div></div></div></div>
+					<div class="col-md-6"><div class="tip-card h-100"><i class="bi bi-pencil-fill"></i><div><strong>Test update</strong><div class="small">Use PUT with the id and the new JSON payload.</div></div></div></div>
+				</div>
+			</section>
 
-      <!-- FULL CONTROLLER -->
-      <section class="content-section" id="controller">
-        <h2><i class="bi bi-gear-wide-connected"></i>Full Controller — All 5 CRUD Functions</h2>
-        <div class="code-wrapper">
-          <div class="code-header"><span class="filename"><i class="bi bi-file-earmark-code me-1"></i>backend/controllers/studentController.js</span><span class="lang-tag">JS</span></div>
-          <pre class="code-block"><span class="kw">const</span> Student = <span class="fn">require</span>(<span class="str">'../models/Student'</span>);
+			<section class="content-section" id="wrap-up">
+				<h2><i class="bi bi-check2-square"></i>Module Checklist</h2>
+				<ul class="objective-list">
+					<li><div class="obj-num">1</div><span>You can explain why REST endpoints are resource-based.</span></li>
+					<li><div class="obj-num">2</div><span>You can map each CRUD action to the right HTTP method.</span></li>
+					<li><div class="obj-num">3</div><span>You can test the API with Postman before wiring the frontend.</span></li>
+					<li><div class="obj-num">4</div><span>You are ready to connect the API to React in Module 6.</span></li>
+				</ul>
+			</section>
 
-<span class="cm">// ── Shared error handler (DRY principle) ──────────</span>
-<span class="kw">const</span> <span class="fn">handleError</span> = (res, err) => {
-  <span class="kw">if</span> (err.name === <span class="str">'ValidationError'</span>) {
-    <span class="kw">const</span> msgs = Object.<span class="fn">values</span>(err.errors).<span class="fn">map</span>(e => e.message);
-    <span class="kw">return</span> res.<span class="fn">status</span>(<span class="nm">400</span>).<span class="fn">json</span>({ success: <span class="kw">false</span>, errors: msgs });
-  }
-  <span class="kw">if</span> (err.code === <span class="nm">11000</span>)
-    <span class="kw">return</span> res.<span class="fn">status</span>(<span class="nm">409</span>).<span class="fn">json</span>({ success: <span class="kw">false</span>, message: <span class="str">'Email already exists'</span> });
-  <span class="kw">if</span> (err.name === <span class="str">'CastError'</span>)
-    <span class="kw">return</span> res.<span class="fn">status</span>(<span class="nm">400</span>).<span class="fn">json</span>({ success: <span class="kw">false</span>, message: <span class="str">'Invalid ID format'</span> });
-  res.<span class="fn">status</span>(<span class="nm">500</span>).<span class="fn">json</span>({ success: <span class="kw">false</span>, message: err.message });
-};
-
-<span class="cm">// ── 1. GET all students ───────────────────────────</span>
-<span class="kw">const</span> <span class="fn">getAllStudents</span> = <span class="kw">async</span> (req, res) => {
-  <span class="kw">try</span> {
-    <span class="kw">const</span> students = <span class="kw">await</span> Student.<span class="fn">find</span>().<span class="fn">sort</span>({ createdAt: <span class="op">-</span><span class="nm">1</span> });
-    res.<span class="fn">json</span>({ success: <span class="kw">true</span>, count: students.length, data: students });
-  } <span class="kw">catch</span> (err) { <span class="fn">handleError</span>(res, err); }
-};
-
-<span class="cm">// ── 2. GET one student by ID ──────────────────────</span>
-<span class="kw">const</span> <span class="fn">getStudentById</span> = <span class="kw">async</span> (req, res) => {
-  <span class="kw">try</span> {
-    <span class="kw">const</span> student = <span class="kw">await</span> Student.<span class="fn">findById</span>(req.params.id);
-    <span class="kw">if</span> (!student)
-      <span class="kw">return</span> res.<span class="fn">status</span>(<span class="nm">404</span>).<span class="fn">json</span>({ success: <span class="kw">false</span>, message: <span class="str">'Student not found'</span> });
-    res.<span class="fn">json</span>({ success: <span class="kw">true</span>, data: student });
-  } <span class="kw">catch</span> (err) { <span class="fn">handleError</span>(res, err); }
-};
-
-<span class="cm">// ── 3. CREATE a new student ───────────────────────</span>
-<span class="kw">const</span> <span class="fn">createStudent</span> = <span class="kw">async</span> (req, res) => {
-  <span class="kw">try</span> {
-    <span class="kw">const</span> student = <span class="kw">await</span> Student.<span class="fn">create</span>(req.body);
-    res.<span class="fn">status</span>(<span class="nm">201</span>).<span class="fn">json</span>({
-      success: <span class="kw">true</span>,
-      message: <span class="str">'Student created successfully'</span>,
-      data: student,
-    });
-  } <span class="kw">catch</span> (err) { <span class="fn">handleError</span>(res, err); }
-};
-
-<span class="cm">// ── 4. UPDATE a student ───────────────────────────</span>
-<span class="kw">const</span> <span class="fn">updateStudent</span> = <span class="kw">async</span> (req, res) => {
-  <span class="kw">try</span> {
-    <span class="kw">const</span> student = <span class="kw">await</span> Student.<span class="fn">findByIdAndUpdate</span>(
-      req.params.id,
-      req.body,
-      { <span class="kw">new</span>: <span class="kw">true</span>, runValidators: <span class="kw">true</span> }
-    );
-    <span class="kw">if</span> (!student)
-      <span class="kw">return</span> res.<span class="fn">status</span>(<span class="nm">404</span>).<span class="fn">json</span>({ success: <span class="kw">false</span>, message: <span class="str">'Student not found'</span> });
-    res.<span class="fn">json</span>({ success: <span class="kw">true</span>, message: <span class="str">'Updated successfully'</span>, data: student });
-  } <span class="kw">catch</span> (err) { <span class="fn">handleError</span>(res, err); }
-};
-
-<span class="cm">// ── 5. DELETE a student ───────────────────────────</span>
-<span class="kw">const</span> <span class="fn">deleteStudent</span> = <span class="kw">async</span> (req, res) => {
-  <span class="kw">try</span> {
-    <span class="kw">const</span> student = <span class="kw">await</span> Student.<span class="fn">findByIdAndDelete</span>(req.params.id);
-    <span class="kw">if</span> (!student)
-      <span class="kw">return</span> res.<span class="fn">status</span>(<span class="nm">404</span>).<span class="fn">json</span>({ success: <span class="kw">false</span>, message: <span class="str">'Student not found'</span> });
-    res.<span class="fn">json</span>({ success: <span class="kw">true</span>, message: <span class="str">'Student deleted successfully'</span>, data: {} });
-  } <span class="kw">catch</span> (err) { <span class="fn">handleError</span>(res, err); }
-};
-
-module.exports = { getAllStudents, getStudentById, createStudent, updateStudent, deleteStudent };</pre>
-        </div>
-      </section>
-
-      <!-- ROUTES FILE -->
-      <section class="content-section" id="routes-file">
-        <h2><i class="bi bi-signpost-2-fill"></i>Routes File — Final</h2>
-        <div class="code-wrapper">
-          <div class="code-header"><span class="filename"><i class="bi bi-file-earmark-code me-1"></i>backend/routes/studentRoutes.js</span><span class="lang-tag">JS</span></div>
-          <pre class="code-block"><span class="kw">const</span> express = <span class="fn">require</span>(<span class="str">'express'</span>);
-<span class="kw">const</span> router  = express.<span class="fn">Router</span>();
-<span class="kw">const</span> {
-  getAllStudents, getStudentById,
-  createStudent, updateStudent, deleteStudent,
-} = <span class="fn">require</span>(<span class="str">'../controllers/studentController'</span>);
-
-router.<span class="fn">route</span>(<span class="str">'/'</span>)   .<span class="fn">get</span>(getAllStudents).<span class="fn">post</span>(createStudent);
-router.<span class="fn">route</span>(<span class="str">'/:id'</span>).<span class="fn">get</span>(getStudentById).<span class="fn">put</span>(updateStudent).<span class="fn">delete</span>(deleteStudent);
-
-module.exports = router;</pre>
-        </div>
-      </section>
-
-      <!-- POSTMAN -->
-      <section class="content-section" id="postman">
-        <h2><i class="bi bi-send-check-fill"></i>Test Every Route in Postman</h2>
-        <p>Start your server (<code>npm run dev</code> inside backend/) before testing. Base URL: <code>http://localhost:5000/api</code></p>
-
-        <div class="accordion" id="postmanAccordion">
-          <div class="accordion-item border-0 mb-2 rounded-3 overflow-hidden shadow-sm">
-            <h2 class="accordion-header">
-              <button class="accordion-button rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#p1" style="background:#dbeafe;">
-                <span class="http-badge http-post me-2">POST</span> <code>/api/students</code> &nbsp;— Create Student
-              </button>
-            </h2>
-            <div id="p1" class="accordion-collapse collapse show" data-bs-parent="#postmanAccordion">
-              <div class="accordion-body pt-2">
-                <p class="small text-muted mb-2">Headers: <code>Content-Type: application/json</code> &nbsp; Body: raw → JSON</p>
-                <div class="code-wrapper">
-                  <div class="code-header"><span class="filename">Request Body</span><span class="lang-tag">JSON</span></div>
-                  <pre class="code-block">{ "name": "Kaveesha Silva", "email": "kaveesha@test.com", "age": 21, "course": "IT" }</pre>
-                </div>
-                <div class="callout callout-success mb-0"><i class="bi bi-check-circle-fill"></i><div>Expected: <code>201 Created</code> → returns new student with <code>_id</code> and <code>createdAt</code></div></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="accordion-item border-0 mb-2 rounded-3 overflow-hidden shadow-sm">
-            <h2 class="accordion-header">
-              <button class="accordion-button collapsed rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#p2" style="background:#dcfce7;">
-                <span class="http-badge http-get me-2">GET</span> <code>/api/students</code> &nbsp;— Get All Students
-              </button>
-            </h2>
-            <div id="p2" class="accordion-collapse collapse" data-bs-parent="#postmanAccordion">
-              <div class="accordion-body pt-2">
-                <p class="small text-muted">No body needed. Just hit Send.</p>
-                <div class="callout callout-success mb-0"><i class="bi bi-check-circle-fill"></i><div>Expected: <code>200 OK</code> → <code>{"success":true,"count":1,"data":[...]}</code></div></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="accordion-item border-0 mb-2 rounded-3 overflow-hidden shadow-sm">
-            <h2 class="accordion-header">
-              <button class="accordion-button collapsed rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#p3" style="background:#dcfce7;">
-                <span class="http-badge http-get me-2">GET</span> <code>/api/students/:id</code> &nbsp;— Get One Student
-              </button>
-            </h2>
-            <div id="p3" class="accordion-collapse collapse" data-bs-parent="#postmanAccordion">
-              <div class="accordion-body pt-2">
-                <p class="small text-muted">Replace <code>:id</code> with the actual <code>_id</code> from your POST response. Copy it exactly.</p>
-                <div class="callout callout-success mb-0"><i class="bi bi-check-circle-fill"></i><div>Expected: <code>200 OK</code> → single student object</div></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="accordion-item border-0 mb-2 rounded-3 overflow-hidden shadow-sm">
-            <h2 class="accordion-header">
-              <button class="accordion-button collapsed rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#p4" style="background:#fefce8;">
-                <span class="http-badge http-put me-2">PUT</span> <code>/api/students/:id</code> &nbsp;— Update Student
-              </button>
-            </h2>
-            <div id="p4" class="accordion-collapse collapse" data-bs-parent="#postmanAccordion">
-              <div class="accordion-body pt-2">
-                <div class="code-wrapper">
-                  <div class="code-header"><span class="filename">Request Body</span><span class="lang-tag">JSON</span></div>
-                  <pre class="code-block">{ "age": 22, "course": "CS" }</pre>
-                </div>
-                <div class="callout callout-success mb-0"><i class="bi bi-check-circle-fill"></i><div>Expected: <code>200 OK</code> → updated student (new values, not old)</div></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="accordion-item border-0 rounded-3 overflow-hidden shadow-sm">
-            <h2 class="accordion-header">
-              <button class="accordion-button collapsed rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#p5" style="background:#fee2e2;">
-                <span class="http-badge http-delete me-2">DELETE</span> <code>/api/students/:id</code> &nbsp;— Delete Student
-              </button>
-            </h2>
-            <div id="p5" class="accordion-collapse collapse" data-bs-parent="#postmanAccordion">
-              <div class="accordion-body pt-2">
-                <p class="small text-muted">No body needed. Student is permanently deleted from MongoDB.</p>
-                <div class="callout callout-success mb-0"><i class="bi bi-check-circle-fill"></i><div>Expected: <code>200 OK</code> → <code>{"success":true,"message":"Student deleted successfully"}</code></div></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- REQUIREMENT VERIFY -->
-      <section class="content-section" id="req-verify">
-        <h2><i class="bi bi-clipboard-check-fill"></i>Requirement Verification</h2>
-        <p>Verifying our API meets every requirement defined in Module 1:</p>
-        <div class="table-responsive">
-          <table class="table table-bordered align-middle" style="font-size:.84rem;">
-            <thead class="table-dark"><tr><th>ID</th><th>Requirement</th><th>Solution</th><th>Status</th></tr></thead>
-            <tbody>
-              <tr><td class="font-monospace text-primary">FR-01</td><td>Add new student</td><td class="text-muted small">POST /api/students + createStudent()</td><td><span class="badge bg-success">✅ Done</span></td></tr>
-              <tr><td class="font-monospace text-primary">FR-02</td><td>View all students</td><td class="text-muted small">GET /api/students + getAllStudents()</td><td><span class="badge bg-success">✅ Done</span></td></tr>
-              <tr><td class="font-monospace text-primary">FR-03</td><td>Edit a student</td><td class="text-muted small">PUT /api/students/:id + updateStudent()</td><td><span class="badge bg-success">✅ Done</span></td></tr>
-              <tr><td class="font-monospace text-primary">FR-04</td><td>Delete a student</td><td class="text-muted small">DELETE /api/students/:id + deleteStudent()</td><td><span class="badge bg-success">✅ Done</span></td></tr>
-              <tr><td class="font-monospace text-primary">FR-05</td><td>Validate required fields</td><td class="text-muted small">Mongoose schema + handleError()</td><td><span class="badge bg-success">✅ Done</span></td></tr>
-              <tr><td class="font-monospace text-primary">FR-06</td><td>Proper status codes</td><td class="text-muted small">200, 201, 400, 404, 409, 500</td><td><span class="badge bg-success">✅ Done</span></td></tr>
-              <tr><td class="font-monospace text-primary">FR-07</td><td>Reject duplicate email</td><td class="text-muted small">unique:true + 409 Conflict response</td><td><span class="badge bg-success">✅ Done</span></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <!-- JEST TESTS -->
-      <section class="content-section" id="jest-tests">
-        <h2><i class="bi bi-bug-fill"></i>Full Jest + Supertest Test Suite (11 Tests)</h2>
-        <div class="code-wrapper">
-          <div class="code-header"><span class="filename"><i class="bi bi-bug me-1"></i>backend/tests/student.test.js</span><span class="lang-tag">JS</span></div>
-          <pre class="code-block"><span class="kw">const</span> request  = <span class="fn">require</span>(<span class="str">'supertest'</span>);
-<span class="kw">const</span> mongoose = <span class="fn">require</span>(<span class="str">'mongoose'</span>);
-<span class="kw">const</span> app      = <span class="fn">require</span>(<span class="str">'../server'</span>);
-<span class="kw">const</span> Student  = <span class="fn">require</span>(<span class="str">'../models/Student'</span>);
-
-<span class="fn">beforeAll</span>(<span class="kw">async</span> () => {
-  <span class="kw">await</span> mongoose.<span class="fn">connect</span>(
-    process.env.MONGO_URI_TEST || <span class="str">'mongodb://localhost:27017/studentTestDB'</span>
-  );
-});
-<span class="fn">afterEach</span> (<span class="kw">async</span> () => { <span class="kw">await</span> Student.<span class="fn">deleteMany</span>({}); });
-<span class="fn">afterAll</span>  (<span class="kw">async</span> () => { <span class="kw">await</span> mongoose.connection.<span class="fn">close</span>(); });
-
-<span class="kw">const</span> <span class="fn">seed</span> = () => Student.<span class="fn">create</span>({
-  name: <span class="str">'Kaveesha'</span>, email: <span class="str">'k@test.com'</span>, age: <span class="nm">21</span>, course: <span class="str">'IT'</span>,
-});
-
-<span class="cm">// ── POST ─────────────────────────────────────────</span>
-<span class="fn">describe</span>(<span class="str">'POST /api/students'</span>, () => {
-  <span class="fn">it</span>(<span class="str">'creates student → 201'</span>, <span class="kw">async</span> () => {
-    <span class="kw">const</span> res = <span class="kw">await</span> <span class="fn">request</span>(app).<span class="fn">post</span>(<span class="str">'/api/students'</span>)
-      .<span class="fn">send</span>({ name: <span class="str">'Nuwan'</span>, email: <span class="str">'n@test.com'</span>, age: <span class="nm">22</span>, course: <span class="str">'IT'</span> });
-    <span class="fn">expect</span>(res.statusCode).<span class="fn">toBe</span>(<span class="nm">201</span>);
-    <span class="fn">expect</span>(res.body.data._id).<span class="fn">toBeDefined</span>();
-  });
-  <span class="fn">it</span>(<span class="str">'missing name → 400'</span>, <span class="kw">async</span> () => {
-    <span class="kw">const</span> res = <span class="kw">await</span> <span class="fn">request</span>(app).<span class="fn">post</span>(<span class="str">'/api/students'</span>)
-      .<span class="fn">send</span>({ email: <span class="str">'x@t.com'</span>, course: <span class="str">'IT'</span> });
-    <span class="fn">expect</span>(res.statusCode).<span class="fn">toBe</span>(<span class="nm">400</span>);
-  });
-  <span class="fn">it</span>(<span class="str">'duplicate email → 409'</span>, <span class="kw">async</span> () => {
-    <span class="kw">await</span> <span class="fn">seed</span>();
-    <span class="kw">const</span> res = <span class="kw">await</span> <span class="fn">request</span>(app).<span class="fn">post</span>(<span class="str">'/api/students'</span>)
-      .<span class="fn">send</span>({ name: <span class="str">'B'</span>, email: <span class="str">'k@test.com'</span>, course: <span class="str">'IT'</span> });
-    <span class="fn">expect</span>(res.statusCode).<span class="fn">toBe</span>(<span class="nm">409</span>);
-  });
-});
-
-<span class="cm">// ── GET ALL ───────────────────────────────────────</span>
-<span class="fn">describe</span>(<span class="str">'GET /api/students'</span>, () => {
-  <span class="fn">it</span>(<span class="str">'returns all students → 200'</span>, <span class="kw">async</span> () => {
-    <span class="kw">await</span> <span class="fn">seed</span>();
-    <span class="kw">const</span> res = <span class="kw">await</span> <span class="fn">request</span>(app).<span class="fn">get</span>(<span class="str">'/api/students'</span>);
-    <span class="fn">expect</span>(res.statusCode).<span class="fn">toBe</span>(<span class="nm">200</span>);
-    <span class="fn">expect</span>(res.body.count).<span class="fn">toBe</span>(<span class="nm">1</span>);
-  });
-  <span class="fn">it</span>(<span class="str">'empty DB → count 0'</span>, <span class="kw">async</span> () => {
-    <span class="kw">const</span> res = <span class="kw">await</span> <span class="fn">request</span>(app).<span class="fn">get</span>(<span class="str">'/api/students'</span>);
-    <span class="fn">expect</span>(res.body.count).<span class="fn">toBe</span>(<span class="nm">0</span>);
-  });
-});
-
-<span class="cm">// ── GET ONE ───────────────────────────────────────</span>
-<span class="fn">describe</span>(<span class="str">'GET /api/students/:id'</span>, () => {
-  <span class="fn">it</span>(<span class="str">'returns student by id → 200'</span>, <span class="kw">async</span> () => {
-    <span class="kw">const</span> s   = <span class="kw">await</span> <span class="fn">seed</span>();
-    <span class="kw">const</span> res = <span class="kw">await</span> <span class="fn">request</span>(app).<span class="fn">get</span>(<span class="str">`/api/students/${s._id}`</span>);
-    <span class="fn">expect</span>(res.statusCode).<span class="fn">toBe</span>(<span class="nm">200</span>);
-    <span class="fn">expect</span>(res.body.data.name).<span class="fn">toBe</span>(<span class="str">'Kaveesha'</span>);
-  });
-  <span class="fn">it</span>(<span class="str">'wrong id → 404'</span>, <span class="kw">async</span> () => {
-    <span class="kw">const</span> res = <span class="kw">await</span> <span class="fn">request</span>(app).<span class="fn">get</span>(<span class="str">'/api/students/64f000000000000000000000'</span>);
-    <span class="fn">expect</span>(res.statusCode).<span class="fn">toBe</span>(<span class="nm">404</span>);
-  });
-});
-
-<span class="cm">// ── PUT ───────────────────────────────────────────</span>
-<span class="fn">describe</span>(<span class="str">'PUT /api/students/:id'</span>, () => {
-  <span class="fn">it</span>(<span class="str">'updates student → 200'</span>, <span class="kw">async</span> () => {
-    <span class="kw">const</span> s   = <span class="kw">await</span> <span class="fn">seed</span>();
-    <span class="kw">const</span> res = <span class="kw">await</span> <span class="fn">request</span>(app).<span class="fn">put</span>(<span class="str">`/api/students/${s._id}`</span>).<span class="fn">send</span>({ age: <span class="nm">25</span> });
-    <span class="fn">expect</span>(res.statusCode).<span class="fn">toBe</span>(<span class="nm">200</span>);
-    <span class="fn">expect</span>(res.body.data.age).<span class="fn">toBe</span>(<span class="nm">25</span>);
-  });
-  <span class="fn">it</span>(<span class="str">'wrong id → 404'</span>, <span class="kw">async</span> () => {
-    <span class="kw">const</span> res = <span class="kw">await</span> <span class="fn">request</span>(app).<span class="fn">put</span>(<span class="str">'/api/students/64f000000000000000000000'</span>).<span class="fn">send</span>({ age: <span class="nm">30</span> });
-    <span class="fn">expect</span>(res.statusCode).<span class="fn">toBe</span>(<span class="nm">404</span>);
-  });
-});
-
-<span class="cm">// ── DELETE ────────────────────────────────────────</span>
-<span class="fn">describe</span>(<span class="str">'DELETE /api/students/:id'</span>, () => {
-  <span class="fn">it</span>(<span class="str">'deletes student → 200'</span>, <span class="kw">async</span> () => {
-    <span class="kw">const</span> s   = <span class="kw">await</span> <span class="fn">seed</span>();
-    <span class="kw">const</span> res = <span class="kw">await</span> <span class="fn">request</span>(app).<span class="fn">delete</span>(<span class="str">`/api/students/${s._id}`</span>);
-    <span class="fn">expect</span>(res.statusCode).<span class="fn">toBe</span>(<span class="nm">200</span>);
-    <span class="kw">const</span> check = <span class="kw">await</span> Student.<span class="fn">findById</span>(s._id);
-    <span class="fn">expect</span>(check).<span class="fn">toBeNull</span>(); <span class="cm">// truly gone from DB</span>
-  });
-  <span class="fn">it</span>(<span class="str">'wrong id → 404'</span>, <span class="kw">async</span> () => {
-    <span class="kw">const</span> res = <span class="kw">await</span> <span class="fn">request</span>(app).<span class="fn">delete</span>(<span class="str">'/api/students/64f000000000000000000000'</span>);
-    <span class="fn">expect</span>(res.statusCode).<span class="fn">toBe</span>(<span class="nm">404</span>);
-  });
-});</pre>
-        </div>
-        <div class="git-cmd">npm test</div>
-        <div class="callout callout-success">
-          <i class="bi bi-check-circle-fill"></i>
-          <div><code>PASS tests/student.test.js</code><br/>Tests: <strong>11 passed, 11 total ✅</strong></div>
-        </div>
-      </section>
-
-      <!-- CLEAN CODE -->
-      <section class="content-section" id="clean-code">
-        <h2><i class="bi bi-stars"></i>Clean Code — Full Backend Review</h2>
-        <div class="tip-card"><i class="bi bi-check2-circle"></i><div><strong>MVC Separation ✅</strong><p>Model (Student.js) · Controller (studentController.js) · Routes (studentRoutes.js) — each file has one job.</p></div></div>
-        <div class="tip-card"><i class="bi bi-check2-circle"></i><div><strong>DRY Error Handling ✅</strong><p>One <code>handleError()</code> function handles all 3 error types. Zero duplicated error logic across 5 controllers.</p></div></div>
-        <div class="tip-card"><i class="bi bi-check2-circle"></i><div><strong>Descriptive Names ✅</strong><p><code>getAllStudents</code>, <code>createStudent</code>, <code>deleteStudent</code> — readable without comments.</p></div></div>
-        <div class="tip-card"><i class="bi bi-check2-circle"></i><div><strong>Environment Variables ✅</strong><p>DB URI and PORT in <code>.env</code> only. File is in <code>.gitignore</code>. <code>.env.example</code> helps teammates set up.</p></div></div>
-        <div class="tip-card"><i class="bi bi-check2-circle"></i><div><strong>Tests Written ✅</strong><p>11 tests cover all 5 CRUD routes including success cases AND 6 failure/edge cases.</p></div></div>
-      </section>
-
-      <!-- GIT -->
-      <section class="content-section" id="git-cmds">
-        <h2><i class="bi bi-git"></i>Git Commands — Final Commit</h2>
-        <div class="git-cmd">git add .</div>
-        <div class="git-cmd">git commit -m "feat: complete CRUD REST API with controller, routes, and 11 tests"</div>
-        <div class="git-cmd">git push origin main</div>
-        <div class="git-cmd">git log --oneline --graph --all</div>
-        <p class="git-comment">View full project commit history</p>
-        <div class="callout callout-success">
-          <i class="bi bi-trophy-fill"></i>
-          <div>Your Git history should show: <code>init: structure</code> → <code>feat: Express server</code> → <code>feat: Student model</code> → <code>feat: complete CRUD REST API</code>. This is what a professional developer's history looks like. 🎉</div>
-        </div>
-      </section>
-
-      <!-- FINAL STRUCTURE -->
-      <section class="content-section" id="final-structure">
-        <h2><i class="bi bi-folder2-open"></i>Final Backend File Structure</h2>
-        <div class="folder-tree">
-<span class="ft-root">mern-student-app/backend/</span>
-├── <span class="ft-dir">config/</span>
-│   └── <span class="ft-file">db.js</span>                    <span class="ft-note">✅ MongoDB connection</span>
-├── <span class="ft-dir">controllers/</span>
-│   └── <span class="ft-file">studentController.js</span>     <span class="ft-note">✅ 5 CRUD functions + handleError()</span>
-├── <span class="ft-dir">models/</span>
-│   └── <span class="ft-file">Student.js</span>               <span class="ft-note">✅ Mongoose schema + full validation</span>
-├── <span class="ft-dir">routes/</span>
-│   └── <span class="ft-file">studentRoutes.js</span>         <span class="ft-note">✅ 5 REST routes</span>
-├── <span class="ft-dir">tests/</span>
-│   └── <span class="ft-file">student.test.js</span>          <span class="ft-note">✅ 11 Jest + Supertest tests</span>
-├── <span class="ft-file">.env</span>                         <span class="ft-note">✅ PORT + MONGO_URI (gitignored)</span>
-├── <span class="ft-file">.env.example</span>                <span class="ft-note">✅ Safe template for team</span>
-├── <span class="ft-file">package.json</span>                 <span class="ft-note">✅ start / dev / test scripts</span>
-└── <span class="ft-file">server.js</span>                    <span class="ft-note">✅ middleware, routes, DB connect</span>
-        </div>
-      </section>
-
-      <div class="module-nav-bar">
-        <a class="btn-mod-prev" href="module4.html"><i class="bi bi-arrow-left"></i> Module 4: MongoDB</a>
-        <div class="mod-progress-badge">Module 5 of 5 ✅<div class="mod-prog-bar"><div class="mod-prog-fill" style="width:100%"></div></div></div>
-        <a class="btn-mod-next" href="index.html" style="background:linear-gradient(135deg,#198754,#15803d);"><i class="bi bi-house-fill"></i> Back to Home</a>
-      </div>
-    </main>
-  </div>
+			<div class="module-nav-bar">
+				<a class="btn-mod-prev" href="module4.html"><i class="bi bi-arrow-left"></i> Previous Module</a>
+				<div class="mod-progress-badge">Module 5 of 10<div class="mod-prog-bar"><div class="mod-prog-fill" style="width:50%"></div></div></div>
+				<a class="btn-mod-next" href="module6.html">Next Module <i class="bi bi-arrow-right"></i></a>
+			</div>
+		</main>
+	</div>
 </div>
 
-<footer class="footer">
-  <div class="container">
-    <div class="row g-4">
-      <div class="col-md-4">
-        <h5><i class="bi bi-braces-asterisk me-1"></i>EgoTech<span style="color:var(--primary)">World</span></h5>
-        <p class="small" style="color:rgba(255,255,255,.55);">Free beginner-focused MERN tutorials.</p>
-        <div class="footer-social mt-3">
-          <a href="https://egotechworld.com"><i class="bi bi-globe2"></i></a>
-          <a href="#"><i class="bi bi-github"></i></a>
-          <a href="#"><i class="bi bi-youtube"></i></a>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <h5>Course Modules</h5>
-        <ul class="list-unstyled" style="font-size:.85rem;">
-          <li class="mb-1"><a href="module1.html"><i class="bi bi-arrow-right-short"></i> Module 1: Introduction to MERN</a></li>
-          <li class="mb-1"><a href="module2.html"><i class="bi bi-arrow-right-short"></i> Module 2: Dev Environment</a></li>
-          <li class="mb-1"><a href="module3.html"><i class="bi bi-arrow-right-short"></i> Module 3: Node.js &amp; Express</a></li>
-          <li class="mb-1"><a href="module4.html"><i class="bi bi-arrow-right-short"></i> Module 4: MongoDB</a></li>
-          <li><a href="module5.html"><i class="bi bi-arrow-right-short"></i> Module 5: REST API</a></li>
-        </ul>
-      </div>
-      <div class="col-md-4">
-        <h5>In This Module</h5>
-        <ul class="list-unstyled" style="font-size:.85rem;">
-          <li class="mb-1"><a href="#controller"><i class="bi bi-arrow-right-short"></i> Full Controller Code</a></li>
-          <li class="mb-1"><a href="#postman"><i class="bi bi-arrow-right-short"></i> Postman Testing</a></li>
-          <li class="mb-1"><a href="#jest-tests"><i class="bi bi-arrow-right-short"></i> 11 Jest Tests</a></li>
-          <li><a href="#final-structure"><i class="bi bi-arrow-right-short"></i> Final File Structure</a></li>
-        </ul>
-      </div>
-    </div>
-    <hr class="footer-divider"/>
-    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2" style="font-size:.82rem;">
-      <span style="color:rgba(255,255,255,.45);">
-        <i class="bi bi-stars me-1" style="color:#fbbf24;"></i>
-        Designed &amp; developed by <strong style="color:rgba(255,255,255,.75);">EgoTechWorld</strong> &nbsp;·&nbsp;
-        <a href="https://egotechworld.com" style="color:rgba(255,255,255,.6);">egotechworld.com</a> &nbsp;·&nbsp;
-        Member 2 — Modules 1–5 &nbsp;·&nbsp; &copy; 2025
-      </span>
-    </div>
-  </div>
-</footer>
-<button id="scrollTop" aria-label="Scroll to top"><i class="bi bi-arrow-up"></i></button>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/script.js"></script>
-<script>
-  const btn = document.getElementById('scrollTop');
-  window.addEventListener('scroll', () => btn.classList.toggle('show', scrollY > 400));
-  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-</script>
 </body>
 </html>
