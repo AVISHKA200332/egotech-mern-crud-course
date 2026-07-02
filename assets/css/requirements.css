@@ -1,0 +1,233 @@
+/* ============================================================
+   EgoTECH World — Requirements Page Styles
+   requirements.css
+   ============================================================ */
+
+/* ── HERO OVERRIDE ── */
+.req-hero {
+  background:
+    radial-gradient(circle at top right, rgba(111, 66, 193, 0.35), transparent 30%),
+    linear-gradient(135deg, #0f172a 0%, #16213e 45%, #3b0764 100%);
+}
+
+/* Alert icon wrapper */
+.req-alert-icon {
+  width: 44px;
+  height: 44px;
+  background: rgba(13, 110, 253, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ── SCOPE IN / OUT CARDS ── */
+.req-scope-card {
+  border-radius: 1rem;
+  padding: 1.1rem 1.2rem;
+  aspect-ratio: 1 / 1;
+  overflow: auto;
+}
+
+.req-scope-in {
+  background: linear-gradient(135deg, #f0fdf4, #ecfdf5);
+  border: 1px solid #bbf7d0;
+}
+
+.req-scope-out {
+  background: linear-gradient(135deg, #fff1f2, #fef2f2);
+  border: 1px solid #fecaca;
+}
+
+.req-scope-title {
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+}
+
+/* ── STAKEHOLDER CARDS ── */
+.req-stakeholder-card {
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 1rem;
+  padding: 1.1rem 1.15rem;
+  aspect-ratio: 1 / 1;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.req-stakeholder-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.10);
+}
+
+.req-stakeholder-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+/* ── USER REQUIREMENT BADGE ── */
+.req-user-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* ── NON-FUNCTIONAL REQUIREMENT CARDS ── */
+.req-nfr-card {
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-left: 4px solid var(--module-primary, #2563eb);
+  border-radius: 0.95rem;
+  padding: 1.1rem 1.15rem;
+  aspect-ratio: 1 / 1;
+  overflow: auto;
+}
+
+.req-nfr-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 0.65rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+/* ── HARDWARE CARDS ── */
+.req-hw-card {
+  background: linear-gradient(135deg, #f8fbff, #fff);
+  border: 1px solid #dbeafe;
+  border-radius: 1rem;
+  padding: 1.2rem 1.1rem;
+  aspect-ratio: 1 / 1;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.req-hw-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.10);
+}
+
+.req-hw-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.55rem;
+}
+
+/* ── BUSINESS RULE CARDS ── */
+.req-rule-card {
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 1rem;
+  padding: 1rem 1.1rem;
+  aspect-ratio: 1 / 1;
+  overflow: auto;
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+}
+
+.req-rule-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: #e0f2fe;
+  color: #0369a1;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── ACCEPTANCE CRITERIA CARDS ── */
+.req-ac-card {
+  background: linear-gradient(135deg, #f0fdf4, #ecfdf5);
+  border: 1px solid #bbf7d0;
+  border-radius: 1rem;
+  padding: 1rem 1.1rem;
+  aspect-ratio: 1 / 1;
+  overflow: auto;
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+}
+
+.req-ac-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.6rem;
+  background: linear-gradient(135deg, #16a34a, #15803d);
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+/* ── SUMMARY PILLS ── */
+.req-summary-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #f8fbff;
+  border: 1px solid #dbeafe;
+  border-radius: 0.75rem;
+  padding: 0.6rem 0.85rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #1e3a8a;
+}
+
+.req-summary-pill-active {
+  background: linear-gradient(135deg, #ede9fe, #f5f3ff);
+  border-color: #c4b5fd;
+  color: #4c1d95;
+}
+
+.req-summary-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.65rem;
+  height: 1.65rem;
+  border-radius: 0.5rem;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 575.98px) {
+  .req-hw-card { padding: 1rem; }
+  .req-nfr-card { padding: 0.9rem 1rem; }
+  .req-rule-card,
+  .req-ac-card { flex-direction: column; }
+}

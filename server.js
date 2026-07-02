@@ -8,5 +8,5 @@ const PORT = 3000;
 app.use(express.static(path.join(__dirname)));
 
 app.listen(PORT, () => {
-  console.log(`EgoTech site running at http://localhost:${PORT}`);
+  console.log(`EgoTECH site running at http://localhost:${PORT}`);
 });

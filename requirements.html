@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Requirement Analysis — MERN CRUD App | EgoTECH World</title>
+  <meta name="description" content="Full Software Requirements Specification (SRS) for the MERN CRUD Student Management System — EgoTECH World course."/>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"/>
+  <!-- Project CSS -->
+  <link href="assets/css/style.css" rel="stylesheet"/>
+  <link href="assets/css/navbar.css" rel="stylesheet"/>
+  <link href="assets/css/footer.css" rel="stylesheet"/>
+  <link href="assets/css/requirements.css" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div id="navbar-placeholder"></div>
+
+<!-- ══════════ PAGE HERO ══════════ -->
+<section class="module-hero req-hero" aria-label="Requirement Analysis Hero">
+  <div class="container">
+    <div class="row g-4 align-items-center">
+      <div class="col-lg-7">
+        <div class="module-badge"><i class="bi bi-clipboard-check-fill"></i> Pre-Course · Module 00</div>
+        <h1><i class="bi bi-file-earmark-text-fill me-2" style="color:#c4b5fd;"></i>Software Requirements Specification</h1>
+        <p class="lead">A complete analysis of what the MERN CRUD Student Management System must do, who will use it, and every constraint it must satisfy — before a single line of code is written.</p>
+        <div class="module-meta">
+          <span class="module-meta-pill"><i class="bi bi-clock-fill"></i> 20 min read</span>
+          <span class="module-meta-pill"><i class="bi bi-file-text-fill"></i> 16 Sections</span>
+          <span class="module-meta-pill"><i class="bi bi-mortarboard-fill"></i> MERN CRUD App</span>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="hero-info-card">
+          <div class="hero-card-top">
+            <span>Document Overview</span>
+            <span class="hero-pill">SRS v1.0</span>
+          </div>
+          <ul class="hero-check-list">
+            <li>Project scope, goals, and stakeholders</li>
+            <li>Functional &amp; non-functional requirements</li>
+            <li>Use cases, data model, security &amp; acceptance criteria</li>
+          </ul>
+          <div class="hero-cta-row">
+            <a class="btn btn-light btn-sm fw-700 px-3" href="#introduction">Start Reading</a>
+            <a class="btn btn-outline-light btn-sm fw-700 px-3" href="module1.html">Go to Module 1</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CONTENT ══════════ -->
+<div class="container py-5">
+  <div class="row g-4">
+
+    <!-- ── SIDEBAR ── -->
+    <aside class="col-lg-3">
+      <div class="module-sidebar">
+        <div class="sidebar-nav-card">
+          <div class="sidebar-header"><i class="bi bi-list-ul me-1"></i> Sections</div>
+          <nav class="nav flex-column py-1" id="srs-nav">
+            <a class="nav-link active" href="#introduction"><span class="snum">01</span>Introduction</a>
+            <a class="nav-link" href="#stakeholders"><span class="snum">02</span>Stakeholders</a>
+            <a class="nav-link" href="#user-requirements"><span class="snum">03</span>User Requirements</a>
+            <a class="nav-link" href="#functional"><span class="snum">04</span>Functional Requirements</a>
+            <a class="nav-link" href="#non-functional"><span class="snum">05</span>Non-Functional Requirements</a>
+            <a class="nav-link" href="#hardware"><span class="snum">06</span>Hardware Requirements</a>
+            <a class="nav-link" href="#software"><span class="snum">07</span>Software Requirements</a>
+            <a class="nav-link" href="#constraints"><span class="snum">08</span>System Constraints</a>
+            <a class="nav-link" href="#assumptions"><span class="snum">09</span>Assumptions</a>
+            <a class="nav-link" href="#business-rules"><span class="snum">10</span>Business Rules</a>
+            <a class="nav-link" href="#use-cases"><span class="snum">11</span>Use Cases</a>
+            <a class="nav-link" href="#data-requirements"><span class="snum">12</span>Data Requirements</a>
+            <a class="nav-link" href="#interface"><span class="snum">13</span>Interface Requirements</a>
+            <a class="nav-link" href="#security"><span class="snum">14</span>Security Requirements</a>
+            <a class="nav-link" href="#acceptance"><span class="snum">15</span>Acceptance Criteria</a>
+            <a class="nav-link" href="#summary"><span class="snum">16</span>Summary</a>
+          </nav>
+        </div>
+        <!-- Quick navigation card -->
+        <div class="all-modules-card">
+          <div class="p-2" style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#6c757d;padding:.6rem .85rem .2rem!important;">Quick Links</div>
+          <a class="mod-link current" href="requirements.html"><span class="mod-num" style="background:#ede9fe;color:#6d28d9;">00</span>Requirements</a>
+          <a class="mod-link" href="module1.html"><span class="mod-num">01</span>Introduction to MERN</a>
+          <a class="mod-link" href="module2.html"><span class="mod-num">02</span>Dev Environment</a>
+          <a class="mod-link" href="module3.html"><span class="mod-num">03</span>Node.js &amp; Express</a>
+          <a class="mod-link" href="module4.html"><span class="mod-num">04</span>MongoDB</a>
+          <a class="mod-link" href="module5.html"><span class="mod-num">05</span>REST API</a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ── MAIN CONTENT ── -->
+    <main class="col-lg-9">
+
+      <!-- Video Banner -->
+      <div class="alert alert-primary d-flex align-items-center gap-3 rounded-3 mb-4 shadow-sm" role="alert">
+        <div class="req-alert-icon"><i class="bi bi-clipboard-check-fill text-primary fs-4"></i></div>
+        <div>
+          <strong>📋 Software Requirements Specification (SRS)</strong>
+          <div class="small">This document defines the complete requirements for the MERN CRUD Student Management System built throughout this course. Read it before you start coding.</div>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════════
+           01 — INTRODUCTION
+      ═══════════════════════════════════════════ -->
+      <section class="content-section" id="introduction">
+        <h2><i class="bi bi-book-fill"></i> 01 · Introduction</h2>
+
+        <h3>Purpose</h3>
+        <p>The purpose of this document is to describe the complete software requirements for the <strong>MERN CRUD Student Management System</strong> — a full-stack web application built using MongoDB, Express.js, React, and Node.js. The system provides an online platform for managing student records through Create, Read, Update, and Delete (CRUD) operations.</p>
+
+        <h3>Project Objectives</h3>
+        <ul class="objective-list">
+          <li><div class="obj-num">1</div><span>Build a fully functional full-stack application using the MERN stack from scratch.</span></li>
+          <li><div class="obj-num">2</div><span>Allow users to add, view, update, and delete student records through a clean web interface.</span></li>
+          <li><div class="obj-num">3</div><span>Implement a RESTful API backend with proper validation, error handling, and HTTP status codes.</span></li>
+          <li><div class="obj-num">4</div><span>Deploy the completed application to production using Render (backend) and Vercel (frontend).</span></li>
+          <li><div class="obj-num">5</div><span>Demonstrate real-world software development practices: MVC architecture, clean code, and version control.</span></li>
+        </ul>
+
+        <h3>Scope</h3>
+        <p>The system will manage student records for a single organization. The scope includes:</p>
+        <div class="row g-3 mt-1">
+          <div class="col-sm-6">
+            <div class="req-scope-card req-scope-in">
+              <div class="req-scope-title"><i class="bi bi-check-circle-fill text-success me-2"></i>In Scope</div>
+              <ul class="list-unstyled small mb-0">
+                <li><i class="bi bi-dot"></i>Full CRUD for student records</li>
+                <li><i class="bi bi-dot"></i>REST API with 5 endpoints</li>
+                <li><i class="bi bi-dot"></i>React frontend with forms &amp; tables</li>
+                <li><i class="bi bi-dot"></i>MongoDB Atlas data storage</li>
+                <li><i class="bi bi-dot"></i>Input validation &amp; error handling</li>
+                <li><i class="bi bi-dot"></i>Production deployment</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="req-scope-card req-scope-out">
+              <div class="req-scope-title"><i class="bi bi-x-circle-fill text-danger me-2"></i>Out of Scope</div>
+              <ul class="list-unstyled small mb-0">
+                <li><i class="bi bi-dot"></i>User authentication &amp; login</li>
+                <li><i class="bi bi-dot"></i>Role-based access control</li>
+                <li><i class="bi bi-dot"></i>File / image uploads</li>
+                <li><i class="bi bi-dot"></i>Real-time updates (WebSockets)</li>
+                <li><i class="bi bi-dot"></i>Pagination &amp; search filters</li>
+                <li><i class="bi bi-dot"></i>Payment or billing features</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════
+           02 — STAKEHOLDERS
+      ═══════════════════════════════════════════ -->
+      <section class="content-section" id="stakeholders">
+        <h2><i class="bi bi-people-fill"></i> 02 · Stakeholders</h2>
+        <p>The following individuals and groups interact with or are affected by the system:</p>
+        <div class="row g-3 mt-1">
+          <div class="col-sm-6 col-lg-4">
+            <div class="req-stakeholder-card">
+              <div class="req-stakeholder-icon" style="background:#eff6ff;color:#1d4ed8;"><i class="bi bi-shield-lock-fill"></i></div>
+              <h6 class="fw-700 mb-1">Administrator</h6>
+              <p class="text-muted small mb-0">Manages all student records, has full CRUD access, and maintains the system.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <div class="req-stakeholder-card">
+              <div class="req-stakeholder-icon" style="background:#f0fdf4;color:#166534;"><i class="bi bi-person-fill"></i></div>
+              <h6 class="fw-700 mb-1">Student</h6>
+              <p class="text-muted small mb-0">Has their data stored in the system. Does not directly interact with the app in this version.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <div class="req-stakeholder-card">
+              <div class="req-stakeholder-icon" style="background:#fefce8;color:#a16207;"><i class="bi bi-eye-fill"></i></div>
+              <h6 class="fw-700 mb-1">Visitor</h6>
+              <p class="text-muted small mb-0">Can browse the student list without making changes (read-only access).</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <div class="req-stakeholder-card">
+              <div class="req-stakeholder-icon" style="background:#fdf4ff;color:#7e22ce;"><i class="bi bi-building"></i></div>
+              <h6 class="fw-700 mb-1">Business Owner</h6>
+              <p class="text-muted small mb-0">Commissioned the system; defines requirements and reviews final deliverables.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <div class="req-stakeholder-card">
+              <div class="req-stakeholder-icon" style="background:#fff1f2;color:#be123c;"><i class="bi bi-code-slash"></i></div>
+              <h6 class="fw-700 mb-1">Developer</h6>
+              <p class="text-muted small mb-0">Builds and maintains the application; follows this SRS as the authoritative reference.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <div class="req-stakeholder-card">
+              <div class="req-stakeholder-icon" style="background:#ecfdf5;color:#065f46;"><i class="bi bi-mortarboard-fill"></i></div>
+              <h6 class="fw-700 mb-1">Course Instructor</h6>
+              <p class="text-muted small mb-0">Supervises the project, evaluates deliverables, and provides feedback.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════
+           03 — USER REQUIREMENTS
+      ═══════════════════════════════════════════ -->
+      <section class="content-section" id="user-requirements">
+        <h2><i class="bi bi-person-lines-fill"></i> 03 · User Requirements</h2>
+        <p>The table below describes what each type of user wants to accomplish within the system.</p>
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover align-middle" style="font-size:.88rem;">
+            <thead class="table-dark">
+              <tr><th style="width:160px">User Type</th><th>Requirements</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="req-user-badge" style="background:#eff6ff;color:#1d4ed8;"><i class="bi bi-shield-lock-fill me-1"></i>Administrator</span></td>
+                <td>Add new students, view the full student list, edit any student's information, delete student records, and see validation error messages when input is incorrect.</td>
+              </tr>
+              <tr>
+                <td><span class="req-user-badge" style="background:#fefce8;color:#a16207;"><i class="bi bi-eye-fill me-1"></i>Visitor</span></td>
+                <td>Browse the student list and view student details without creating an account.</td>
+              </tr>
+              <tr>
+                <td><span class="req-user-badge" style="background:#fff1f2;color:#be123c;"><i class="bi bi-code-slash me-1"></i>Developer</span></td>
+                <td>Access a clean REST API with consistent JSON responses, readable source code following MVC architecture, and meaningful error messages for debugging.</td>
+              </tr>
+              <tr>
+                <td><span class="req-user-badge" style="background:#fdf4ff;color:#7e22ce;"><i class="bi bi-building me-1"></i>Business Owner</span></td>
+                <td>View a working, deployed application that correctly stores and retrieves student records and is reliable in a production environment.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════
+           04 — FUNCTIONAL REQUIREMENTS
+      ═══════════════════════════════════════════ -->
+      <section class="content-section" id="functional">
+        <h2><i class="bi bi-toggles"></i> 04 · Functional Requirements</h2>
+        <p>Functional requirements describe <strong>what the system must do</strong>. Each requirement has a unique ID, a description, and a priority level.</p>
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover align-middle" style="font-size:.85rem;">
+            <thead class="table-dark">
+              <tr><th>ID</th><th>Requirement</th><th>Priority</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="font-monospace text-primary fw-700">FR-01</td><td>User can add a new student by submitting a form with name, email, age, and course fields.</td><td><span class="badge bg-danger">HIGH</span></td></tr>
+              <tr><td class="font-monospace text-primary fw-700">FR-02</td><td>User can view a paginated list of all student records, sorted newest first.</td><td><span class="badge bg-danger">HIGH</span></td></tr>
+              <tr><td class="font-monospace text-primary fw-700">FR-03</td><td>User can view the full details of a single student by their unique ID.</td><td><span class="badge bg-danger">HIGH</span></td></tr>
+              <tr><td class="font-monospace text-primary fw-700">FR-04</td><td>User can edit any field of an existing student record and save the changes.</td><td><span class="badge bg-danger">HIGH</span></td></tr>
+              <tr><td class="font-monospace text-primary fw-700">FR-05</td><td>User can delete a student record after confirming a prompt to prevent accidental deletion.</td><td><span class="badge bg-danger">HIGH</span></td></tr>
+              <tr><td class="font-monospace text-primary fw-700">FR-06</td><td>System validates all required fields (name, email, course) before saving to the database.</td><td><span class="badge bg-warning text-dark">MEDIUM</span></td></tr>
+              <tr><td class="font-monospace text-primary fw-700">FR-07</td><td>System rejects duplicate email addresses with a descriptive error message.</td><td><span class="badge bg-warning text-dark">MEDIUM</span></td></tr>
+              <tr><td class="font-monospace text-primary fw-700">FR-08</td><td>REST API returns correct HTTP status codes (200, 201, 400, 404, 500) for every response.</td><td><span class="badge bg-warning text-dark">MEDIUM</span></td></tr>
+              <tr><td class="font-monospace text-primary fw-700">FR-09</td><td>All API responses use a consistent JSON structure with a <code>success</code>, <code>data</code>, and optional <code>message</code> field.</td><td><span class="badge bg-warning text-dark">MEDIUM</span></td></tr>
+              <tr><td class="font-monospace text-primary fw-700">FR-10</td><td>Frontend displays user-friendly loading and error states when API calls are in progress or fail.</td><td><span class="badge bg-secondary">LOW</span></td></tr>
+              <tr><td class="font-monospace text-primary fw-700">FR-11</td><td>Admin can filter or search students by name or course (future enhancement).</td><td><span class="badge bg-secondary">LOW</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════
+           05 — NON-FUNCTIONAL REQUIREMENTS
+      ═══════════════════════════════════════════ -->
+      <section class="content-section" id="non-functional">
+        <h2><i class="bi bi-speedometer2"></i> 05 · Non-Functional Requirements</h2>
+        <p>Non-functional requirements define <strong>how well</strong> the system performs its functions.</p>
+        <div class="row g-3 mt-1">
+          <div class="col-md-6">
+            <div class="req-nfr-card" style="border-left-color:#2563eb;">
+              <div class="req-nfr-title"><i class="bi bi-lightning-charge-fill" style="color:#2563eb;"></i> Performance</div>
+              <ul class="small text-muted mb-0 ps-3">
+                <li>API responses must complete in under <strong>500 ms</strong> under normal load.</li>
+                <li>Frontend initial page load must be under <strong>3 seconds</strong> on a standard connection.</li>
+                <li>The system must handle at least <strong>100 concurrent users</strong> without degradation.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="req-nfr-card" style="border-left-color:#dc2626;">
+              <div class="req-nfr-title"><i class="bi bi-shield-fill-check" style="color:#dc2626;"></i> Security</div>
+              <ul class="small text-muted mb-0 ps-3">
+                <li>All secrets (DB passwords, API keys) must be stored in <strong>.env</strong> files — never in code.</li>
+                <li>HTTPS must be enforced in the production environment.</li>
+                <li>Input must be sanitised to prevent <strong>NoSQL injection</strong> and <strong>XSS</strong> attacks.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="req-nfr-card" style="border-left-color:#16a34a;">
+              <div class="req-nfr-title"><i class="bi bi-phone-fill" style="color:#16a34a;"></i> Usability</div>
+              <ul class="small text-muted mb-0 ps-3">
+                <li>The frontend must be <strong>fully responsive</strong> across mobile, tablet, and desktop.</li>
+                <li>Navigation must be intuitive — no training required for basic operations.</li>
+                <li>All forms must provide clear validation feedback messages.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="req-nfr-card" style="border-left-color:#d97706;">
+              <div class="req-nfr-title"><i class="bi bi-activity" style="color:#d97706;"></i> Reliability</div>
+              <ul class="small text-muted mb-0 ps-3">
+                <li>Target system uptime of <strong>99.9%</strong> in production.</li>
+                <li>MongoDB Atlas provides automatic backups and replication.</li>
+                <li>All unhandled errors must be caught and return a structured JSON error response.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="req-nfr-card" style="border-left-color:#7c3aed;">
+              <div class="req-nfr-title"><i class="bi bi-tools" style="color:#7c3aed;"></i> Maintainability</div>
+              <ul class="small text-muted mb-0 ps-3">
+                <li>Code must follow <strong>MVC architecture</strong> with clear folder separation.</li>
+                <li>Functions must be small, named descriptively, and each serve one purpose.</li>
+                <li>The project must include a <code>README.md</code> with setup instructions.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="req-nfr-card" style="border-left-color:#0891b2;">
+              <div class="req-nfr-title"><i class="bi bi-globe" style="color:#0891b2;"></i> Compatibility</div>
+              <ul class="small text-muted mb-0 ps-3">
+                <li>Must work on <strong>Chrome, Firefox, Edge, and Safari</strong> (latest versions).</li>
+                <li>Application must run on Windows, macOS, and Linux development machines.</li>
+                <li>Node.js version <strong>v18 LTS</strong> or higher required.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════
+           06 — HARDWARE REQUIREMENTS
+      ═══════════════════════════════════════════ -->
+      <section class="content-section" id="hardware">
+        <h2><i class="bi bi-cpu-fill"></i> 06 · Hardware Requirements</h2>
+        <div class="row g-3 mt-1">
+          <div class="col-sm-6 col-lg-3">
+            <div class="req-hw-card">
+              <div class="req-hw-icon">💻</div>
+              <h6 class="fw-700 mb-1">Computer / Laptop</h6>
+              <p class="text-muted small mb-0">Minimum 4 GB RAM; 8 GB recommended for smooth development.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <div class="req-hw-card">
+              <div class="req-hw-icon">🌐</div>
+              <h6 class="fw-700 mb-1">Internet Connection</h6>
+              <p class="text-muted small mb-0">Required for MongoDB Atlas cloud access and npm package installation.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <div class="req-hw-card">
+              <div class="req-hw-icon">🖥️</div>
+              <h6 class="fw-700 mb-1">Web Server</h6>
+              <p class="text-muted small mb-0">Node.js acts as the web server — no Apache or Nginx needed for development.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <div class="req-hw-card">
+              <div class="req-hw-icon">☁️</div>
+              <h6 class="fw-700 mb-1">Cloud Hosting</h6>
+              <p class="text-muted small mb-0">Render (backend) and Vercel (frontend) provide free-tier production hosting.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════
+           07 — SOFTWARE REQUIREMENTS
+      ═══════════════════════════════════════════ -->
+      <section class="content-section" id="software">
+        <h2><i class="bi bi-box-seam-fill"></i> 07 · Software Requirements</h2>
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover align-middle" style="font-size:.88rem;">
+            <thead class="table-dark">
+              <tr><th>Software</th><th>Version</th><th>Purpose</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>🟢 <strong>Node.js</strong></td><td>v18 LTS+</td><td>JavaScript runtime for the backend server</td></tr>
+              <tr><td>📦 <strong>npm</strong></td><td>v9+</td><td>Package manager — bundled with Node.js</td></tr>
+              <tr><td>⚡ <strong>Express.js</strong></td><td>v4</td><td>Web framework for building the REST API</td></tr>
+              <tr><td>⚛️ <strong>React</strong></td><td>v18</td><td>Frontend UI library</td></tr>
+              <tr><td>⚡ <strong>Vite</strong></td><td>v5</td><td>Frontend build tool and dev server</td></tr>
+              <tr><td>🍃 <strong>MongoDB Atlas</strong></td><td>Cloud (free)</td><td>Cloud NoSQL database</td></tr>
+              <tr><td>🔶 <strong>Mongoose</strong></td><td>v8</td><td>MongoDB ODM for schema &amp; model definition</td></tr>
+              <tr><td>💙 <strong>VS Code</strong></td><td>Latest</td><td>Recommended code editor</td></tr>
+              <tr><td>🌐 <strong>Postman</strong></td><td>Latest</td><td>REST API testing tool</td></tr>
+              <tr><td>🐙 <strong>Git</strong></td><td>v2+</td><td>Version control system</td></tr>
+              <tr><td>🌍 <strong>Web Browser</strong></td><td>Latest</td><td>Chrome, Firefox, Edge, or Safari</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════
+           08 — SYSTEM CONSTRAINTS
+      ═══════════════════════════════════════════ -->
+      <section class="content-section" id="constraints">
+        <h2><i class="bi bi-exclamation-triangle-fill"></i> 08 · System Constraints</h2>
+        <p>The following limitations and restrictions apply to this project.</p>
+        <div class="row g-3 mt-1">
+          <div class="col-sm-6">
+            <div class="callout callout-warn">
+              <i class="bi bi-cash-coin"></i>
+              <div><strong>Budget</strong><br><span class="text-muted small">The project uses only free-tier services: MongoDB Atlas (512 MB), Render (free tier with cold starts), and Vercel (free tier).</span></div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="callout callout-warn">
+              <i class="bi bi-calendar-check"></i>
+              <div><strong>Timeline</strong><br><span class="text-muted small">The complete application must be built and deployed within the duration of the 10-module course (~10 hours of study).</span></div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="callout callout-warn">
+              <i class="bi bi-browser-chrome"></i>
+              <div><strong>Browser Compatibility</strong><br><span class="text-muted small">Only modern browsers are supported. Internet Explorer is explicitly excluded.</span></div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="callout callout-warn">
+              <i class="bi bi-plug-fill"></i>
+              <div><strong>Third-Party APIs</strong><br><span class="text-muted small">The system depends on MongoDB Atlas availability. Any Atlas outage will make the API unavailable.</span></div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="callout callout-warn">
+              <i class="bi bi-person-x-fill"></i>
+              <div><strong>No Authentication</strong><br><span class="text-muted small">User authentication is out of scope for this version. All CRUD operations are publicly accessible (suitable for a learning environment only).</span></div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="callout callout-warn">
+              <i class="bi bi-database-slash"></i>
+              <div><strong>Single Data Entity</strong><br><span class="text-muted small">This version manages only the <code>Student</code> entity. Multi-entity relationships are deferred to future iterations.</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════
+           09 — ASSUMPTIONS
+      ═══════════════════════════════════════════ -->
+      <section class="content-section" id="assumptions">
+        <h2><i class="bi bi-lightbulb-fill"></i> 09 · Assumptions</h2>
+        <p>The following conditions are assumed to be true throughout the development and operation of the system.</p>
+        <ul class="objective-list">
+          <li><div class="obj-num"><i class="bi bi-wifi"></i></div><span>All users have a stable internet connection capable of accessing web applications.</span></li>
+          <li><div class="obj-num"><i class="bi bi-laptop"></i></div><span>Users possess basic computer skills — they can navigate a browser, fill forms, and click buttons.</span></li>
+          <li><div class="obj-num"><i class="bi bi-cloud-check-fill"></i></div><span>MongoDB Atlas cloud services remain available and free-tier limits are not exceeded during development.</span></li>
+          <li><div class="obj-num"><i class="bi bi-browser-chrome"></i></div><span>Users access the application using a modern web browser (Chrome, Firefox, Edge, or Safari).</span></li>
+          <li><div class="obj-num"><i class="bi bi-code-slash"></i></div><span>The development team has working installations of Node.js v18+, Git, and VS Code before starting Module 2.</span></li>
+          <li><div class="obj-num"><i class="bi bi-server"></i></div><span>Render and Vercel free-tier hosting plans remain available with sufficient resources for course demonstrations.</span></li>
+        </ul>
+      </section>
+
+      <!-- ═══════════════════════════════════════════
+           10 — BUSINESS RULES
+      ═══════════════════════════════════════════ -->
+      <section class="content-section" id="business-rules">
+        <h2><i class="bi bi-briefcase-fill"></i> 10 · Business Rules</h2>
+        <p>Business rules are constraints that govern system behaviour regardless of technical implementation.</p>
+        <div class="row g-3 mt-1">
+          <div class="col-md-6">
+            <div class="req-rule-card">
+              <span class="req-rule-badge">BR-01</span>
+              <div><strong>Unique Email Address</strong><p class="text-muted small mb-0">Each student must have a unique email address. The system will reject any attempt to register a duplicate email.</p></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="req-rule-card">
+              <span class="req-rule-badge">BR-02</span>
+              <div><strong>Required Fields</strong><p class="text-muted small mb-0">Name, email, and course are mandatory. A student record cannot be saved with any of these fields empty.</p></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="req-rule-card">
+              <span class="req-rule-badge">BR-03</span>
+              <div><strong>Valid Age Range</strong><p class="text-muted small mb-0">If age is provided, it must be a positive number between 1 and 120. Negative or unrealistic ages are rejected.</p></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="req-rule-card">
+              <span class="req-rule-badge">BR-04</span>
+              <div><strong>Approved Course Values</strong><p class="text-muted small mb-0">The course field must be one of the pre-defined values (e.g., IT, CS, SE, IS). Free-text course names are not allowed.</p></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="req-rule-card">
+              <span class="req-rule-badge">BR-05</span>
+              <div><strong>Deletion Confirmation</strong><p class="text-muted small mb-0">A student record cannot be deleted without explicit user confirmation. Accidental deletion must be prevented at the UI level.</p></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="req-rule-card">
+              <span class="req-rule-badge">BR-06</span>
+              <div><strong>Secrets in Environment Variables</strong><p class="text-muted small mb-0">Database connection strings, API keys, and other sensitive data must never be hardcoded. They must be stored in <code>.env</code> files excluded from version control.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════
+           11 — USE CASES
+      ═══════════════════════════════════════════ -->
+      <section class="content-section" id="use-cases">
+        <h2><i class="bi bi-diagram-3-fill"></i> 11 · Use Cases</h2>
+        <p>Use cases describe the main interactions between actors and the system.</p>
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover align-middle" style="font-size:.88rem;">
+            <thead class="table-dark">
+              <tr><th>ID</th><th>Use Case</th><th>Actor</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="fw-700 font-monospace text-primary">UC-01</td><td>View Student List</td><td><span class="req-user-badge" style="background:#fefce8;color:#a16207;">Visitor / Admin</span></td><td>User opens the app and sees a table of all students sorted newest first.</td></tr>
+              <tr><td class="fw-700 font-monospace text-primary">UC-02</td><td>Add New Student</td><td><span class="req-user-badge" style="background:#eff6ff;color:#1d4ed8;">Admin</span></td><td>Admin fills the student form and submits. System validates and saves the record to MongoDB.</td></tr>
+              <tr><td class="fw-700 font-monospace text-primary">UC-03</td><td>View Student Details</td><td><span class="req-user-badge" style="background:#fefce8;color:#a16207;">Visitor / Admin</span></td><td>User clicks a student row to view their full details retrieved via GET /api/students/:id.</td></tr>
+              <tr><td class="fw-700 font-monospace text-primary">UC-04</td><td>Edit Student Record</td><td><span class="req-user-badge" style="background:#eff6ff;color:#1d4ed8;">Admin</span></td><td>Admin clicks Edit, modifies fields in the form, and saves. System sends a PUT request to update the document.</td></tr>
+              <tr><td class="fw-700 font-monospace text-primary">UC-05</td><td>Delete Student Record</td><td><span class="req-user-badge" style="background:#eff6ff;color:#1d4ed8;">Admin</span></td><td>Admin clicks Delete, confirms the prompt, and the student is removed via DELETE /api/students/:id.</td></tr>
+              <tr><td class="fw-700 font-monospace text-primary">UC-06</td><td>Submit Invalid Form</td><td><span class="req-user-badge" style="background:#eff6ff;color:#1d4ed8;">Admin</span></td><td>Admin submits a form with missing or invalid fields. System returns error messages without saving data.</td></tr>
+              <tr><td class="fw-700 font-monospace text-primary">UC-07</td><td>Test API Endpoints</td><td><span class="req-user-badge" style="background:#fff1f2;color:#be123c;">Developer</span></td><td>Developer uses Postman to send GET, POST, PUT, DELETE requests and verifies JSON responses and status codes.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════
+           12 — DATA REQUIREMENTS
+      ═══════════════════════════════════════════ -->
+      <section class="content-section" id="data-requirements">
+        <h2><i class="bi bi-database-fill"></i> 12 · Data Requirements</h2>
+        <p>The system manages the following data. The primary entity is <strong>Student</strong>.</p>
+
+        <h3>Student Entity</h3>
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover align-middle" style="font-size:.85rem;">
+            <thead class="table-dark">
+              <tr><th>Field</th><th>Type</th><th>Required</th><th>Constraints</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="font-monospace text-primary fw-700">_id</td><td>ObjectId</td><td><span class="badge bg-success">Auto</span></td><td>Primary key — auto-generated by MongoDB</td></tr>
+              <tr><td class="font-monospace fw-700">name</td><td>String</td><td><span class="badge bg-danger">Yes</span></td><td>Min 2, max 50 characters; trimmed of whitespace</td></tr>
+              <tr><td class="font-monospace fw-700">email</td><td>String</td><td><span class="badge bg-danger">Yes</span></td><td>Valid email format; unique across all records; stored lowercase</td></tr>
+              <tr><td class="font-monospace fw-700">age</td><td>Number</td><td><span class="badge bg-secondary">No</span></td><td>Integer; min 1, max 120</td></tr>
+              <tr><td class="font-monospace fw-700">course</td><td>String (enum)</td><td><span class="badge bg-danger">Yes</span></td><td>Must be one of: IT, CS, SE, IS, BIT</td></tr>
+              <tr><td class="font-monospace fw-700">createdAt</td><td>Date</td><td><span class="badge bg-success">Auto</span></td><td>Set automatically by Mongoose timestamps</td></tr>
+              <tr><td class="font-monospace fw-700">updatedAt</td><td>Date</td><td><span class="badge bg-success">Auto</span></td><td>Updated automatically by Mongoose on every save</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>REST API Endpoints</h3>
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover align-middle" style="font-size:.85rem;">
+            <thead class="table-dark">
+              <tr><th>Method</th><th>Endpoint</th><th>Description</th><th>Status Codes</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><span class="badge bg-success">GET</span></td><td class="font-monospace">/api/students</td><td>Retrieve all student records</td><td>200, 500</td></tr>
+              <tr><td><span class="badge bg-success">GET</span></td><td class="font-monospace">/api/students/:id</td><td>Retrieve a single student by ID</td><td>200, 404, 500</td></tr>
+              <tr><td><span class="badge bg-primary">POST</span></td><td class="font-monospace">/api/students</td><td>Create a new student record</td><td>201, 400, 500</td></tr>
+              <tr><td><span class="badge bg-warning text-dark">PUT</span></td><td class="font-monospace">/api/students/:id</td><td>Update an existing student by ID</td><td>200, 400, 404, 500</td></tr>
+              <tr><td><span class="badge bg-danger">DELETE</span></td><td class="font-monospace">/api/students/:id</td><td>Delete a student record by ID</td><td>200, 404, 500</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════
+           13 — INTERFACE REQUIREMENTS
+      ═══════════════════════════════════════════ -->
+      <section class="content-section" id="interface">
+        <h2><i class="bi bi-window-sidebar"></i> 13 · Interface Requirements</h2>
+        <div class="row g-3 mt-1">
+          <div class="col-md-6">
+            <div class="req-nfr-card" style="border-left-color:#2563eb;">
+              <div class="req-nfr-title"><i class="bi bi-layout-text-window-reverse" style="color:#2563eb;"></i> User Interface (UI)</div>
+              <ul class="small text-muted mb-0 ps-3">
+                <li>Built with <strong>React 18</strong> and <strong>Bootstrap 5</strong></li>
+                <li>Responsive layout — mobile-first design</li>
+                <li>Student list displayed in a sortable data table</li>
+                <li>Add / Edit forms with real-time validation feedback</li>
+                <li>Success and error toast notifications</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="req-nfr-card" style="border-left-color:#16a34a;">
+              <div class="req-nfr-title"><i class="bi bi-database-fill-gear" style="color:#16a34a;"></i> Database Interface</div>
+              <ul class="small text-muted mb-0 ps-3">
+                <li><strong>Mongoose ODM</strong> connects Node.js to MongoDB Atlas</li>
+                <li>Connection string stored in <code>MONGO_URI</code> environment variable</li>
+                <li>Connection pooling handled automatically by Mongoose</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="req-nfr-card" style="border-left-color:#d97706;">
+              <div class="req-nfr-title"><i class="bi bi-arrow-left-right" style="color:#d97706;"></i> Frontend–Backend Interface</div>
+              <ul class="small text-muted mb-0 ps-3">
+                <li>React uses <strong>Axios</strong> to call Express API endpoints</li>
+                <li>All requests and responses use <strong>JSON</strong> format</li>
+                <li>CORS configured in Express to allow the React dev server origin</li>
+                <li>Base API URL stored in <code>VITE_API_URL</code> environment variable</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="req-nfr-card" style="border-left-color:#7c3aed;">
+              <div class="req-nfr-title"><i class="bi bi-envelope-fill" style="color:#7c3aed;"></i> External Services</div>
+              <ul class="small text-muted mb-0 ps-3">
+                <li><strong>MongoDB Atlas</strong> — cloud database hosting</li>
+                <li><strong>Render</strong> — backend (Node.js/Express) deployment</li>
+                <li><strong>Vercel</strong> — frontend (React/Vite) deployment</li>
+                <li>No email or payment gateway integration in v1</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════
+           14 — SECURITY REQUIREMENTS
+      ═══════════════════════════════════════════ -->
+      <section class="content-section" id="security">
+        <h2><i class="bi bi-shield-fill-check"></i> 14 · Security Requirements</h2>
+        <div class="row g-3 mt-1">
+          <div class="col-md-6">
+            <div class="req-rule-card">
+              <span class="req-rule-badge" style="background:#fee2e2;color:#991b1b;">SR-01</span>
+              <div><strong>Environment Variables</strong><p class="text-muted small mb-0">All credentials and secrets must be stored in <code>.env</code> files. The <code>.env</code> file must be listed in <code>.gitignore</code> to prevent accidental exposure.</p></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="req-rule-card">
+              <span class="req-rule-badge" style="background:#fee2e2;color:#991b1b;">SR-02</span>
+              <div><strong>Input Validation</strong><p class="text-muted small mb-0">All user input must be validated on both the client side (React) and server side (Express + Mongoose) before being saved to the database.</p></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="req-rule-card">
+              <span class="req-rule-badge" style="background:#fee2e2;color:#991b1b;">SR-03</span>
+              <div><strong>HTTPS in Production</strong><p class="text-muted small mb-0">Both the frontend (Vercel) and backend (Render) must serve traffic exclusively over HTTPS. HTTP connections must be redirected.</p></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="req-rule-card">
+              <span class="req-rule-badge" style="background:#fee2e2;color:#991b1b;">SR-04</span>
+              <div><strong>CORS Policy</strong><p class="text-muted small mb-0">The Express server must restrict cross-origin requests to the approved frontend domain only. Wildcard <code>*</code> origins must not be used in production.</p></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="req-rule-card">
+              <span class="req-rule-badge" style="background:#fee2e2;color:#991b1b;">SR-05</span>
+              <div><strong>NoSQL Injection Prevention</strong><p class="text-muted small mb-0">Mongoose's schema-based casting inherently sanitises inputs. Additional middleware (e.g., <code>express-mongo-sanitize</code>) should be added for production.</p></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="req-rule-card">
+              <span class="req-rule-badge" style="background:#fee2e2;color:#991b1b;">SR-06</span>
+              <div><strong>Error Message Safety</strong><p class="text-muted small mb-0">In production, stack traces and internal error details must never be exposed to the client. All errors must return a generic user-safe message.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════
+           15 — ACCEPTANCE CRITERIA
+      ═══════════════════════════════════════════ -->
+      <section class="content-section" id="acceptance">
+        <h2><i class="bi bi-patch-check-fill"></i> 15 · Acceptance Criteria</h2>
+        <p>The project will be considered complete when <strong>all</strong> of the following criteria are verified.</p>
+        <div class="row g-3 mt-1">
+          <div class="col-md-6">
+            <div class="req-ac-card">
+              <div class="req-ac-num">AC-01</div>
+              <div>
+                <strong>Student List Displays Correctly</strong>
+                <p class="text-muted small mb-0">The homepage renders a table of all student records fetched from the MongoDB database via the Express API.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="req-ac-card">
+              <div class="req-ac-num">AC-02</div>
+              <div>
+                <strong>Create Student Works</strong>
+                <p class="text-muted small mb-0">Submitting the Add Student form with valid data inserts a new document in MongoDB and immediately reflects in the student list.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="req-ac-card">
+              <div class="req-ac-num">AC-03</div>
+              <div>
+                <strong>Edit Student Works</strong>
+                <p class="text-muted small mb-0">Clicking Edit pre-fills the form with current values. Saving the form updates the document in MongoDB via PUT.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="req-ac-card">
+              <div class="req-ac-num">AC-04</div>
+              <div>
+                <strong>Delete Student Works</strong>
+                <p class="text-muted small mb-0">Confirming the delete prompt removes the student from MongoDB and removes them from the UI list immediately.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="req-ac-card">
+              <div class="req-ac-num">AC-05</div>
+              <div>
+                <strong>Validation Prevents Bad Data</strong>
+                <p class="text-muted small mb-0">Submitting the form with an empty required field or an invalid email shows an error message and does not save to the database.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="req-ac-card">
+              <div class="req-ac-num">AC-06</div>
+              <div>
+                <strong>Duplicate Email Rejected</strong>
+                <p class="text-muted small mb-0">Trying to add a student with an email that already exists in the database returns a 400 error with a clear message.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="req-ac-card">
+              <div class="req-ac-num">AC-07</div>
+              <div>
+                <strong>API Returns Correct Status Codes</strong>
+                <p class="text-muted small mb-0">All five CRUD endpoints return the appropriate HTTP status codes (200, 201, 400, 404, 500) verified through Postman.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="req-ac-card">
+              <div class="req-ac-num">AC-08</div>
+              <div>
+                <strong>Application is Responsive</strong>
+                <p class="text-muted small mb-0">The UI renders correctly and all interactions work on mobile (≤ 375px), tablet (≤ 768px), and desktop (≥ 1024px) viewports.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="req-ac-card">
+              <div class="req-ac-num">AC-09</div>
+              <div>
+                <strong>Deployed to Production</strong>
+                <p class="text-muted small mb-0">The backend is live on Render and the frontend is live on Vercel. Both production URLs are accessible publicly over HTTPS.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="req-ac-card">
+              <div class="req-ac-num">AC-10</div>
+              <div>
+                <strong>No Secrets in Source Code</strong>
+                <p class="text-muted small mb-0">A code review confirms that no API keys, passwords, or connection strings are hardcoded anywhere in the repository.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════
+           16 — SUMMARY
+      ═══════════════════════════════════════════ -->
+      <section class="content-section" id="summary">
+        <h2><i class="bi bi-list-check"></i> 16 · Summary</h2>
+        <p>This document has defined the complete Software Requirements Specification for the MERN CRUD Student Management System. Here is a quick reference of all 16 sections:</p>
+        <div class="row g-2 mt-1">
+          <div class="col-sm-6 col-lg-4"><div class="req-summary-pill"><span class="req-summary-num">01</span>Introduction &amp; Scope</div></div>
+          <div class="col-sm-6 col-lg-4"><div class="req-summary-pill"><span class="req-summary-num">02</span>Stakeholders</div></div>
+          <div class="col-sm-6 col-lg-4"><div class="req-summary-pill"><span class="req-summary-num">03</span>User Requirements</div></div>
+          <div class="col-sm-6 col-lg-4"><div class="req-summary-pill"><span class="req-summary-num">04</span>Functional Requirements</div></div>
+          <div class="col-sm-6 col-lg-4"><div class="req-summary-pill"><span class="req-summary-num">05</span>Non-Functional Requirements</div></div>
+          <div class="col-sm-6 col-lg-4"><div class="req-summary-pill"><span class="req-summary-num">06</span>Hardware Requirements</div></div>
+          <div class="col-sm-6 col-lg-4"><div class="req-summary-pill"><span class="req-summary-num">07</span>Software Requirements</div></div>
+          <div class="col-sm-6 col-lg-4"><div class="req-summary-pill"><span class="req-summary-num">08</span>System Constraints</div></div>
+          <div class="col-sm-6 col-lg-4"><div class="req-summary-pill"><span class="req-summary-num">09</span>Assumptions</div></div>
+          <div class="col-sm-6 col-lg-4"><div class="req-summary-pill"><span class="req-summary-num">10</span>Business Rules</div></div>
+          <div class="col-sm-6 col-lg-4"><div class="req-summary-pill"><span class="req-summary-num">11</span>Use Cases</div></div>
+          <div class="col-sm-6 col-lg-4"><div class="req-summary-pill"><span class="req-summary-num">12</span>Data Requirements</div></div>
+          <div class="col-sm-6 col-lg-4"><div class="req-summary-pill"><span class="req-summary-num">13</span>Interface Requirements</div></div>
+          <div class="col-sm-6 col-lg-4"><div class="req-summary-pill"><span class="req-summary-num">14</span>Security Requirements</div></div>
+          <div class="col-sm-6 col-lg-4"><div class="req-summary-pill"><span class="req-summary-num">15</span>Acceptance Criteria</div></div>
+          <div class="col-sm-6 col-lg-4"><div class="req-summary-pill req-summary-pill-active"><span class="req-summary-num" style="background:#6f42c1;">✓</span>This Summary</div></div>
+        </div>
+
+        <div class="callout callout-success mt-4">
+          <i class="bi bi-arrow-right-circle-fill"></i>
+          <div>
+            <strong>Ready to start building?</strong><br>
+            <span>You now understand exactly what the system needs to do. Head to <a href="module1.html">Module 1 — Introduction to MERN</a> to begin the implementation journey.</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODULE NAV BAR -->
+      <div class="module-nav-bar">
+        <a href="index.html" class="btn-mod-prev"><i class="bi bi-house-fill"></i>Back to Home</a>
+        <div class="mod-progress-badge">
+          <div>Pre-Course · Module 00 of 10</div>
+          <div class="mod-prog-bar"><div class="mod-prog-fill" style="width:0%"></div></div>
+        </div>
+        <a href="module1.html" class="btn-mod-next">Module 1 — Introduction<i class="bi bi-arrow-right ms-1"></i></a>
+      </div>
+
+    </main><!-- /col-lg-9 -->
+  </div><!-- /row -->
+</div><!-- /container -->
+
+<!-- FOOTER -->
+<div id="footer-placeholder"></div>
+
+<!-- Bootstrap 5 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Project JS -->
+<script src="assets/js/script.js"></script>
+<!-- Sidebar scroll-spy -->
+<script>
+(function () {
+  'use strict';
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('#srs-nav .nav-link');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector('#srs-nav a[href="#' + entry.target.id + '"]');
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+})();
+</script>
+</body>
+</html>

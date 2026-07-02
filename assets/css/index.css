@@ -224,6 +224,17 @@ body {
   margin-bottom: .15rem;
 }
 
+/* Square module & requirements cards */
+#modules .col-md-6 {
+  aspect-ratio: 1 / 1;
+}
+#modules .col-md-6 .card {
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
 /* ── 7. PREREQ / TOOL ITEMS ── */
 .prereq-icon {
   width: 44px; height: 44px;
