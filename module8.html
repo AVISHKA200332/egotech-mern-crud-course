@@ -88,6 +88,7 @@
 		</aside>
 
 		<main class="col-lg-9">
+			<!-- CRUD examples are split into single actions so each state transition is clear. -->
 			<section class="content-section" id="objectives">
 				<h2><i class="bi bi-bullseye"></i>Learning Objectives</h2>
 				<ul class="objective-list">
@@ -111,6 +112,7 @@
 			</section>
 
 			<section class="content-section" id="create">
+				<!-- Create comes first because the rest of the flow depends on live data. -->
 				<h2><i class="bi bi-plus-circle-fill"></i>Create Students</h2>
 				<p>The form starts in create mode. When the user submits it, send a <code>POST</code> request to the API and then clear the form.</p>
 				<div class="code-wrapper">

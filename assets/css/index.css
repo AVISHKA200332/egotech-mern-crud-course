@@ -258,6 +258,13 @@ body {
   box-shadow: 0 0 0 3px rgba(13,110,253,.1);
 }
 .tool-icon { font-size: 1.6rem; display: block; margin-bottom: .4rem; }
+.tool-logo {
+  width: 1.85rem;
+  height: 1.85rem;
+  display: block;
+  margin-bottom: .4rem;
+  object-fit: contain;
+}
 
 /* ── 8. ROADMAP ── */
 .roadmap-item {
