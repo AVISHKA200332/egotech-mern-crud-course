@@ -7,6 +7,15 @@
   --module-muted: #64748b;
   --module-border: #dbeafe;
   --module-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
+
+  /* Shared design tokens (also used by footer.css) */
+  --primary:        #2563eb;
+  --primary-dark:   #1d4ed8;
+  --dark:           #0f1117;
+  --radius-sm:      .375rem;
+  --shadow:         0 4px 16px rgba(0, 0, 0, .10);
+  --transition:     .25s ease;
+  --font-mono:      'Fira Code', 'Cascadia Code', 'Consolas', monospace;
 }
 
 body {
