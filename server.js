@@ -7,6 +7,10 @@ const PORT = 3000;
 // Serve everything in the project root as static files
 app.use(express.static(path.join(__dirname)));
 
-app.listen(PORT, () => {
-  console.log(`EgoTECH site running at http://localhost:${PORT}`);
-});
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`EgoTech site running at http://localhost:${PORT}`);
+  });
+}
+
+module.exports = app;

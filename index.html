@@ -23,14 +23,11 @@
 
 <!-- ══════════════════════════════════════════════════════════
      HERO SECTION
-     Full-width intro with headline, CTA buttons, and a
-     course-progress card on the right.
 ════════════════════════════════════════════════════════════ -->
 <section class="hero-section" aria-label="Course Hero">
   <div class="container position-relative" style="z-index:1">
     <div class="row align-items-center g-5">
-
-      <!-- Left col: badge, headline, meta pills, and CTA buttons -->
+      <!-- Left copy -->
       <div class="col-lg-7 animate-fadeInUp">
         <div class="hero-badge"><i class="bi bi-stars me-1"></i>Beginner Friendly Course</div>
         <h1 class="hero-title">Complete MERN CRUD<br>Application for Beginners</h1>
@@ -53,11 +50,10 @@
           </a>
         </div>
       </div>
-      <!-- Right col: animated course-progress card -->
+      <!-- Right card -->
       <div class="col-lg-5 animate-fadeInUp animate-delay-2">
         <div class="hero-card">
           <div class="hero-card-header">
-            <!-- macOS-style window dots -->
             <div class="hero-card-dot" style="background:#f38ba8"></div>
             <div class="hero-card-dot" style="background:#f9e2af"></div>
             <div class="hero-card-dot" style="background:#a6e3a1"></div>
@@ -92,33 +88,28 @@
 
 <!-- ══════════════════════════════════════════════════════════
      COURSE OVERVIEW STATS
-     Four key numbers displayed as a quick-glance strip.
 ════════════════════════════════════════════════════════════ -->
 <section class="py-4 bg-white border-bottom">
   <div class="container">
     <div class="row g-3 text-center">
-      <!-- Stat: total modules -->
       <div class="col-6 col-md-3">
         <div class="p-3">
           <div class="fs-1 fw-800 text-primary">10</div>
           <div class="text-muted small fw-600">Modules</div>
         </div>
       </div>
-      <!-- Stat: estimated learning hours -->
       <div class="col-6 col-md-3">
         <div class="p-3">
           <div class="fs-1 fw-800 text-primary">8–10h</div>
           <div class="text-muted small fw-600">Learning Time</div>
         </div>
       </div>
-      <!-- Stat: code examples count -->
       <div class="col-6 col-md-3">
         <div class="p-3">
           <div class="fs-1 fw-800 text-primary">50+</div>
           <div class="text-muted small fw-600">Code Examples</div>
         </div>
       </div>
-      <!-- Stat: final project -->
       <div class="col-6 col-md-3">
         <div class="p-3">
           <div class="fs-1 fw-800 text-primary">1</div>
@@ -131,11 +122,9 @@
 
 <!-- ══════════════════════════════════════════════════════════
      LEARNING OUTCOMES
-     Six outcome cards showing skills gained after the course.
 ════════════════════════════════════════════════════════════ -->
 <section class="py-5 bg-light" id="outcomes">
   <div class="container">
-    <!-- Section heading -->
     <div class="text-center mb-5">
       <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill mb-2">What You'll Learn</span>
       <h2 class="section-title">Learning Outcomes</h2>
@@ -143,7 +132,6 @@
       <p class="section-subtitle">By the end of this course you will be able to build production-ready full-stack applications.</p>
     </div>
     <div class="row g-4">
-      <!-- Outcome 1: MongoDB & Mongoose -->
       <div class="col-md-6 col-lg-4">
         <div class="card outcome-card h-100 p-3">
           <div class="d-flex gap-3 align-items-start">
@@ -155,7 +143,6 @@
           </div>
         </div>
       </div>
-      <!-- Outcome 2: REST API -->
       <div class="col-md-6 col-lg-4">
         <div class="card outcome-card h-100 p-3">
           <div class="d-flex gap-3 align-items-start">
@@ -167,7 +154,6 @@
           </div>
         </div>
       </div>
-      <!-- Outcome 3: React -->
       <div class="col-md-6 col-lg-4">
         <div class="card outcome-card h-100 p-3">
           <div class="d-flex gap-3 align-items-start">
@@ -179,7 +165,6 @@
           </div>
         </div>
       </div>
-      <!-- Outcome 4: Node.js -->
       <div class="col-md-6 col-lg-4">
         <div class="card outcome-card h-100 p-3">
           <div class="d-flex gap-3 align-items-start">
@@ -191,7 +176,6 @@
           </div>
         </div>
       </div>
-      <!-- Outcome 5: Full CRUD -->
       <div class="col-md-6 col-lg-4">
         <div class="card outcome-card h-100 p-3">
           <div class="d-flex gap-3 align-items-start">
@@ -203,7 +187,6 @@
           </div>
         </div>
       </div>
-      <!-- Outcome 6: Deployment -->
       <div class="col-md-6 col-lg-4">
         <div class="card outcome-card h-100 p-3">
           <div class="d-flex gap-3 align-items-start">
@@ -221,74 +204,57 @@
 
 <!-- ══════════════════════════════════════════════════════════
      PREREQUISITES & SOFTWARE
-     Two-column layout: left = knowledge prerequisites,
-     right = software tools needed before starting.
 ════════════════════════════════════════════════════════════ -->
 <section class="py-5 bg-white">
   <div class="container">
     <div class="row g-5 align-items-start">
-
-      <!-- Left col: knowledge prerequisites -->
+      <!-- Prerequisites -->
       <div class="col-lg-6">
         <span class="badge bg-warning-subtle text-warning px-3 py-2 rounded-pill mb-2">Before You Start</span>
         <h2 class="section-title">Prerequisites</h2>
         <div class="section-divider"></div>
         <p class="text-muted mb-4">You don't need to be an expert, but the following basics will help you follow along more easily.</p>
-        <!-- Prerequisite: HTML & CSS -->
         <div class="prereq-item">
           <div class="prereq-icon"><i class="bi bi-filetype-html"></i></div>
           <div><h6 class="fw-700 mb-0">Basic HTML & CSS</h6><p class="text-muted small mb-0">Know how to create a webpage and style it.</p></div>
         </div>
-        <!-- Prerequisite: JavaScript -->
         <div class="prereq-item">
           <div class="prereq-icon"><i class="bi bi-filetype-js"></i></div>
           <div><h6 class="fw-700 mb-0">Basic JavaScript</h6><p class="text-muted small mb-0">Variables, functions, loops, and objects.</p></div>
         </div>
-        <!-- Prerequisite: command line -->
         <div class="prereq-item">
           <div class="prereq-icon"><i class="bi bi-terminal-fill"></i></div>
           <div><h6 class="fw-700 mb-0">Command Line Basics</h6><p class="text-muted small mb-0">Able to open a terminal and run simple commands.</p></div>
         </div>
-        <!-- Prerequisite: Git (optional) -->
         <div class="prereq-item">
           <div class="prereq-icon"><i class="bi bi-git"></i></div>
           <div><h6 class="fw-700 mb-0">Git Basics (Optional)</h6><p class="text-muted small mb-0">Basic git knowledge is helpful but we'll cover what's needed.</p></div>
         </div>
       </div>
-
-      <!-- Right col: software tools grid -->
+      <!-- Software Needed -->
       <div class="col-lg-6">
         <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill mb-2">Tools Required</span>
         <h2 class="section-title">Software You'll Need</h2>
         <div class="section-divider"></div>
         <p class="text-muted mb-4">All tools are free. Install them before starting Module 2.</p>
         <div class="row g-3">
-          <!-- Tool: Node.js -->
-          <div class="col-6"><div class="tool-card"><span class="tool-icon">🟢</span><h6 class="fw-700 mb-1">Node.js</h6><p class="text-muted small mb-0">v18+ LTS recommended</p></div></div>
-          <!-- Tool: MongoDB -->
-          <div class="col-6"><div class="tool-card"><span class="tool-icon">🍃</span><h6 class="fw-700 mb-1">MongoDB</h6><p class="text-muted small mb-0">Atlas (cloud) or local</p></div></div>
-          <!-- Tool: VS Code -->
-          <div class="col-6"><div class="tool-card"><span class="tool-icon">💙</span><h6 class="fw-700 mb-1">VS Code</h6><p class="text-muted small mb-0">Any modern editor works</p></div></div>
-          <!-- Tool: Postman -->
-          <div class="col-6"><div class="tool-card"><span class="tool-icon">🌐</span><h6 class="fw-700 mb-1">Postman</h6><p class="text-muted small mb-0">For API testing</p></div></div>
-          <!-- Tool: Git -->
-          <div class="col-6"><div class="tool-card"><span class="tool-icon">🐙</span><h6 class="fw-700 mb-1">Git</h6><p class="text-muted small mb-0">Version control</p></div></div>
-          <!-- Tool: npm (bundled with Node.js) -->
-          <div class="col-6"><div class="tool-card"><span class="tool-icon">📦</span><h6 class="fw-700 mb-1">npm</h6><p class="text-muted small mb-0">Comes with Node.js</p></div></div>
+          <div class="col-6"><div class="tool-card"><img class="tool-logo" src="https://cdn.simpleicons.org/nodedotjs/339933" alt="Node.js logo"><h6 class="fw-700 mb-1">Node.js</h6><p class="text-muted small mb-0">v18+ LTS recommended</p></div></div>
+          <div class="col-6"><div class="tool-card"><img class="tool-logo" src="https://cdn.simpleicons.org/mongodb/47A248" alt="MongoDB logo"><h6 class="fw-700 mb-1">MongoDB</h6><p class="text-muted small mb-0">Atlas (cloud) or local</p></div></div>
+          <div class="col-6"><div class="tool-card"><img class="tool-logo" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg" alt="Visual Studio Code logo"><h6 class="fw-700 mb-1">VS Code</h6><p class="text-muted small mb-0">Any modern editor works</p></div></div>
+          <div class="col-6"><div class="tool-card"><img class="tool-logo" src="https://cdn.simpleicons.org/postman/FF6C37" alt="Postman logo"><h6 class="fw-700 mb-1">Postman</h6><p class="text-muted small mb-0">For API testing</p></div></div>
+          <div class="col-6"><div class="tool-card"><img class="tool-logo" src="https://cdn.simpleicons.org/git/F05032" alt="Git logo"><h6 class="fw-700 mb-1">Git</h6><p class="text-muted small mb-0">Version control</p></div></div>
+          <div class="col-6"><div class="tool-card"><img class="tool-logo" src="https://cdn.simpleicons.org/npm/CB3837" alt="npm logo"><h6 class="fw-700 mb-1">npm</h6><p class="text-muted small mb-0">Comes with Node.js</p></div></div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
 <!-- ══════════════════════════════════════════════════════════
      COURSE ROADMAP
-     Four phase cards mapping modules to learning milestones.
 ════════════════════════════════════════════════════════════ -->
 <section class="py-5 bg-light" id="roadmap">
   <div class="container">
-    <!-- Section heading -->
     <div class="text-center mb-5">
       <span class="badge bg-info-subtle text-info px-3 py-2 rounded-pill mb-2">Learning Path</span>
       <h2 class="section-title">Course Roadmap</h2>
@@ -296,7 +262,6 @@
       <p class="section-subtitle">A structured path from zero to a deployed full-stack application.</p>
     </div>
     <div class="row g-4">
-      <!-- Phase 1: Foundation (Modules 1–3) -->
       <div class="col-lg-6">
         <div class="card p-4 h-100">
           <h5 class="fw-700 mb-3 text-primary"><i class="bi bi-layers me-2"></i>Phase 1 — Foundation (Modules 1–3)</h5>
@@ -305,7 +270,6 @@
           <div class="roadmap-item"><div class="roadmap-dot"></div><div><strong>Module 3:</strong> Node.js & Express Server — routing, middleware, structure</div></div>
         </div>
       </div>
-      <!-- Phase 2: Backend (Modules 4–5) -->
       <div class="col-lg-6">
         <div class="card p-4 h-100">
           <h5 class="fw-700 mb-3 text-success"><i class="bi bi-database me-2"></i>Phase 2 — Backend (Modules 4–5)</h5>
@@ -313,7 +277,6 @@
           <div class="roadmap-item"><div class="roadmap-dot" style="background:var(--success);box-shadow:0 0 0 4px #d1e7dd"></div><div><strong>Module 5:</strong> REST API Development — CRUD endpoints, testing with Postman</div></div>
         </div>
       </div>
-      <!-- Phase 3: Frontend (Modules 6–7) -->
       <div class="col-lg-6">
         <div class="card p-4 h-100">
           <h5 class="fw-700 mb-3 text-warning"><i class="bi bi-window me-2"></i>Phase 3 — Frontend (Modules 6–7)</h5>
@@ -321,7 +284,6 @@
           <div class="roadmap-item"><div class="roadmap-dot" style="background:#ffc107;box-shadow:0 0 0 4px #fff3cd"></div><div><strong>Module 7:</strong> Connecting Frontend & Backend — Axios, CORS, environment variables</div></div>
         </div>
       </div>
-      <!-- Phase 4: Full App (Modules 8–10) -->
       <div class="col-lg-6">
         <div class="card p-4 h-100">
           <h5 class="fw-700 mb-3 text-danger"><i class="bi bi-rocket-takeoff me-2"></i>Phase 4 — Full App (Modules 8–10)</h5>
@@ -336,11 +298,9 @@
 
 <!-- ══════════════════════════════════════════════════════════
      MODULE CARDS
-     One card per module (00–10) with topic summary and CTA.
 ════════════════════════════════════════════════════════════ -->
 <section class="py-5 bg-white" id="modules">
   <div class="container">
-    <!-- Section heading -->
     <div class="text-center mb-5">
       <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill mb-2">Course Content</span>
       <h2 class="section-title">All 10 Modules</h2>
@@ -348,32 +308,6 @@
       <p class="section-subtitle">Each module is a self-contained lesson with explanations, code examples, and exercises.</p>
     </div>
     <div class="row g-4">
-      <!-- Module 00: Requirement Analysis (pre-course) -->
-      <div class="col-md-6 col-lg-4">
-        <div class="card module-card h-100">
-          <div class="card-header d-flex justify-content-between align-items-start"
-               style="background:linear-gradient(135deg,#6f42c1,#4b2a8a)">
-            <div>
-              <div class="module-number">00</div>
-              <h6 class="fw-700 mb-0">Requirement Analysis</h6>
-            </div>
-            <span class="badge bg-white text-purple" style="color:#6f42c1!important">Pre-Course</span>
-          </div>
-          <div class="card-body">
-            <p class="text-muted small">Understand what we are building before writing a single line of code. Define the app's goals, features, data models, and API contracts.</p>
-            <ul class="list-unstyled small text-muted mb-3">
-              <li><i class="bi bi-check-circle-fill text-success me-1"></i>Project Scope & Goals</li>
-              <li><i class="bi bi-check-circle-fill text-success me-1"></i>Data Model Design</li>
-              <li><i class="bi bi-check-circle-fill text-success me-1"></i>API Contract Overview</li>
-            </ul>
-          </div>
-          <div class="card-footer bg-transparent border-top-0 pt-0">
-            <a href="requirements.html" class="btn w-100 text-white" style="background:#6f42c1">
-              <i class="bi bi-clipboard-check-fill me-1"></i>View Requirements
-            </a>
-          </div>
-        </div>
-      </div>
       <!-- Module 1 -->
       <div class="col-md-6 col-lg-4">
         <div class="card module-card h-100">
@@ -399,7 +333,7 @@
           </div>
         </div>
       </div>
-      <!-- Module 02: Dev Environment Setup -->
+      <!-- Module 2 -->
       <div class="col-md-6 col-lg-4">
         <div class="card module-card h-100">
           <div class="card-header d-flex justify-content-between align-items-start">
@@ -424,7 +358,7 @@
           </div>
         </div>
       </div>
-      <!-- Module 03: Node.js & Express Server -->
+      <!-- Module 3 -->
       <div class="col-md-6 col-lg-4">
         <div class="card module-card h-100">
           <div class="card-header d-flex justify-content-between align-items-start">
@@ -449,7 +383,7 @@
           </div>
         </div>
       </div>
-      <!-- Module 04: MongoDB Database -->
+      <!-- Module 4 -->
       <div class="col-md-6 col-lg-4">
         <div class="card module-card h-100">
           <div class="card-header d-flex justify-content-between align-items-start">
@@ -474,7 +408,7 @@
           </div>
         </div>
       </div>
-      <!-- Module 05: REST API Development -->
+      <!-- Module 5 -->
       <div class="col-md-6 col-lg-4">
         <div class="card module-card h-100">
           <div class="card-header d-flex justify-content-between align-items-start">
@@ -499,7 +433,7 @@
           </div>
         </div>
       </div>
-      <!-- Module 06: React Frontend -->
+      <!-- Module 6 -->
       <div class="col-md-6 col-lg-4">
         <div class="card module-card h-100">
           <div class="card-header d-flex justify-content-between align-items-start">
@@ -524,7 +458,7 @@
           </div>
         </div>
       </div>
-      <!-- Module 07: Connecting Frontend & Backend -->
+      <!-- Module 7 -->
       <div class="col-md-6 col-lg-4">
         <div class="card module-card h-100">
           <div class="card-header d-flex justify-content-between align-items-start">
@@ -549,7 +483,7 @@
           </div>
         </div>
       </div>
-      <!-- Module 08: CRUD Operations -->
+      <!-- Module 8 -->
       <div class="col-md-6 col-lg-4">
         <div class="card module-card h-100">
           <div class="card-header d-flex justify-content-between align-items-start">
@@ -574,7 +508,7 @@
           </div>
         </div>
       </div>
-      <!-- Module 09: Deployment -->
+      <!-- Module 9 -->
       <div class="col-md-6 col-lg-4">
         <div class="card module-card h-100">
           <div class="card-header d-flex justify-content-between align-items-start">
@@ -599,7 +533,7 @@
           </div>
         </div>
       </div>
-      <!-- Module 10: Final Project & Best Practices (capstone) -->
+      <!-- Module 10 -->
       <div class="col-md-6 col-lg-4">
         <div class="card module-card h-100">
           <div class="card-header d-flex justify-content-between align-items-start"
@@ -631,19 +565,15 @@
 
 <!-- ══════════════════════════════════════════════════════════
      WHY LEARN MERN?
-     Four benefit cards: one language, high demand, scalable,
-     and community support.
 ════════════════════════════════════════════════════════════ -->
 <section class="py-5 bg-light">
   <div class="container">
-    <!-- Section heading -->
     <div class="text-center mb-5">
       <span class="badge bg-danger-subtle text-danger px-3 py-2 rounded-pill mb-2">Why MERN?</span>
       <h2 class="section-title">Why Learn the MERN Stack?</h2>
       <div class="section-divider mx-auto"></div>
     </div>
     <div class="row g-4">
-      <!-- Benefit 1: single language across the stack -->
       <div class="col-md-6 col-lg-3">
         <div class="why-card text-center">
           <i class="bi bi-code-slash fs-1 mb-3 d-block"></i>
@@ -651,7 +581,6 @@
           <p class="small opacity-75 mb-0">JavaScript is used across the entire stack — front-end, back-end, and database queries.</p>
         </div>
       </div>
-      <!-- Benefit 2: job market demand -->
       <div class="col-md-6 col-lg-3">
         <div class="why-card text-center" style="background:linear-gradient(135deg,#198754,#0f6e44)">
           <i class="bi bi-lightning-charge-fill fs-1 mb-3 d-block"></i>
@@ -659,7 +588,6 @@
           <p class="small opacity-75 mb-0">MERN developers are among the most sought-after on job boards worldwide.</p>
         </div>
       </div>
-      <!-- Benefit 3: scales from MVP to production -->
       <div class="col-md-6 col-lg-3">
         <div class="why-card text-center" style="background:linear-gradient(135deg,#6f42c1,#563d7c)">
           <i class="bi bi-boxes fs-1 mb-3 d-block"></i>
@@ -667,7 +595,6 @@
           <p class="small opacity-75 mb-0">Build everything from a small MVP to a large-scale production application.</p>
         </div>
       </div>
-      <!-- Benefit 4: large ecosystem & community -->
       <div class="col-md-6 col-lg-3">
         <div class="why-card text-center" style="background:linear-gradient(135deg,#fd7e14,#e96b02)">
           <i class="bi bi-people-fill fs-1 mb-3 d-block"></i>
@@ -681,33 +608,23 @@
 
 <!-- ══════════════════════════════════════════════════════════
      CAREER OPPORTUNITIES
-     Left col: role list. Right col: salary comparison bars.
 ════════════════════════════════════════════════════════════ -->
 <section class="py-5 bg-white">
   <div class="container">
     <div class="row align-items-center g-5">
-
-      <!-- Left col: career role list -->
       <div class="col-lg-6">
         <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill mb-2">Career Paths</span>
         <h2 class="section-title">Career Opportunities</h2>
         <div class="section-divider"></div>
         <p class="text-muted mb-4">Completing this course opens doors to many exciting tech roles.</p>
-        <!-- Role: Full-Stack Developer -->
         <div class="career-item"><i class="bi bi-laptop fs-4 text-primary me-1"></i><div><strong>Full-Stack Developer</strong><br><small class="text-muted">Build both client-side and server-side applications.</small></div></div>
-        <!-- Role: Backend Developer -->
         <div class="career-item"><i class="bi bi-hdd-stack fs-4 text-success me-1"></i><div><strong>Backend Developer</strong><br><small class="text-muted">Specialise in Node.js, Express, and MongoDB APIs.</small></div></div>
-        <!-- Role: Frontend Developer -->
         <div class="career-item"><i class="bi bi-palette fs-4 text-warning me-1"></i><div><strong>Frontend Developer</strong><br><small class="text-muted">Focus on React components, state management and UI.</small></div></div>
-        <!-- Role: DevOps / Cloud Engineer -->
         <div class="career-item"><i class="bi bi-cloud fs-4 text-info me-1"></i><div><strong>DevOps / Cloud Engineer</strong><br><small class="text-muted">Deploy and manage MERN apps on cloud platforms.</small></div></div>
       </div>
-
-      <!-- Right col: average salary progress bars -->
       <div class="col-lg-6">
         <div class="card p-4 border-0" style="background:var(--gray-100)">
           <h5 class="fw-700 mb-4">Average Salaries (USD)</h5>
-          <!-- Salary bar: Full-Stack -->
           <div class="mb-3">
             <div class="d-flex justify-content-between mb-1">
               <span class="fw-600">Full-Stack Developer</span>
@@ -717,7 +634,6 @@
               <div class="progress-bar" role="progressbar" style="width:90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
           </div>
-          <!-- Salary bar: Backend -->
           <div class="mb-3">
             <div class="d-flex justify-content-between mb-1">
               <span class="fw-600">Backend Developer</span>
@@ -727,7 +643,6 @@
               <div class="progress-bar bg-success" role="progressbar" style="width:80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
           </div>
-          <!-- Salary bar: Frontend -->
           <div class="mb-3">
             <div class="d-flex justify-content-between mb-1">
               <span class="fw-600">Frontend Developer</span>
@@ -737,21 +652,18 @@
               <div class="progress-bar bg-warning" role="progressbar" style="width:75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
           </div>
-          <!-- Disclaimer note -->
           <div class="alert alert-primary mt-3 mb-0 small">
             <i class="bi bi-info-circle me-1"></i>
             Salaries vary by experience, location, and company size.
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
 <!-- ══════════════════════════════════════════════════════════
      CTA BANNER
-     Full-width call-to-action prompting users to start now.
 ════════════════════════════════════════════════════════════ -->
 <section class="py-5 bg-gradient-primary text-white text-center">
   <div class="container">
@@ -770,11 +682,11 @@
 ════════════════════════════════════════════════════════════ -->
 <div id="footer-placeholder"></div>
 
-<!-- Bootstrap JS bundle (includes Popper) -->
+<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Mermaid.js — diagram rendering (used in module pages) -->
+<!-- Mermaid.js -->
 <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-<!-- Site-wide custom JS (component loader, scroll-to-top, etc.) -->
+<!-- Custom JS -->
 <script src="assets/js/script.js"></script>
 </body>
 </html>
