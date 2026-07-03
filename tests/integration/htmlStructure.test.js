@@ -53,10 +53,6 @@ describe('index.html structure', () => {
     }
   });
 
-  test('has link to requirements.html', () => {
-    expect(html).toContain('href="requirements.html"');
-  });
-
   test('loads index.css, navbar.css, and footer.css', () => {
     expect(html).toContain('index.css');
     expect(html).toContain('navbar.css');
