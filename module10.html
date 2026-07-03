@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Module 10 � Final Project & Best Practices | EgoTECHWorld</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+	<link href="assets/css/style.css" rel="stylesheet" />
+	<link href="assets/css/navbar.css" rel="stylesheet" />
+	<link href="assets/css/footer.css" rel="stylesheet" />
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top navbar-light bg-white shadow-sm border-bottom">
+	<div class="container">
+		<a class="navbar-brand" href="index.html">Ego<span>TECH</span></a>
+		<button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+				<li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house-fill me-1"></i>Home</a></li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Modules</a>
+					<ul class="dropdown-menu shadow">
+						<li><a class="dropdown-item" href="module1.html"><span class="badge bg-secondary me-2">01</span>Introduction to MERN</a></li>
+						<li><a class="dropdown-item" href="module2.html"><span class="badge bg-secondary me-2">02</span>Dev Environment Setup</a></li>
+						<li><a class="dropdown-item" href="module3.html"><span class="badge bg-secondary me-2">03</span>Node.js &amp; Express</a></li>
+						<li><a class="dropdown-item" href="module4.html"><span class="badge bg-secondary me-2">04</span>MongoDB</a></li>
+						<li><a class="dropdown-item" href="module5.html"><span class="badge bg-secondary me-2">05</span>REST API Development</a></li>
+						<li><a class="dropdown-item" href="module6.html"><span class="badge bg-secondary me-2">06</span>React Frontend</a></li>
+						<li><a class="dropdown-item" href="module7.html"><span class="badge bg-secondary me-2">07</span>Connecting Frontend &amp; Backend</a></li>
+						<li><a class="dropdown-item" href="module8.html"><span class="badge bg-secondary me-2">08</span>CRUD Operations</a></li>
+						<li><a class="dropdown-item" href="module9.html"><span class="badge bg-secondary me-2">09</span>Deployment</a></li>
+						<li><a class="dropdown-item" href="module10.html"><span class="badge bg-success me-2">10</span>Final Project</a></li>
+					</ul>
+				</li>
+				<li class="nav-item"><a class="nav-link" href="index.html#roadmap"><i class="bi bi-map me-1"></i>Roadmap</a></li>
+				<li class="nav-item ms-lg-2"><a class="btn btn-success btn-sm fw-700 px-3" href="index.html#modules">Finish Course</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<section class="module-hero">
+	<div class="container">
+		<div class="module-badge"><i class="bi bi-collection-fill"></i> Module 10</div>
+		<h1><i class="bi bi-trophy-fill me-2" style="color:#fcd34d;"></i>Final Project &amp; Best Practices</h1>
+		<p class="lead">Finish the course with a polished student CRUD app, review the most important coding habits, summarize everything you learned, and define who owns which part of the full stack.</p>
+		<div class="module-meta">
+			<span class="module-meta-pill"><i class="bi bi-clock-fill"></i> 55 min</span>
+			<span class="module-meta-pill"><i class="bi bi-trophy-fill"></i> Capstone</span>
+			<span class="module-meta-pill"><i class="bi bi-people-fill"></i> Shared Ownership</span>
+		</div>
+		<div class="progress-track"><div class="fill" style="width:100%"></div></div>
+	</div>
+</section>
+
+<div class="container py-5">
+	<div class="row g-4">
+		<aside class="col-lg-3">
+			<div class="module-sidebar">
+				<div class="sidebar-nav-card">
+					<div class="sidebar-header"><i class="bi bi-list-ul me-1"></i> This Module</div>
+					<nav class="nav flex-column py-1">
+						<a class="nav-link active" href="#objectives"><span class="snum">01</span>Learning Objectives</a>
+						<a class="nav-link" href="#final-project"><span class="snum">02</span>Final Project</a>
+						<a class="nav-link" href="#best-practices"><span class="snum">03</span>Best Practices</a>
+						<a class="nav-link" href="#summary"><span class="snum">04</span>Course Summary</a>
+						<a class="nav-link" href="#responsibilities"><span class="snum">05</span>Shared Responsibilities</a>
+						<a class="nav-link" href="#checklist"><span class="snum">06</span>Completion Checklist</a>
+						<a class="nav-link" href="#next-steps"><span class="snum">07</span>What Next?</a>
+					</nav>
+				</div>
+				<div class="all-modules-card">
+					<div class="p-2" style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#6c757d;padding:.6rem .85rem .2rem!important;">All Modules</div>
+					<a class="mod-link" href="module1.html"><span class="mod-num">01</span>Introduction to MERN</a>
+					<a class="mod-link" href="module2.html"><span class="mod-num">02</span>Dev Environment</a>
+					<a class="mod-link" href="module3.html"><span class="mod-num">03</span>Node.js &amp; Express</a>
+					<a class="mod-link" href="module4.html"><span class="mod-num">04</span>MongoDB</a>
+					<a class="mod-link" href="module5.html"><span class="mod-num">05</span>REST API</a>
+					<a class="mod-link" href="module6.html"><span class="mod-num">06</span>React Frontend</a>
+					<a class="mod-link" href="module7.html"><span class="mod-num">07</span>Frontend + Backend</a>
+					<a class="mod-link" href="module8.html"><span class="mod-num">08</span>CRUD Operations</a>
+					<a class="mod-link" href="module9.html"><span class="mod-num">09</span>Deployment</a>
+					<a class="mod-link current" href="module10.html"><span class="mod-num">10</span>Final Project</a>
+				</div>
+			</div>
+		</aside>
+
+		<main class="col-lg-9">
+			<!-- The capstone wraps up the course and ties the earlier modules together. -->
+			<section class="content-section" id="objectives">
+				<h2><i class="bi bi-bullseye"></i>Learning Objectives</h2>
+				<ul class="objective-list">
+					<li><div class="obj-num">1</div><span>Assemble the final MERN CRUD project from the backend, frontend, and database work completed earlier.</span></li>
+					<li><div class="obj-num">2</div><span>Apply best practices for clean code, validation, security, and maintainability.</span></li>
+					<li><div class="obj-num">3</div><span>Summarize what each module taught and how the pieces fit together.</span></li>
+					<li><div class="obj-num">4</div><span>Understand which responsibilities belong to frontend, backend, and database work.</span></li>
+					<li><div class="obj-num">5</div><span>Leave the course with a practical next-step path for improving the app or learning more.</span></li>
+				</ul>
+			</section>
+
+			<section class="content-section" id="final-project">
+				<h2><i class="bi bi-rocket-takeoff-fill"></i>Final Project Goal</h2>
+				<p>By the end of this course, your app should let a user add, view, edit, and delete student records through a clean React interface backed by an Express API and MongoDB Atlas.</p>
+				<div class="row g-3">
+					<div class="col-md-6"><div class="tip-card h-100"><i class="bi bi-ui-checks-grid"></i><div><strong>Frontend</strong><div class="small">Form, list, buttons, feedback states, and responsive layout.</div></div></div></div>
+					<div class="col-md-6"><div class="tip-card h-100"><i class="bi bi-hdd-network-fill"></i><div><strong>Backend</strong><div class="small">Routes, controllers, validation, and JSON responses.</div></div></div></div>
+				</div>
+			</section>
+
+			<section class="content-section" id="best-practices">
+				<h2><i class="bi bi-shield-check"></i>Best Practices</h2>
+				<div class="row g-3">
+					<div class="col-md-6"><div class="tip-card h-100"><i class="bi bi-file-earmark-text"></i><div><strong>Keep components small</strong><div class="small">One component should do one thing well.</div></div></div></div>
+					<div class="col-md-6"><div class="tip-card h-100"><i class="bi bi-tag-fill"></i><div><strong>Use clear names</strong><div class="small">Name functions and files after what they do.</div></div></div></div>
+					<div class="col-md-6"><div class="tip-card h-100"><i class="bi bi-lock-fill"></i><div><strong>Protect secrets</strong><div class="small">Store URLs and passwords in environment variables.</div></div></div></div>
+					<div class="col-md-6"><div class="tip-card h-100"><i class="bi bi-bug-fill"></i><div><strong>Handle errors</strong><div class="small">Show useful messages instead of silent failures.</div></div></div></div>
+					<div class="col-md-6"><div class="tip-card h-100"><i class="bi bi-arrow-repeat"></i><div><strong>Keep state in sync</strong><div class="small">Refresh the UI after save, edit, and delete actions.</div></div></div></div>
+					<div class="col-md-6"><div class="tip-card h-100"><i class="bi bi-phone-fill"></i><div><strong>Design for mobile</strong><div class="small">Check that forms and tables still work on small screens.</div></div></div></div>
+				</div>
+			</section>
+
+			<section class="content-section" id="summary">
+				<!-- This summary helps learners connect the full MERN workflow back to each module. -->
+				<h2><i class="bi bi-journal-text"></i>Course Summary</h2>
+				<p>This course started with the MERN stack, moved through the development setup, built the backend, designed the database, connected the frontend, implemented CRUD, and ended with deployment and final project planning.</p>
+				<div class="row g-3">
+					<div class="col-lg-4"><div class="tip-card h-100"><i class="bi bi-1-circle-fill"></i><div><strong>Modules 1-2</strong><div class="small">MERN concepts and environment setup.</div></div></div></div>
+					<div class="col-lg-4"><div class="tip-card h-100"><i class="bi bi-2-circle-fill"></i><div><strong>Modules 3-5</strong><div class="small">Backend server, MongoDB, and REST API.</div></div></div></div>
+					<div class="col-lg-4"><div class="tip-card h-100"><i class="bi bi-3-circle-fill"></i><div><strong>Modules 6-9</strong><div class="small">React frontend, integration, CRUD, and deployment.</div></div></div></div>
+				</div>
+			</section>
+
+			<section class="content-section" id="responsibilities">
+				<h2><i class="bi bi-people-fill"></i>Shared Responsibilities</h2>
+				<p>In a real project, frontend, backend, and database work often happen in parallel. Clear ownership keeps the app moving without people stepping on each other.</p>
+				<div class="table-responsive">
+					<table class="table table-bordered align-middle mb-0">
+						<thead class="table-light">
+							<tr><th>Area</th><th>Main Responsibility</th><th>Example Tasks</th></tr>
+						</thead>
+						<tbody>
+							<tr><td>Frontend</td><td>User interface and user experience</td><td>Forms, lists, routing, validation messages</td></tr>
+							<tr><td>Backend</td><td>API logic and server rules</td><td>Routes, controllers, CORS, status codes</td></tr>
+							<tr><td>Database</td><td>Data structure and persistence</td><td>Schema design, queries, validation, Atlas access</td></tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+
+			<section class="content-section" id="checklist">
+				<h2><i class="bi bi-check2-square"></i>Completion Checklist</h2>
+				<ul class="objective-list">
+					<li><div class="obj-num">1</div><span>The app loads without console errors.</span></li>
+					<li><div class="obj-num">2</div><span>Students can be created, edited, listed, and deleted.</span></li>
+					<li><div class="obj-num">3</div><span>The frontend talks to the backend in both local and deployed environments.</span></li>
+					<li><div class="obj-num">4</div><span>Secrets are stored in environment variables, not in source code.</span></li>
+					<li><div class="obj-num">5</div><span>The project has a clear README and can be handed to another developer.</span></li>
+				</ul>
+			</section>
+
+			<section class="content-section" id="next-steps">
+				<h2><i class="bi bi-arrow-right-circle-fill"></i>What to Learn Next</h2>
+				<div class="row g-3">
+					<div class="col-md-6"><div class="tip-card h-100"><i class="bi bi-journal-code"></i><div><strong>Practice more features</strong><div class="small">Search, pagination, authentication, and file uploads are natural next steps.</div></div></div></div>
+					<div class="col-md-6"><div class="tip-card h-100"><i class="bi bi-github"></i><div><strong>Build a portfolio repo</strong><div class="small">Clean README, screenshots, and deployment links make the project easier to share.</div></div></div></div>
+				</div>
+			</section>
+
+			<div class="module-nav-bar">
+				<a class="btn-mod-prev" href="module9.html"><i class="bi bi-arrow-left"></i> Previous Module</a>
+				<div class="mod-progress-badge">Module 10 of 10<div class="mod-prog-bar"><div class="mod-prog-fill" style="width:100%"></div></div></div>
+				<a class="btn-mod-next" href="index.html#modules">Back to Modules <i class="bi bi-house"></i></a>
+			</div>
+		</main>
+	</div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <h5><i class="bi bi-braces-asterisk me-1"></i>EgoTECH<span style="color:var(--primary)">World</span></h5>
+        <p class="small" style="color:rgba(255,255,255,.55);">Free beginner-focused MERN tutorials. Build real projects from scratch.</p>
+        <div class="footer-social mt-3">
+          <a href="https://egotechworld.com"><i class="bi bi-globe2"></i></a>
+          <a href="#"><i class="bi bi-github"></i></a>
+          <a href="#"><i class="bi bi-youtube"></i></a>
+          <a href="#"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h5>Course Modules</h5>
+        <ul class="list-unstyled" style="font-size:.85rem;">
+          <li class="mb-1"><a href="module1.html"><i class="bi bi-arrow-right-short"></i> Module 1</a></li>
+          <li class="mb-1"><a href="module5.html"><i class="bi bi-arrow-right-short"></i> Module 5</a></li>
+          <li><a href="module9.html"><i class="bi bi-arrow-right-short"></i> Module 9</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled" style="font-size:.85rem;">
+          <li><a href="index.html"><i class="bi bi-arrow-right-short"></i> Course Home</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="footer-divider"/>
+    <div class="d-flex flex-wrap justify-content-between" style="font-size:.82rem;">
+      <span style="color:rgba(255,255,255,.45);">&copy; 2025 EgoTECHWorld</span>
+    </div>
+  </div>
+</footer>
+
+<button id="scrollTop" aria-label="Scroll to top"><i class="bi bi-arrow-up"></i></button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/script.js"></script>
+</body>
+</html>

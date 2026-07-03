@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Module 3 � Node.js &amp; Express | EgoTECHWorld</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"/>
+  <link href="assets/css/style.css" rel="stylesheet"/>
+  <link href="assets/css/navbar.css" rel="stylesheet"/>
+  <link href="assets/css/footer.css" rel="stylesheet"/>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Ego<span>TECH</span></a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+        <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house-fill me-1"></i>Home</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Modules</a>
+          <ul class="dropdown-menu shadow">
+            <li><a class="dropdown-item" href="module1.html"><span class="badge bg-secondary me-2">01</span>Introduction to MERN</a></li>
+            <li><a class="dropdown-item" href="module2.html"><span class="badge bg-secondary me-2">02</span>Dev Environment Setup</a></li>
+            <li><a class="dropdown-item" href="module3.html"><span class="badge bg-primary me-2">03</span>Node.js &amp; Express</a></li>
+            <li><a class="dropdown-item" href="module4.html"><span class="badge bg-secondary me-2">04</span>MongoDB</a></li>
+            <li><a class="dropdown-item" href="module5.html"><span class="badge bg-secondary me-2">05</span>REST API Development</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="setup-guide.html"><i class="bi bi-book me-1"></i>Setup Guide</a></li>
+        <li class="nav-item ms-lg-2"><a class="btn btn-primary btn-sm fw-700 px-3" href="module4.html">Next ?</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="module-hero">
+  <div class="container">
+    <div class="module-badge"><i class="bi bi-collection-fill"></i> Module 3</div>
+    <h1><i class="bi bi-server me-2" style="color:#fcd34d;"></i>Node.js &amp; Express.js</h1>
+    <p class="lead">Build the backend server from scratch � install packages, understand middleware, connect the database, write your first routes, and run the server with auto-reload using nodemon.</p>
+    <div class="module-meta">
+      <span class="module-meta-pill"><i class="bi bi-clock-fill"></i> 60 min</span>
+      <span class="module-meta-pill"><i class="bi bi-code-slash"></i> Coding Starts Here</span>
+      <span class="module-meta-pill"><i class="bi bi-server"></i> Backend</span>
+    </div>
+    <div class="progress-track"><div class="fill" style="width:60%"></div></div>
+  </div>
+</section>
+
+<div class="container py-5">
+  <div class="row g-4">
+    <aside class="col-lg-3">
+      <div class="module-sidebar">
+        <div class="sidebar-nav-card">
+          <div class="sidebar-header"><i class="bi bi-list-ul me-1"></i> This Module</div>
+          <nav class="nav flex-column py-1">
+            <a class="nav-link active" href="#objectives"><span class="snum">01</span>Learning Objectives</a>
+            <a class="nav-link" href="#nodejs-explained"><span class="snum">02</span>What is Node.js?</a>
+            <a class="nav-link" href="#express-explained"><span class="snum">03</span>What is Express?</a>
+            <a class="nav-link" href="#npm-setup"><span class="snum">04</span>Init &amp; Install Packages</a>
+            <a class="nav-link" href="#server-js"><span class="snum">05</span>server.js � Entry Point</a>
+            <a class="nav-link" href="#middleware"><span class="snum">06</span>Middleware Explained</a>
+            <a class="nav-link" href="#routing"><span class="snum">07</span>Routes File</a>
+            <a class="nav-link" href="#test-server"><span class="snum">08</span>Test the Server</a>
+            <a class="nav-link" href="#clean-code"><span class="snum">09</span>Clean Code Tips</a>
+            <a class="nav-link" href="#git-cmds"><span class="snum">10</span>Git Commands</a>
+          </nav>
+        </div>
+        <div class="all-modules-card">
+          <div class="p-2" style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#6c757d;padding:.6rem .85rem .2rem!important;">All Modules</div>
+          <a class="mod-link" href="module1.html"><span class="mod-num">01</span>Introduction to MERN</a>
+          <a class="mod-link" href="module2.html"><span class="mod-num">02</span>Dev Environment</a>
+          <a class="mod-link current" href="module3.html"><span class="mod-num">03</span>Node.js &amp; Express</a>
+          <a class="mod-link" href="module4.html"><span class="mod-num">04</span>MongoDB</a>
+          <a class="mod-link" href="module5.html"><span class="mod-num">05</span>REST API</a>
+        </div>
+      </div>
+    </aside>
+
+    <main class="col-lg-9">
+
+      <!-- OBJECTIVES -->
+      <section class="content-section" id="objectives">
+        <h2><i class="bi bi-bullseye"></i>Learning Objectives</h2>
+        <ul class="objective-list">
+          <li><div class="obj-num">1</div><span>Explain the difference between Node.js and Express.js and why you need both together.</span></li>
+          <li><div class="obj-num">2</div><span>Run <code>npm init</code>, install Express, Mongoose, dotenv, cors, nodemon, jest, and supertest.</span></li>
+          <li><div class="obj-num">3</div><span>Write a complete <code>server.js</code> that loads environment variables, connects to MongoDB, applies middleware, and starts listening.</span></li>
+          <li><div class="obj-num">4</div><span>Explain what middleware is and what <code>next()</code> does in the request-response cycle.</span></li>
+          <li><div class="obj-num">5</div><span>Create a basic routes file and test the server health-check route using Postman.</span></li>
+        </ul>
+      </section>
+
+      <!-- NODE.JS -->
+      <section class="content-section" id="nodejs-explained">
+        <h2><i class="bi bi-cpu-fill"></i>What is Node.js? � Beginner Explanation</h2>
+        <p>JavaScript normally only runs inside a web browser (Chrome, Firefox). <strong>Node.js</strong> is a runtime environment that lets JavaScript run on your computer � outside the browser, on the server side.</p>
+
+        <div class="row g-3 mb-3">
+          <div class="col-sm-6">
+            <div class="card border-danger-subtle h-100"><div class="card-body p-3">
+              <strong class="text-danger small d-block mb-1">? Before Node.js</strong>
+              <p class="text-muted small mb-0">Servers were Python, PHP, Java, Ruby. Different language for front and back. Developers needed two skill sets.</p>
+            </div></div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card border-success-subtle h-100"><div class="card-body p-3">
+              <strong class="text-success small d-block mb-1">? With Node.js</strong>
+              <p class="text-muted small mb-0">JavaScript runs everywhere � browser AND server. One language, full stack. That is why MERN is beginner-friendly.</p>
+            </div></div>
+          </div>
+        </div>
+
+        <h3>Asynchronous &amp; Non-Blocking</h3>
+        <p>Node.js never waits. While waiting for a database query to finish, it handles other requests. This is why a single Node server can handle thousands of users simultaneously.</p>
+        <div class="code-wrapper">
+          <div class="code-header"><span class="filename"><i class="bi bi-file-code me-1"></i>Sync vs Async � why async/await matters</span><span class="lang-tag">JS</span></div>
+          <pre class="code-block"><span class="cm">// ? Synchronous � blocks everything until done</span>
+<span class="kw">const</span> data = database.<span class="fn">find</span>();      <span class="cm">// server FREEZES here</span>
+console.<span class="fn">log</span>(data);
+
+<span class="cm">// ? Asynchronous � does not block other requests</span>
+<span class="kw">const</span> <span class="fn">getStudents</span> = <span class="kw">async</span> () => {
+  <span class="kw">const</span> students = <span class="kw">await</span> Student.<span class="fn">find</span>(); <span class="cm">// waits but doesn't block</span>
+  console.<span class="fn">log</span>(students);
+};</pre>
+        </div>
+      </section>
+
+      <!-- EXPRESS -->
+      <section class="content-section" id="express-explained">
+        <h2><i class="bi bi-lightning-charge-fill"></i>What is Express.js?</h2>
+        <p>Node.js can handle HTTP requests but the raw code is verbose. <strong>Express.js</strong> is a minimal framework that wraps Node's HTTP module and makes it simple to define routes, add middleware, and send responses.</p>
+        <div class="code-wrapper">
+          <div class="code-header"><span class="filename"><i class="bi bi-file-code me-1"></i>Raw Node.js vs Express.js</span><span class="lang-tag">JS</span></div>
+          <pre class="code-block"><span class="cm">// Raw Node.js HTTP � 8 lines to do what Express does in 3</span>
+<span class="kw">const</span> http = <span class="fn">require</span>(<span class="str">'http'</span>);
+<span class="kw">const</span> server = http.<span class="fn">createServer</span>((req, res) => {
+  <span class="kw">if</span> (req.url === <span class="str">'/students'</span> && req.method === <span class="str">'GET'</span>) {
+    res.<span class="fn">writeHead</span>(<span class="nm">200</span>, { <span class="str">'Content-Type'</span>: <span class="str">'application/json'</span> });
+    res.<span class="fn">end</span>(JSON.<span class="fn">stringify</span>({ students: [] }));
+  }
+});
+
+<span class="cm">// Express � clean and readable</span>
+<span class="kw">const</span> app = <span class="fn">express</span>();
+app.<span class="fn">get</span>(<span class="str">'/students'</span>, (req, res) => {
+  res.<span class="fn">json</span>({ students: [] });   <span class="cm">// done!</span>
+});</pre>
+        </div>
+      </section>
+
+      <!-- NPM SETUP -->
+      <section class="content-section" id="npm-setup">
+        <h2><i class="bi bi-box-seam-fill"></i>Initialize Backend &amp; Install Packages</h2>
+        <div class="git-cmd">cd mern-student-app/backend</div>
+        <div class="git-cmd">npm init -y</div>
+        <p class="git-comment">Creates package.json with default values. -y = yes to all defaults</p>
+        <div class="git-cmd">npm install express mongoose dotenv cors</div>
+        <p class="git-comment">Production dependencies</p>
+        <div class="git-cmd">npm install --save-dev nodemon jest supertest</div>
+        <p class="git-comment">Dev-only tools � not included in production build</p>
+
+        <div class="table-responsive mt-3">
+          <table class="table table-bordered align-middle" style="font-size:.83rem;">
+            <thead class="table-dark"><tr><th>Package</th><th>Type</th><th>What it does</th></tr></thead>
+            <tbody>
+              <tr><td><code>express</code></td><td><span class="badge bg-success">prod</span></td><td>Web framework � routing, middleware, responses</td></tr>
+              <tr><td><code>mongoose</code></td><td><span class="badge bg-success">prod</span></td><td>MongoDB ODM � schema definition, queries, validation</td></tr>
+              <tr><td><code>dotenv</code></td><td><span class="badge bg-success">prod</span></td><td>Loads .env file variables into <code>process.env</code></td></tr>
+              <tr><td><code>cors</code></td><td><span class="badge bg-success">prod</span></td><td>Allows React (port 3000) to call Express (port 5000)</td></tr>
+              <tr><td><code>nodemon</code></td><td><span class="badge bg-warning text-dark">dev</span></td><td>Auto-restarts server when you save a file</td></tr>
+              <tr><td><code>jest</code></td><td><span class="badge bg-warning text-dark">dev</span></td><td>JavaScript testing framework</td></tr>
+              <tr><td><code>supertest</code></td><td><span class="badge bg-warning text-dark">dev</span></td><td>Makes HTTP requests to Express for testing</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Update package.json scripts</h3>
+        <div class="code-wrapper">
+          <div class="code-header"><span class="filename"><i class="bi bi-braces me-1"></i>backend/package.json</span><span class="lang-tag">JSON</span></div>
+          <pre class="code-block">{
+  <span class="str">"name"</span>: <span class="str">"mern-backend"</span>,
+  <span class="str">"version"</span>: <span class="str">"1.0.0"</span>,
+  <span class="str">"main"</span>: <span class="str">"server.js"</span>,
+  <span class="str">"scripts"</span>: {
+    <span class="str">"start"</span>: <span class="str">"node server.js"</span>,
+    <span class="str">"dev"</span>:   <span class="str">"nodemon server.js"</span>,
+    <span class="str">"test"</span>:  <span class="str">"jest --testEnvironment node --runInBand"</span>
+  },
+  <span class="str">"jest"</span>: {
+    <span class="str">"testEnvironment"</span>: <span class="str">"node"</span>
+  }
+}</pre>
+        </div>
+      </section>
+
+      <!-- SERVER.JS -->
+      <section class="content-section" id="server-js">
+        <h2><i class="bi bi-play-circle-fill"></i>server.js � The Entry Point</h2>
+        <p>This is the first file Node.js runs. It connects the database, registers middleware, mounts routes, and starts listening for connections.</p>
+
+        <div class="code-wrapper">
+          <div class="code-header"><span class="filename"><i class="bi bi-file-earmark-code me-1"></i>backend/server.js</span><span class="lang-tag">JS</span></div>
+          <pre class="code-block"><span class="cm">// -- 1. Load environment variables FIRST ----------</span>
+<span class="fn">require</span>(<span class="str">'dotenv'</span>).<span class="fn">config</span>();
+
+<span class="cm">// -- 2. Import packages ---------------------------</span>
+<span class="kw">const</span> express  = <span class="fn">require</span>(<span class="str">'express'</span>);
+<span class="kw">const</span> cors     = <span class="fn">require</span>(<span class="str">'cors'</span>);
+<span class="kw">const</span> mongoose = <span class="fn">require</span>(<span class="str">'mongoose'</span>);
+
+<span class="cm">// -- 3. Create the Express app --------------------</span>
+<span class="kw">const</span> app = <span class="fn">express</span>();
+
+<span class="cm">// -- 4. Middleware (runs on EVERY request) --------</span>
+app.<span class="fn">use</span>(<span class="fn">cors</span>());           <span class="cm">// allow cross-origin requests from React</span>
+app.<span class="fn">use</span>(express.<span class="fn">json</span>());  <span class="cm">// parse JSON request bodies</span>
+
+<span class="cm">// -- 5. Import and mount routes -------------------</span>
+<span class="kw">const</span> studentRoutes = <span class="fn">require</span>(<span class="str">'./routes/studentRoutes'</span>);
+app.<span class="fn">use</span>(<span class="str">'/api/students'</span>, studentRoutes);
+
+<span class="cm">// -- 6. Health-check route ------------------------</span>
+app.<span class="fn">get</span>(<span class="str">'/'</span>, (req, res) => {
+  res.<span class="fn">json</span>({ message: <span class="str">'?? API is running!'</span>, status: <span class="str">'OK'</span> });
+});
+
+<span class="cm">// -- 7. 404 handler for unknown routes ------------</span>
+app.<span class="fn">use</span>((req, res) => {
+  res.<span class="fn">status</span>(<span class="nm">404</span>).<span class="fn">json</span>({ message: <span class="str">'Route not found'</span> });
+});
+
+<span class="cm">// -- 8. Connect DB then start server -------------</span>
+<span class="kw">const</span> PORT = process.env.PORT || <span class="nm">5000</span>;
+
+mongoose
+  .<span class="fn">connect</span>(process.env.MONGO_URI)
+  .<span class="fn">then</span>(() => {
+    app.<span class="fn">listen</span>(PORT, () => {
+      console.<span class="fn">log</span>(<span class="str">`? MongoDB connected`</span>);
+      console.<span class="fn">log</span>(<span class="str">`?? Server ? http://localhost:${PORT}`</span>);
+    });
+  })
+  .<span class="fn">catch</span>((err) => {
+    console.<span class="fn">error</span>(<span class="str">'? DB connection failed:'</span>, err.message);
+    process.<span class="fn">exit</span>(<span class="nm">1</span>);
+  });
+
+<span class="cm">// Export app so Jest can import it without starting server</span>
+module.exports = app;</pre>
+        </div>
+
+        <h3>Create backend/.env</h3>
+        <div class="code-wrapper">
+          <div class="code-header"><span class="filename"><i class="bi bi-key me-1"></i>backend/.env</span><span class="lang-tag">ENV</span></div>
+          <pre class="code-block">PORT=5000
+MONGO_URI=mongodb+srv://youruser:yourpassword@cluster0.abc.mongodb.net/studentDB</pre>
+        </div>
+
+        <h3>Run the server</h3>
+        <div class="git-cmd">npm run dev</div>
+        <div class="callout callout-success">
+          <i class="bi bi-check-circle-fill"></i>
+          <div>You should see:<br/><code>? MongoDB connected</code><br/><code>?? Server ? http://localhost:5000</code></div>
+        </div>
+      </section>
+
+      <!-- MIDDLEWARE -->
+      <section class="content-section" id="middleware">
+        <h2><i class="bi bi-filter-circle-fill"></i>Middleware � Beginner Explanation</h2>
+        <p>Middleware are functions that run <strong>between</strong> a request arriving and your route handler executing. Think of it as an airport security line � every passenger (request) must pass through it first.</p>
+
+        <div class="text-center my-3 p-3 rounded" style="background:#f8f9fa;border:1px solid var(--gray-200);">
+          <div class="d-flex align-items-center justify-content-center flex-wrap gap-2" style="font-size:.8rem;">
+            <div class="px-3 py-2 rounded text-white" style="background:#0d6efd;">?? Request</div>
+            <span class="text-muted">?</span>
+            <div class="px-3 py-2 rounded border" style="background:#fefce8;">?? cors()</div>
+            <span class="text-muted">?</span>
+            <div class="px-3 py-2 rounded border" style="background:#fefce8;">?? json()</div>
+            <span class="text-muted">?</span>
+            <div class="px-3 py-2 rounded border" style="background:#eff6ff;">? Route Handler</div>
+            <span class="text-muted">?</span>
+            <div class="px-3 py-2 rounded text-white" style="background:#198754;">?? Response</div>
+          </div>
+        </div>
+
+        <h3>Custom Logger Middleware</h3>
+        <div class="code-wrapper">
+          <div class="code-header"><span class="filename"><i class="bi bi-file-code me-1"></i>Example custom middleware � add to server.js</span><span class="lang-tag">JS</span></div>
+          <pre class="code-block"><span class="cm">// Add BEFORE your route registrations</span>
+app.<span class="fn">use</span>((req, res, next) => {
+  console.<span class="fn">log</span>(<span class="str">`[${new Date().toISOString()}] ${req.method} ${req.url}`</span>);
+  <span class="fn">next</span>(); <span class="cm">// ? CRITICAL: call next() or request hangs forever</span>
+});</pre>
+        </div>
+        <div class="callout callout-warn">
+          <i class="bi bi-exclamation-triangle-fill"></i>
+          <div>Always call <code>next()</code> inside custom middleware unless you are sending a response. Forgetting it causes every request to hang with no response � a common beginner mistake.</div>
+        </div>
+      </section>
+
+      <!-- ROUTING -->
+      <section class="content-section" id="routing">
+        <h2><i class="bi bi-signpost-2-fill"></i>Routes File</h2>
+        <p>A route maps: <strong>HTTP Method + URL Path ? Controller Function</strong>. Keep routes thin � just mapping, zero logic here.</p>
+        <div class="code-wrapper">
+          <div class="code-header"><span class="filename"><i class="bi bi-file-earmark-code me-1"></i>backend/routes/studentRoutes.js</span><span class="lang-tag">JS</span></div>
+          <pre class="code-block"><span class="kw">const</span> express = <span class="fn">require</span>(<span class="str">'express'</span>);
+<span class="kw">const</span> router  = express.<span class="fn">Router</span>();
+<span class="kw">const</span> {
+  getAllStudents,
+  getStudentById,
+  createStudent,
+  updateStudent,
+  deleteStudent,
+} = <span class="fn">require</span>(<span class="str">'../controllers/studentController'</span>);
+
+<span class="cm">// GET  /api/students      ? list all</span>
+<span class="cm">// POST /api/students      ? create one</span>
+router.<span class="fn">route</span>(<span class="str">'/'</span>).<span class="fn">get</span>(getAllStudents).<span class="fn">post</span>(createStudent);
+
+<span class="cm">// GET    /api/students/:id  ? get one</span>
+<span class="cm">// PUT    /api/students/:id  ? update</span>
+<span class="cm">// DELETE /api/students/:id  ? delete</span>
+router.<span class="fn">route</span>(<span class="str">'/:id'</span>).<span class="fn">get</span>(getStudentById).<span class="fn">put</span>(updateStudent).<span class="fn">delete</span>(deleteStudent);
+
+module.exports = router;</pre>
+        </div>
+      </section>
+
+      <!-- TEST SERVER -->
+      <section class="content-section" id="test-server">
+        <h2><i class="bi bi-send-check-fill"></i>Test the Server</h2>
+        <p>Open Postman or your browser and visit <code>http://localhost:5000</code>. You should see:</p>
+        <div class="code-wrapper">
+          <div class="code-header"><span class="filename"><i class="bi bi-check-circle me-1"></i>Expected Response � 200 OK</span><span class="lang-tag">JSON</span></div>
+          <pre class="code-block">{
+  <span class="str">"message"</span>: <span class="str">"?? API is running!"</span>,
+  <span class="str">"status"</span>: <span class="str">"OK"</span>
+}</pre>
+        </div>
+
+        <h3>First Jest Test � Server Health Check</h3>
+        <div class="code-wrapper">
+          <div class="code-header"><span class="filename"><i class="bi bi-bug me-1"></i>backend/tests/server.test.js</span><span class="lang-tag">JS</span></div>
+          <pre class="code-block"><span class="kw">const</span> request = <span class="fn">require</span>(<span class="str">'supertest'</span>);
+<span class="kw">const</span> app     = <span class="fn">require</span>(<span class="str">'../server'</span>);
+
+<span class="fn">describe</span>(<span class="str">'Health Check'</span>, () => {
+  <span class="fn">it</span>(<span class="str">'GET / should return 200 and status OK'</span>, <span class="kw">async</span> () => {
+    <span class="kw">const</span> res = <span class="kw">await</span> <span class="fn">request</span>(app).<span class="fn">get</span>(<span class="str">'/'</span>);
+    <span class="fn">expect</span>(res.statusCode).<span class="fn">toBe</span>(<span class="nm">200</span>);
+    <span class="fn">expect</span>(res.body.status).<span class="fn">toBe</span>(<span class="str">'OK'</span>);
+  });
+});</pre>
+        </div>
+        <div class="git-cmd">npm test</div>
+        <div class="callout callout-success">
+          <i class="bi bi-check-circle-fill"></i>
+          <div>Expected: <code>PASS tests/server.test.js � 1 test passing ?</code></div>
+        </div>
+      </section>
+
+      <!-- CLEAN CODE -->
+      <section class="content-section" id="clean-code">
+        <h2><i class="bi bi-stars"></i>Clean Code Tips � Express &amp; Node</h2>
+        <div class="tip-card"><i class="bi bi-check2-circle"></i><div><strong>Separate routes from controllers</strong><p>Routes only map URL + method to a function. All logic goes in the controller. This makes each file testable in isolation.</p></div></div>
+        <div class="tip-card"><i class="bi bi-check2-circle"></i><div><strong>Every async function needs try/catch</strong><p>Any function that calls <code>await</code> must be wrapped. Without it, an unhandled promise rejection crashes Node silently.</p></div></div>
+        <div class="tip-card"><i class="bi bi-check2-circle"></i><div><strong>Return proper HTTP status codes</strong><p><code>200</code> OK, <code>201</code> Created, <code>400</code> Bad Request, <code>404</code> Not Found, <code>500</code> Server Error. The frontend uses these to decide what to display.</p></div></div>
+        <div class="tip-card"><i class="bi bi-check2-circle"></i><div><strong>Export app from server.js</strong><p><code>module.exports = app</code> at the bottom lets Jest import Express without starting the server on a port. Essential for testing.</p></div></div>
+      </section>
+
+      <!-- GIT -->
+      <section class="content-section" id="git-cmds">
+        <h2><i class="bi bi-git"></i>Git Commands � Module 3</h2>
+        <div class="git-cmd">git status</div>
+        <p class="git-comment">Check which files changed</p>
+        <div class="git-cmd">git add .</div>
+        <div class="git-cmd">git commit -m "feat: add Express server with middleware and routing"</div>
+        <div class="git-cmd">git push origin main</div>
+        <div class="git-cmd">git log --oneline --graph</div>
+        <p class="git-comment">View clean commit history in terminal</p>
+        <div class="callout callout-info">
+          <i class="bi bi-info-circle-fill"></i>
+          <div>Your GitHub repo now has 2+ commits: <code>init: project structure</code> ? <code>feat: add Express server</code>. A clear commit history is part of professional development � employers look at this.</div>
+        </div>
+      </section>
+
+      <div class="module-nav-bar">
+        <a class="btn-mod-prev" href="module2.html"><i class="bi bi-arrow-left"></i> Module 2: Dev Setup</a>
+        <div class="mod-progress-badge">Module 3 of 5<div class="mod-prog-bar"><div class="mod-prog-fill" style="width:60%"></div></div></div>
+        <a class="btn-mod-next" href="module4.html">Module 4: MongoDB <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </main>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <h5><i class="bi bi-braces-asterisk me-1"></i>EgoTECH<span style="color:var(--primary)">World</span></h5>
+        <p class="small" style="color:rgba(255,255,255,.55);">Free beginner-focused MERN tutorials. Build real projects from scratch.</p>
+        <div class="footer-social mt-3">
+          <a href="https://egotechworld.com"><i class="bi bi-globe2"></i></a>
+          <a href="#"><i class="bi bi-github"></i></a>
+          <a href="#"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h5>Course Modules</h5>
+        <ul class="list-unstyled" style="font-size:.85rem;">
+          <li class="mb-1"><a href="module1.html"><i class="bi bi-arrow-right-short"></i> Module 1: Introduction to MERN</a></li>
+          <li class="mb-1"><a href="module2.html"><i class="bi bi-arrow-right-short"></i> Module 2: Dev Environment</a></li>
+          <li class="mb-1"><a href="module3.html"><i class="bi bi-arrow-right-short"></i> Module 3: Node.js &amp; Express</a></li>
+          <li class="mb-1"><a href="module4.html"><i class="bi bi-arrow-right-short"></i> Module 4: MongoDB</a></li>
+          <li><a href="module5.html"><i class="bi bi-arrow-right-short"></i> Module 5: REST API</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h5>In This Module</h5>
+        <ul class="list-unstyled" style="font-size:.85rem;">
+          <li class="mb-1"><a href="#nodejs-explained"><i class="bi bi-arrow-right-short"></i> What is Node.js?</a></li>
+          <li class="mb-1"><a href="#server-js"><i class="bi bi-arrow-right-short"></i> server.js Code</a></li>
+          <li class="mb-1"><a href="#middleware"><i class="bi bi-arrow-right-short"></i> Middleware</a></li>
+          <li><a href="#test-server"><i class="bi bi-arrow-right-short"></i> Testing the Server</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="footer-divider"/>
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2" style="font-size:.82rem;">
+      <span style="color:rgba(255,255,255,.45);">
+        <i class="bi bi-stars me-1" style="color:#fbbf24;"></i>
+        Designed &amp; developed by <strong style="color:rgba(255,255,255,.75);">EgoTECHWorld</strong> &nbsp;�&nbsp;
+        <a href="https://egotechworld.com" style="color:rgba(255,255,255,.6);">egotechworld.com</a> &nbsp;�&nbsp;
+        Modules 1�5 &nbsp;�&nbsp; &copy; 2025
+      </span>
+    </div>
+  </div>
+</footer>
+<button id="scrollTop" aria-label="Scroll to top"><i class="bi bi-arrow-up"></i></button>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/script.js"></script>
+<script>
+  const btn = document.getElementById('scrollTop');
+  window.addEventListener('scroll', () => btn.classList.toggle('show', scrollY > 400));
+  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+</script>
+</body>
+</html>

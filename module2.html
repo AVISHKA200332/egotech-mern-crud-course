@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Module 2 � Dev Environment Setup | EgoTECHWorld</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"/>
+  <link href="assets/css/style.css" rel="stylesheet"/>
+  <link href="assets/css/navbar.css" rel="stylesheet"/>
+  <link href="assets/css/footer.css" rel="stylesheet"/>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Ego<span>TECH</span></a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+        <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house-fill me-1"></i>Home</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Modules</a>
+          <ul class="dropdown-menu shadow">
+            <li><a class="dropdown-item" href="module1.html"><span class="badge bg-secondary me-2">01</span>Introduction to MERN</a></li>
+            <li><a class="dropdown-item" href="module2.html"><span class="badge bg-primary me-2">02</span>Dev Environment Setup</a></li>
+            <li><a class="dropdown-item" href="module3.html"><span class="badge bg-secondary me-2">03</span>Node.js &amp; Express</a></li>
+            <li><a class="dropdown-item" href="module4.html"><span class="badge bg-secondary me-2">04</span>MongoDB</a></li>
+            <li><a class="dropdown-item" href="module5.html"><span class="badge bg-secondary me-2">05</span>REST API Development</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="setup-guide.html"><i class="bi bi-book me-1"></i>Setup Guide</a></li>
+        <li class="nav-item ms-lg-2"><a class="btn btn-primary btn-sm fw-700 px-3" href="module3.html">Next ?</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="module-hero">
+  <div class="container">
+    <div class="module-badge"><i class="bi bi-collection-fill"></i> Module 2</div>
+    <h1><i class="bi bi-tools me-2" style="color:#fcd34d;"></i>Development Environment Setup</h1>
+    <p class="lead">Install every required tool, configure VS Code for maximum productivity, create a free MongoDB Atlas cluster, scaffold the entire project folder structure, and push your first commit to GitHub.</p>
+    <div class="module-meta">
+      <span class="module-meta-pill"><i class="bi bi-clock-fill"></i> 45 min</span>
+      <span class="module-meta-pill"><i class="bi bi-download"></i> Installation</span>
+      <span class="module-meta-pill"><i class="bi bi-git"></i> Git &amp; GitHub</span>
+    </div>
+    <div class="progress-track"><div class="fill" style="width:40%"></div></div>
+  </div>
+</section>
+
+<div class="container py-5">
+  <div class="row g-4">
+    <aside class="col-lg-3">
+      <div class="module-sidebar">
+        <div class="sidebar-nav-card">
+          <div class="sidebar-header"><i class="bi bi-list-ul me-1"></i> This Module</div>
+          <nav class="nav flex-column py-1">
+            <a class="nav-link active" href="#objectives"><span class="snum">01</span>Learning Objectives</a>
+            <a class="nav-link" href="#software-req"><span class="snum">02</span>Software Requirements</a>
+            <a class="nav-link" href="#nodejs"><span class="snum">03</span>Install Node.js</a>
+            <a class="nav-link" href="#vscode"><span class="snum">04</span>VS Code Setup</a>
+            <a class="nav-link" href="#atlas"><span class="snum">05</span>MongoDB Atlas</a>
+            <a class="nav-link" href="#folder"><span class="snum">06</span>Folder Structure</a>
+            <a class="nav-link" href="#git-setup"><span class="snum">07</span>Git &amp; GitHub</a>
+            <a class="nav-link" href="#verify"><span class="snum">08</span>Verify Setup</a>
+          </nav>
+        </div>
+        <div class="all-modules-card">
+          <div class="p-2" style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#6c757d;padding:.6rem .85rem .2rem!important;">All Modules</div>
+          <a class="mod-link" href="module1.html"><span class="mod-num">01</span>Introduction to MERN</a>
+          <a class="mod-link current" href="module2.html"><span class="mod-num">02</span>Dev Environment</a>
+          <a class="mod-link" href="module3.html"><span class="mod-num">03</span>Node.js &amp; Express</a>
+          <a class="mod-link" href="module4.html"><span class="mod-num">04</span>MongoDB</a>
+          <a class="mod-link" href="module5.html"><span class="mod-num">05</span>REST API</a>
+        </div>
+      </div>
+    </aside>
+
+    <main class="col-lg-9">
+
+      <!-- 01 OBJECTIVES -->
+      <section class="content-section" id="objectives">
+        <h2><i class="bi bi-bullseye"></i>Learning Objectives</h2>
+        <ul class="objective-list">
+          <li><div class="obj-num">1</div><span>Install and verify Node.js, npm, Git, and VS Code on your operating system.</span></li>
+          <li><div class="obj-num">2</div><span>Create a free MongoDB Atlas M0 cluster and retrieve the connection URI string.</span></li>
+          <li><div class="obj-num">3</div><span>Scaffold the complete MERN project folder structure exactly as shown.</span></li>
+          <li><div class="obj-num">4</div><span>Create a <code>.gitignore</code>, write a README, and push the first commit to GitHub.</span></li>
+          <li><div class="obj-num">5</div><span>Run <code>npm init</code> and install all backend dependencies in the correct folder.</span></li>
+        </ul>
+      </section>
+
+      <!-- 02 SOFTWARE REQUIREMENTS -->
+      <section class="content-section" id="software-req">
+        <h2><i class="bi bi-pc-display-horizontal"></i>Software Requirements</h2>
+        <p>You need these free tools installed before writing any code. All are free and cross-platform:</p>
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle" style="font-size:.85rem;">
+            <thead class="table-dark"><tr><th>Tool</th><th>Version</th><th>Purpose</th><th>Download</th></tr></thead>
+            <tbody>
+              <tr><td><span class="fw-700">?? Node.js</span></td><td><code>v20 LTS</code></td><td>Run JavaScript on server</td><td><code>nodejs.org</code></td></tr>
+              <tr><td><span class="fw-700">?? npm</span></td><td><code>v10+</code></td><td>Package manager (bundled with Node)</td><td>Automatic</td></tr>
+              <tr><td><span class="fw-700">?? VS Code</span></td><td>Latest</td><td>Code editor</td><td><code>code.visualstudio.com</code></td></tr>
+              <tr><td><span class="fw-700">?? Git</span></td><td><code>v2.40+</code></td><td>Version control</td><td><code>git-scm.com</code></td></tr>
+              <tr><td><span class="fw-700">?? MongoDB Atlas</span></td><td>Free M0</td><td>Cloud database</td><td><code>mongodb.com/atlas</code></td></tr>
+              <tr><td><span class="fw-700">?? GitHub</span></td><td>Free</td><td>Remote repository hosting</td><td><code>github.com</code></td></tr>
+              <tr><td><span class="fw-700">?? Postman</span></td><td>Latest</td><td>Test API endpoints</td><td><code>postman.com</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 03 NODE.JS -->
+      <section class="content-section" id="nodejs">
+        <h2><i class="bi bi-download"></i>Install Node.js</h2>
+        <div class="step-item">
+          <div class="step-number">1</div>
+          <div class="step-content"><h4>Go to nodejs.org</h4><p>Click the green <strong>LTS</strong> button � not "Current". LTS is stable and recommended for projects.</p></div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">2</div>
+          <div class="step-content"><h4>Run the installer</h4><p>Open the downloaded file ? Next ? Accept License ? Next ? Install. On Windows, if asked about "Tools for Native Modules", check the box.</p></div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">3</div>
+          <div class="step-content"><h4>Verify � open a NEW terminal and run:</h4></div>
+        </div>
+        <div class="git-cmd">node --version</div>
+        <p class="git-comment">Expected: v20.x.x</p>
+        <div class="git-cmd">npm --version</div>
+        <p class="git-comment">Expected: 10.x.x</p>
+        <div class="callout callout-warn">
+          <i class="bi bi-exclamation-triangle-fill"></i>
+          <div>If you see "node is not recognized", <strong>close the terminal completely</strong> and open a new one. If still failing, reinstall Node.js and ensure "Add to PATH" is checked during installation.</div>
+        </div>
+      </section>
+
+      <!-- 04 VS CODE -->
+      <section class="content-section" id="vscode">
+        <h2><i class="bi bi-code-square"></i>VS Code Setup &amp; Extensions</h2>
+        <p>Install these six extensions inside VS Code. Press <kbd>Ctrl+Shift+X</kbd> to open the Extensions panel and search each one:</p>
+        <div class="row g-3">
+          <div class="col-sm-6">
+            <div class="card border-0 shadow-sm h-100"><div class="card-body p-3">
+              <i class="bi bi-puzzle-fill text-primary me-2"></i><strong class="small">ES7+ React/Redux Snippets</strong>
+              <p class="text-muted small mt-1 mb-0">Type <code>rafce</code> to instantly generate a full React component skeleton.</p>
+            </div></div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card border-0 shadow-sm h-100"><div class="card-body p-3">
+              <i class="bi bi-puzzle-fill text-success me-2"></i><strong class="small">Prettier � Code Formatter</strong>
+              <p class="text-muted small mt-1 mb-0">Auto-formats your code on every save. Consistent style across all files.</p>
+            </div></div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card border-0 shadow-sm h-100"><div class="card-body p-3">
+              <i class="bi bi-puzzle-fill text-success me-2"></i><strong class="small">MongoDB for VS Code</strong>
+              <p class="text-muted small mt-1 mb-0">Browse MongoDB collections directly inside VS Code without opening Atlas.</p>
+            </div></div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card border-0 shadow-sm h-100"><div class="card-body p-3">
+              <i class="bi bi-puzzle-fill text-warning me-2"></i><strong class="small">Thunder Client</strong>
+              <p class="text-muted small mt-1 mb-0">Test REST API endpoints inside VS Code � like Postman but built in.</p>
+            </div></div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card border-0 shadow-sm h-100"><div class="card-body p-3">
+              <i class="bi bi-puzzle-fill text-danger me-2"></i><strong class="small">GitLens</strong>
+              <p class="text-muted small mt-1 mb-0">See Git blame, commit history, and file changes inline in the editor.</p>
+            </div></div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card border-0 shadow-sm h-100"><div class="card-body p-3">
+              <i class="bi bi-puzzle-fill text-info me-2"></i><strong class="small">Auto Rename Tag</strong>
+              <p class="text-muted small mt-1 mb-0">When you rename an HTML/JSX opening tag, the closing tag updates automatically.</p>
+            </div></div>
+          </div>
+        </div>
+
+        <h3>settings.json � Recommended Editor Config</h3>
+        <p>Press <kbd>Ctrl+Shift+P</kbd> ? type <strong>Open User Settings JSON</strong> ? paste:</p>
+        <div class="code-wrapper">
+          <div class="code-header"><span class="filename"><i class="bi bi-gear me-1"></i>.vscode/settings.json</span><span class="lang-tag">JSON</span></div>
+          <pre class="code-block">{
+  <span class="str">"editor.formatOnSave"</span>: <span class="kw">true</span>,
+  <span class="str">"editor.defaultFormatter"</span>: <span class="str">"esbenp.prettier-vscode"</span>,
+  <span class="str">"files.autoSave"</span>: <span class="str">"afterDelay"</span>,
+  <span class="str">"files.autoSaveDelay"</span>: <span class="nm">1000</span>,
+  <span class="str">"editor.tabSize"</span>: <span class="nm">2</span>,
+  <span class="str">"editor.wordWrap"</span>: <span class="str">"on"</span>,
+  <span class="str">"editor.fontSize"</span>: <span class="nm">14</span>
+}</pre>
+        </div>
+      </section>
+
+      <!-- 05 MONGODB ATLAS -->
+      <section class="content-section" id="atlas">
+        <h2><i class="bi bi-cloud-fill"></i>MongoDB Atlas � Free Cloud Database</h2>
+        <p>Atlas hosts your database in the cloud. The M0 free tier is enough for this entire course.</p>
+        <div class="step-item">
+          <div class="step-number">1</div>
+          <div class="step-content"><h4>Create a free account</h4><p>Go to <code>mongodb.com/atlas</code> ? Click "Try Free" ? Sign up with email or Google account.</p></div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">2</div>
+          <div class="step-content"><h4>Create a cluster</h4><p>Choose <strong class="text-success">M0 Free Tier</strong> ? Select your nearest region (e.g. Singapore for Sri Lanka) ? Click "Create Cluster". Wait 1�2 minutes.</p></div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">3</div>
+          <div class="step-content"><h4>Create a database user</h4><p>Database Access ? Add New Database User ? Username + strong password ? Role: "Read and Write to any database". <strong class="text-warning">Save this password!</strong></p></div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">4</div>
+          <div class="step-content"><h4>Allow all IP addresses</h4><p>Network Access ? Add IP Address ? "Allow Access from Anywhere" (<code>0.0.0.0/0</code>) ? Confirm. (Fine for development � restrict in production.)</p></div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">5</div>
+          <div class="step-content"><h4>Copy connection string</h4><p>Cluster ? Connect ? "Connect your application" ? Copy the URI. Replace <code>&lt;password&gt;</code> with your actual password.</p></div>
+        </div>
+        <div class="code-wrapper">
+          <div class="code-header"><span class="filename"><i class="bi bi-link-45deg me-1"></i>Connection URI format</span><span class="lang-tag">ENV</span></div>
+          <pre class="code-block">mongodb+srv://&lt;username&gt;:&lt;password&gt;@cluster0.abc123.mongodb.net/studentDB?retryWrites=true&w=majority</pre>
+        </div>
+        <div class="callout callout-danger">
+          <i class="bi bi-shield-exclamation"></i>
+          <div>Store this URI <strong>only</strong> in your <code>.env</code> file. Never paste it directly in JavaScript code. Never commit it to GitHub. Doing so exposes your database to the entire internet.</div>
+        </div>
+      </section>
+
+      <!-- 06 FOLDER STRUCTURE -->
+      <section class="content-section" id="folder">
+        <h2><i class="bi bi-folder2-open"></i>Complete Project Folder Structure</h2>
+        <p>Create this clean layout before you start coding. Open your terminal in VS Code and run:</p>
+        <div class="git-cmd">mkdir mern-student-app && cd mern-student-app</div>
+        <div class="git-cmd">mkdir -p backend/config backend/controllers backend/models backend/routes backend/tests</div>
+        <div class="git-cmd">mkdir -p frontend/src/components frontend/src/pages frontend/src/services</div>
+
+        <div class="folder-structure-card mt-3">
+          <div class="folder-structure-header">
+            <div>
+              <h3 class="mb-1">Recommended project layout</h3>
+              <p class="mb-0">A neat separation between backend logic, frontend pages, and project config makes the app easier to grow.</p>
+            </div>
+            <span class="folder-chip">MVC + React</span>
+          </div>
+
+          <div class="folder-grid">
+            <div class="folder-panel">
+              <div class="folder-panel-title"><i class="bi bi-server me-2"></i>Backend</div>
+              <ul class="folder-list">
+                <li><span class="folder-badge dir">dir</span> config/ <span class="folder-note">db.js</span></li>
+                <li><span class="folder-badge dir">dir</span> controllers/ <span class="folder-note">studentController.js</span></li>
+                <li><span class="folder-badge dir">dir</span> models/ <span class="folder-note">Student.js</span></li>
+                <li><span class="folder-badge dir">dir</span> routes/ <span class="folder-note">studentRoutes.js</span></li>
+                <li><span class="folder-badge dir">dir</span> tests/ <span class="folder-note">student.test.js</span></li>
+                <li><span class="folder-badge file">file</span> .env <span class="folder-note">private</span></li>
+                <li><span class="folder-badge file">file</span> .env.example <span class="folder-note">template</span></li>
+                <li><span class="folder-badge file">file</span> package.json</li>
+                <li><span class="folder-badge file">file</span> server.js</li>
+              </ul>
+            </div>
+
+            <div class="folder-panel">
+              <div class="folder-panel-title"><i class="bi bi-window-stack me-2"></i>Frontend</div>
+              <ul class="folder-list">
+                <li><span class="folder-badge dir">dir</span> src/</li>
+                <li><span class="folder-badge dir">dir</span> components/ <span class="folder-note">Navbar, StudentCard</span></li>
+                <li><span class="folder-badge dir">dir</span> pages/ <span class="folder-note">Add/Edit/List</span></li>
+                <li><span class="folder-badge dir">dir</span> services/ <span class="folder-note">api.js</span></li>
+              </ul>
+            </div>
+
+            <div class="folder-panel">
+              <div class="folder-panel-title"><i class="bi bi-files me-2"></i>Project Root</div>
+              <ul class="folder-list">
+                <li><span class="folder-badge root">root</span> mern-student-app/</li>
+                <li><span class="folder-badge file">file</span> .gitignore</li>
+                <li><span class="folder-badge file">file</span> README.md</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="callout callout-info mt-3">
+          <i class="bi bi-info-circle-fill"></i>
+          <div>This follows the <strong>MVC pattern</strong> (Model ? Student.js, View ? React pages, Controller ? studentController.js). Each file has exactly one responsibility � the foundation of professional, maintainable code.</div>
+        </div>
+      </section>
+
+      <!-- 07 GIT SETUP -->
+      <section class="content-section" id="git-setup">
+        <h2><i class="bi bi-git"></i>Git &amp; GitHub � Full Setup</h2>
+
+        <h3>Step 1 � Configure your Git identity (one time only)</h3>
+        <div class="git-cmd">git config --global user.name "Your Full Name"</div>
+        <div class="git-cmd">git config --global user.email "your@email.com"</div>
+
+        <h3>Step 2 � Initialize repository</h3>
+        <div class="git-cmd">git init</div>
+        <p class="git-comment">Run from inside mern-student-app/</p>
+
+        <h3>Step 3 � Create .gitignore</h3>
+        <div class="code-wrapper">
+          <div class="code-header"><span class="filename"><i class="bi bi-file-earmark-x me-1"></i>.gitignore</span><span class="lang-tag">TEXT</span></div>
+          <pre class="code-block"><span class="cm"># Node dependencies � NEVER commit these (can be 100MB+)</span>
+node_modules/
+npm-debug.log*
+
+<span class="cm"># Environment variables � NEVER commit (contains DB password)</span>
+.env
+.env.local
+
+<span class="cm"># React build output</span>
+/frontend/build
+
+<span class="cm"># OS files</span>
+.DS_Store
+Thumbs.db
+
+<span class="cm"># Logs</span>
+*.log</pre>
+        </div>
+
+        <h3>Step 4 � Create .env.example (safe to commit)</h3>
+        <div class="code-wrapper">
+          <div class="code-header"><span class="filename"><i class="bi bi-file-earmark-text me-1"></i>backend/.env.example</span><span class="lang-tag">ENV</span></div>
+          <pre class="code-block">PORT=5000
+MONGO_URI=mongodb+srv://&lt;username&gt;:&lt;password&gt;@cluster0.xxx.mongodb.net/studentDB</pre>
+        </div>
+
+        <h3>Step 5 � First commit and push to GitHub</h3>
+        <div class="git-cmd">git add .</div>
+        <div class="git-cmd">git commit -m "init: project structure and configuration"</div>
+        <div class="git-cmd">git branch -M main</div>
+        <div class="git-cmd">git remote add origin https://github.com/YOUR_USERNAME/mern-student-app.git</div>
+        <p class="git-comment">Create the repo on GitHub first (empty, no README)</p>
+        <div class="git-cmd">git push -u origin main</div>
+        <div class="callout callout-success">
+          <i class="bi bi-check-circle-fill"></i>
+          <div>Refresh your GitHub repository page � you should see your files! The green circle on each commit is your history being tracked. ??</div>
+        </div>
+      </section>
+
+      <!-- 08 VERIFY -->
+      <section class="content-section" id="verify">
+        <h2><i class="bi bi-check2-all"></i>Verify Your Complete Setup</h2>
+        <ul class="checklist">
+          <li><i class="bi bi-check-circle-fill"></i><span><strong>node --version</strong> prints v18+ or v20+</span></li>
+          <li><i class="bi bi-check-circle-fill"></i><span><strong>npm --version</strong> prints 9+ or 10+</span></li>
+          <li><i class="bi bi-check-circle-fill"></i><span><strong>git --version</strong> prints a version number</span></li>
+          <li><i class="bi bi-check-circle-fill"></i><span><strong>VS Code</strong> open with 6 extensions installed</span></li>
+          <li><i class="bi bi-check-circle-fill"></i><span><strong>MongoDB Atlas</strong> cluster created, connection URI copied</span></li>
+          <li><i class="bi bi-check-circle-fill"></i><span><strong>backend/.env</strong> file created with PORT and MONGO_URI</span></li>
+          <li><i class="bi bi-check-circle-fill"></i><span><strong>Folder structure</strong> matches the tree shown above exactly</span></li>
+          <li><i class="bi bi-check-circle-fill"></i><span><strong>.gitignore</strong> includes node_modules/ and .env</span></li>
+          <li><i class="bi bi-check-circle-fill"></i><span><strong>First commit pushed</strong> to GitHub successfully</span></li>
+        </ul>
+        <div class="callout callout-success">
+          <i class="bi bi-trophy-fill"></i>
+          <div>All boxes checked? You are fully set up and ready for Module 3 where we write our first real code!</div>
+        </div>
+      </section>
+
+      <div class="module-nav-bar">
+        <a class="btn-mod-prev" href="module1.html"><i class="bi bi-arrow-left"></i> Module 1: Intro</a>
+        <div class="mod-progress-badge">Module 2 of 5<div class="mod-prog-bar"><div class="mod-prog-fill" style="width:40%"></div></div></div>
+        <a class="btn-mod-next" href="module3.html">Module 3: Node.js <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </main>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <h5><i class="bi bi-braces-asterisk me-1"></i>EgoTECH<span style="color:var(--primary)">World</span></h5>
+        <p class="small" style="color:rgba(255,255,255,.55);">Free beginner-focused MERN tutorials. Learn by building real projects from scratch.</p>
+        <div class="footer-social mt-3">
+          <a href="https://egotechworld.com"><i class="bi bi-globe2"></i></a>
+          <a href="#"><i class="bi bi-github"></i></a>
+          <a href="#"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h5>Course Modules</h5>
+        <ul class="list-unstyled" style="font-size:.85rem;">
+          <li class="mb-1"><a href="module1.html"><i class="bi bi-arrow-right-short"></i> Module 1: Introduction to MERN</a></li>
+          <li class="mb-1"><a href="module2.html"><i class="bi bi-arrow-right-short"></i> Module 2: Dev Environment</a></li>
+          <li class="mb-1"><a href="module3.html"><i class="bi bi-arrow-right-short"></i> Module 3: Node.js &amp; Express</a></li>
+          <li class="mb-1"><a href="module4.html"><i class="bi bi-arrow-right-short"></i> Module 4: MongoDB</a></li>
+          <li><a href="module5.html"><i class="bi bi-arrow-right-short"></i> Module 5: REST API</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h5>In This Module</h5>
+        <ul class="list-unstyled" style="font-size:.85rem;">
+          <li class="mb-1"><a href="#software-req"><i class="bi bi-arrow-right-short"></i> Software Requirements</a></li>
+          <li class="mb-1"><a href="#atlas"><i class="bi bi-arrow-right-short"></i> MongoDB Atlas Setup</a></li>
+          <li class="mb-1"><a href="#folder"><i class="bi bi-arrow-right-short"></i> Folder Structure</a></li>
+          <li><a href="#git-setup"><i class="bi bi-arrow-right-short"></i> Git &amp; GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="footer-divider"/>
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2" style="font-size:.82rem;">
+      <span style="color:rgba(255,255,255,.45);">
+        <i class="bi bi-stars me-1" style="color:#fbbf24;"></i>
+        Designed &amp; developed by <strong style="color:rgba(255,255,255,.75);">EgoTECHWorld</strong> &nbsp;�&nbsp;
+        <a href="https://egotechworld.com" style="color:rgba(255,255,255,.6);">egotechworld.com</a> &nbsp;�&nbsp;
+        Modules 1�5 &nbsp;�&nbsp; &copy; 2025
+      </span>
+      <span style="color:rgba(255,255,255,.3);">Built with Bootstrap 5</span>
+    </div>
+  </div>
+</footer>
+
+<button id="scrollTop" aria-label="Scroll to top"><i class="bi bi-arrow-up"></i></button>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/script.js"></script>
+<script>
+  const btn = document.getElementById('scrollTop');
+  window.addEventListener('scroll', () => btn.classList.toggle('show', scrollY > 400));
+  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+</script>
+</body>
+</html>
