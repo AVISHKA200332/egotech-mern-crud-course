@@ -75,12 +75,12 @@ test.describe('Homepage', () => {
   });
 
   test('"Start Module 1" card button links to module1.html', async ({ page }) => {
-    const btn = page.locator('a[href="module1.html"]').first();
+    const btn = page.locator('#modules .module-card a[href="module1.html"]').first();
     await expect(btn).toBeVisible();
   });
 
   test('"View Requirements" card button links to requirements.html', async ({ page }) => {
-    const btn = page.locator('a[href="requirements.html"]').first();
+    const btn = page.locator('#modules .module-card a[href="requirements.html"]').first();
     await expect(btn).toBeVisible();
   });
 
