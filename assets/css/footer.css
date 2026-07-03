@@ -1,0 +1,92 @@
+/* ============================================================
+   EgoTECH — Footer Styles
+   Depends on: index.css (design tokens must load first)
+   ============================================================ */
+
+/* ── FOOTER BASE ── */
+.footer {
+  background: var(--dark);
+  color: rgba(255,255,255,.75);
+  padding: 3.5rem 0 2rem;
+}
+
+.footer h5 {
+  color: #fff;
+  font-weight: 700;
+  font-size: .9rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin-bottom: .85rem;
+}
+
+.footer a {
+  color: rgba(255,255,255,.6);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+.footer a:hover { color: #fff; }
+
+/* ── SOCIAL ICONS ── */
+.footer-social {
+  display: flex;
+  gap: .6rem;
+}
+.footer-social a {
+  width: 34px; height: 34px;
+  background: rgba(255,255,255,.08);
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: background var(--transition), color var(--transition);
+}
+.footer-social a:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* ── DIVIDER ── */
+.footer-divider {
+  border-color: rgba(255,255,255,.1);
+  margin: 2rem 0 1.25rem;
+}
+
+/* ── SCROLL-TO-TOP ── */
+#scrollTop {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 42px; height: 42px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity .3s ease, transform .3s ease;
+  z-index: 1050;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+#scrollTop.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+#scrollTop:hover { background: var(--primary-dark); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 767.98px) {
+  .footer { padding: 2.5rem 0 1.5rem; }
+}
+
+/* ── PRINT ── */
+@media print {
+  .footer, #scrollTop { display: none !important; }
+}
