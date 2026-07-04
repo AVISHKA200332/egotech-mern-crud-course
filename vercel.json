@@ -1,38 +1,9 @@
 {
   "version": 2,
   "builds": [
-    {
-      "src": "index.html",
-      "use": "@vercel/static"
-    }
+    { "src": "server.js", "use": "@vercel/node" }
   ],
   "routes": [
-    {
-      "src": "/assets/css/(.*)",
-      "dest": "/assets/css/$1",
-      "headers": { "Content-Type": "text/css" }
-    },
-    {
-      "src": "/assets/js/(.*)",
-      "dest": "/assets/js/$1",
-      "headers": { "Content-Type": "application/javascript" }
-    },
-    {
-      "src": "/assets/(.*)",
-      "dest": "/assets/$1"
-    },
-    {
-      "src": "/components/(.*)",
-      "dest": "/components/$1",
-      "headers": { "Content-Type": "text/html" }
-    },
-    {
-      "src": "/(.*)\\.html",
-      "dest": "/$1.html"
-    },
-    {
-      "src": "/",
-      "dest": "/index.html"
-    }
+    { "src": "/(.*)", "dest": "/server.js" }
   ]
 }
