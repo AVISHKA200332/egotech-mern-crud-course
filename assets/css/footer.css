@@ -7,16 +7,7 @@
 .footer {
   background: var(--dark);
   color: rgba(255,255,255,.75);
-  padding: 3.5rem 0 2rem;
-}
-
-.footer h5 {
-  color: #fff;
-  font-weight: 700;
-  font-size: .9rem;
-  text-transform: uppercase;
-  letter-spacing: .06em;
-  margin-bottom: .85rem;
+  padding: 1.5rem 0;
 }
 
 .footer a {
@@ -25,32 +16,6 @@
   transition: color var(--transition);
 }
 .footer a:hover { color: #fff; }
-
-/* ── SOCIAL ICONS ── */
-.footer-social {
-  display: flex;
-  gap: .6rem;
-}
-.footer-social a {
-  width: 34px; height: 34px;
-  background: rgba(255,255,255,.08);
-  border-radius: var(--radius-sm);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  transition: background var(--transition), color var(--transition);
-}
-.footer-social a:hover {
-  background: var(--primary);
-  color: #fff;
-}
-
-/* ── DIVIDER ── */
-.footer-divider {
-  border-color: rgba(255,255,255,.1);
-  margin: 2rem 0 1.25rem;
-}
 
 /* ── SCROLL-TO-TOP ── */
 #scrollTop {
@@ -80,11 +45,6 @@
   pointer-events: auto;
 }
 #scrollTop:hover { background: var(--primary-dark); }
-
-/* ── RESPONSIVE ── */
-@media (max-width: 767.98px) {
-  .footer { padding: 2.5rem 0 1.5rem; }
-}
 
 /* ── PRINT ── */
 @media print {
