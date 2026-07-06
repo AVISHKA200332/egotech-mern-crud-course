@@ -1,483 +1,592 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Module 4 � MongoDB &amp; Mongoose | EgoTECHWorld</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Module 4 – MongoDB | EgoTECH World</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"/>
-  <link href="assets/css/style.css" rel="stylesheet"/>
+  <link href="assets/css/index.css" rel="stylesheet"/>
   <link href="assets/css/navbar.css" rel="stylesheet"/>
   <link href="assets/css/footer.css" rel="stylesheet"/>
+  <style>
+    :root{--primary:#0d6efd;--primary-soft:#e7f0ff;--dark:#1e293b;--muted:#64748b;--border:#e2e8f0;--code-bg:#1e293b;}
+    body{background:#f8fafc;color:var(--dark);font-family:'Inter',sans-serif;}
+    .module-progress-bar{height:4px;background:linear-gradient(90deg,#16a34a,#059669);width:40%;}
+    .module-header{background:linear-gradient(135deg,#15803d 0%,#166534 100%);color:#fff;padding:48px 0 36px;}
+    .badge-module{background:rgba(255,255,255,0.18);color:#fff;font-size:0.75rem;padding:6px 14px;border-radius:50px;font-weight:600;margin-bottom:14px;display:inline-block;}
+    .module-header h1{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:800;margin-bottom:12px;}
+    .module-header p{opacity:.88;font-size:1rem;max-width:60ch;}
+    .module-meta{display:flex;flex-wrap:wrap;gap:18px;margin-top:20px;font-size:0.82rem;opacity:.85;}
+    .module-meta span{display:flex;align-items:center;gap:5px;}
+    .module-body{display:grid;grid-template-columns:240px 1fr;gap:32px;max-width:1200px;margin:0 auto;padding:32px 20px;}
+    @media(max-width:900px){.module-body{grid-template-columns:1fr;}}
+    .sidebar{position:sticky;top:76px;height:fit-content;}
+    .sidebar-nav{background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px;}
+    .sidebar-nav h6{font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
+    .sidebar-nav a{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:7px;font-size:0.83rem;color:var(--muted);text-decoration:none;transition:all .18s;margin-bottom:2px;}
+    .sidebar-nav a:hover,.sidebar-nav a.active{background:#f0fdf4;color:#15803d;font-weight:600;}
+    .progress-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px;margin-top:14px;}
+    .progress-card h6{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);margin-bottom:10px;}
+    .content-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:28px 30px;margin-bottom:20px;}
+    .section-eyebrow{font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#15803d;margin-bottom:10px;display:flex;align-items:center;gap:7px;}
+    .content-card h2{font-size:1.35rem;font-weight:800;color:var(--dark);margin-bottom:14px;}
+    .content-card p,.content-card li{font-size:0.96rem;color:#475569;line-height:1.8;}
+    .content-card ul{padding-left:0;list-style:none;}
+    .content-card ul li{padding:5px 0;display:flex;align-items:flex-start;gap:9px;}
+    .content-card ul li::before{content:'✓';color:#15803d;font-weight:700;flex-shrink:0;margin-top:3px;}
+    .beginner-box{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:18px 20px;margin:18px 0;}
+    .beginner-box .bb-title{font-weight:700;font-size:0.85rem;color:#15803d;display:flex;align-items:center;gap:7px;margin-bottom:8px;}
+    .beginner-box p{font-size:0.9rem;color:#166534;margin:0;line-height:1.7;}
+    .tip-box{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:16px 20px;margin:16px 0;}
+    .tip-box .tip-title{font-weight:700;font-size:0.85rem;color:#c2410c;display:flex;align-items:center;gap:7px;margin-bottom:6px;}
+    .tip-box p{font-size:0.88rem;color:#9a3412;margin:0;line-height:1.7;}
+    .code-block{background:var(--code-bg);border-radius:10px;overflow:hidden;margin:16px 0;}
+    .code-block-header{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;background:rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.08);}
+    .code-block-header span{font-family:'Fira Code',monospace;font-size:0.72rem;color:#94a3b8;}
+    .code-block-header button{background:rgba(255,255,255,0.1);border:none;color:#94a3b8;font-size:0.72rem;padding:4px 10px;border-radius:5px;cursor:pointer;transition:.15s;}
+    .code-block-header button:hover{background:rgba(255,255,255,0.2);color:#fff;}
+    .code-block pre{margin:0;padding:18px;overflow-x:auto;}
+    .code-block code{font-family:'Fira Code',monospace;font-size:0.84rem;line-height:1.7;color:#e2e8f0;}
+    .kw{color:#c084fc;}.fn{color:#60a5fa;}.str{color:#86efac;}.cm{color:#64748b;}.num{color:#fb923c;}.prop{color:#fbbf24;}
+    .git-cmd{background:var(--code-bg);border-radius:8px;padding:12px 16px;margin:8px 0;font-family:'Fira Code',monospace;font-size:0.84rem;color:#86efac;display:flex;align-items:center;gap:10px;}
+    .git-cmd::before{content:'$';color:#60a5fa;font-weight:700;flex-shrink:0;}
+    .obj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:16px;}
+    .obj-card{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:16px;}
+    .obj-card i{color:#15803d;font-size:1.1rem;margin-bottom:8px;display:block;}
+    .obj-card p{font-size:0.83rem;color:#166534;margin:0;font-weight:500;}
+    .preview-section{background:linear-gradient(135deg,#0f172a,#1e293b);border-radius:12px;overflow:hidden;margin:16px 0;}
+    .preview-bar{background:#0f172a;border-bottom:1px solid rgba(255,255,255,0.08);padding:10px 16px;display:flex;align-items:center;gap:8px;}
+    .preview-bar .dot{width:10px;height:10px;border-radius:50%;}
+    .preview-bar .url{font-family:'Fira Code',monospace;font-size:0.75rem;color:#94a3b8;margin-left:8px;}
+    .preview-content{padding:24px;}
+    /* comparison table */
+    .compare-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.88rem;}
+    .compare-table th{padding:12px 16px;text-align:left;font-weight:700;border:1px solid var(--border);}
+    .compare-table td{padding:12px 16px;border:1px solid var(--border);color:#334155;}
+    .compare-table tr:hover td{background:#f8fafc;}
+    .th-sql{background:#eff6ff;color:#1e40af;}
+    .th-mongo{background:#f0fdf4;color:#15803d;}
+    /* ERD diagram */
+    .erd-box{border:2px solid var(--border);border-radius:10px;overflow:hidden;margin:16px 0;}
+    .erd-header{background:#f1f5f9;padding:10px 16px;font-weight:700;font-size:0.85rem;color:var(--dark);display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border);}
+    .erd-fields{padding:0;}
+    .erd-field{display:flex;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid var(--border);font-size:0.84rem;}
+    .erd-field:last-child{border-bottom:none;}
+    .erd-pk{background:#fef9c3;color:#854d0e;font-size:0.68rem;font-weight:700;padding:2px 7px;border-radius:4px;flex-shrink:0;}
+    .erd-type{background:#f1f5f9;color:#475569;font-size:0.72rem;padding:2px 8px;border-radius:4px;font-family:'Fira Code',monospace;flex-shrink:0;}
+    .erd-req{color:#dc2626;font-size:0.72rem;flex-shrink:0;}
+    .erd-fname{font-weight:600;color:var(--dark);}
+    /* query card */
+    .query-card{border:1px solid var(--border);border-radius:10px;overflow:hidden;margin:10px 0;}
+    .query-card-head{background:#f8fafc;padding:10px 14px;font-size:0.78rem;font-weight:700;color:var(--muted);border-bottom:1px solid var(--border);}
+    /* module nav */
+    .module-nav{display:flex;justify-content:space-between;gap:12px;margin-top:28px;flex-wrap:wrap;}
+    .module-nav a{display:flex;align-items:center;gap:8px;padding:14px 22px;border-radius:10px;font-weight:600;font-size:0.9rem;text-decoration:none;border:1.5px solid var(--border);color:var(--dark);transition:.2s;flex:1;min-width:140px;}
+    .module-nav .next{background:var(--primary);color:#fff;border-color:var(--primary);justify-content:flex-end;}
+    .module-nav a:hover{border-color:var(--primary);color:var(--primary);}
+    .module-nav .next:hover{background:#0a58ca;color:#fff;border-color:#0a58ca;}
+    .step-item{display:flex;gap:16px;margin-bottom:20px;align-items:flex-start;}
+    .step-num{width:32px;height:32px;border-radius:50%;background:#15803d;color:#fff;font-weight:700;font-size:0.85rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .step-body h6{font-weight:700;font-size:0.95rem;margin-bottom:5px;}
+    .step-body p{font-size:0.88rem;color:#475569;margin-bottom:6px;}
+  </style>
 </head>
 <body>
+<div id="navbar-placeholder"></div>
+<div class="module-progress-bar"></div>
 
-<nav class="navbar navbar-expand-lg sticky-top">
+<div class="module-header">
   <div class="container">
-    <a class="navbar-brand" href="index.html">Ego<span>TECH</span></a>
-    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
-        <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house-fill me-1"></i>Home</a></li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Modules</a>
-          <ul class="dropdown-menu shadow">
-            <li><a class="dropdown-item" href="module1.html"><span class="badge bg-secondary me-2">01</span>Introduction to MERN</a></li>
-            <li><a class="dropdown-item" href="module2.html"><span class="badge bg-secondary me-2">02</span>Dev Environment Setup</a></li>
-            <li><a class="dropdown-item" href="module3.html"><span class="badge bg-secondary me-2">03</span>Node.js &amp; Express</a></li>
-            <li><a class="dropdown-item" href="module4.html"><span class="badge bg-primary me-2">04</span>MongoDB</a></li>
-            <li><a class="dropdown-item" href="module5.html"><span class="badge bg-secondary me-2">05</span>REST API Development</a></li>
-          </ul>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="setup-guide.html"><i class="bi bi-book me-1"></i>Setup Guide</a></li>
-        <li class="nav-item ms-lg-2"><a class="btn btn-primary btn-sm fw-700 px-3" href="module5.html">Next ?</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<section class="module-hero">
-  <div class="container">
-    <div class="module-badge"><i class="bi bi-collection-fill"></i> Module 04  &nbsp;�&nbsp; </div>
-    <h1><i class="bi bi-database-fill me-2" style="color:#86efac;"></i>MongoDB &amp; Mongoose</h1>
-    <p class="lead">Learn how MongoDB stores data as documents, connect your server to Atlas, design the Student schema with full validation, and write your first Mongoose queries with a complete ER diagram.</p>
+    <div class="badge-module"><i class="bi bi-database me-1"></i>Module 4 of 10</div>
+    <h1><i class="bi bi-database me-2"></i>MongoDB &amp; Mongoose</h1>
+    <p>Learn how to store data permanently using MongoDB. Connect your Express server to the database and define the shape of your data using a schema.</p>
     <div class="module-meta">
-      <span class="module-meta-pill"><i class="bi bi-clock-fill"></i> 55 min</span>
-      <span class="module-meta-pill"><i class="bi bi-database-fill"></i> Database</span>
-      <span class="module-meta-pill"><i class="bi bi-diagram-2-fill"></i> ER Diagram</span>
+      <span><i class="bi bi-clock"></i> 60–90 min</span>
+      <span><i class="bi bi-bar-chart"></i> Beginner</span>
+      <span><i class="bi bi-database"></i> Database setup included</span>
     </div>
-    <div class="progress-track"><div class="fill" style="width:80%"></div></div>
   </div>
-</section>
+</div>
 
-<div class="container py-5">
-  <div class="row g-4">
-    <aside class="col-lg-3">
-      <div class="module-sidebar">
-        <div class="sidebar-nav-card">
-          <div class="sidebar-header"><i class="bi bi-list-ul me-1"></i> This Module</div>
-          <nav class="nav flex-column py-1">
-            <a class="nav-link active" href="#objectives"><span class="snum">01</span>Learning Objectives</a>
-            <a class="nav-link" href="#what-mongo"><span class="snum">02</span>What is MongoDB?</a>
-            <a class="nav-link" href="#sql-vs-nosql"><span class="snum">03</span>SQL vs NoSQL</a>
-            <a class="nav-link" href="#erd"><span class="snum">04</span>ER Diagram</a>
-            <a class="nav-link" href="#mongoose"><span class="snum">05</span>What is Mongoose?</a>
-            <a class="nav-link" href="#model"><span class="snum">06</span>Student Model</a>
-            <a class="nav-link" href="#db-connect"><span class="snum">07</span>DB Connection File</a>
-            <a class="nav-link" href="#queries"><span class="snum">08</span>Common Queries</a>
-            <a class="nav-link" href="#validation"><span class="snum">09</span>Validation &amp; Errors</a>
-            <a class="nav-link" href="#testing"><span class="snum">10</span>Testing the Model</a>
-            <a class="nav-link" href="#git-cmds"><span class="snum">11</span>Git Commands</a>
-          </nav>
+<div class="module-body">
+  <aside class="sidebar">
+    <nav class="sidebar-nav">
+      <h6>On this page</h6>
+      <a href="#objectives" class="active"><i class="bi bi-bullseye"></i>Objectives</a>
+      <a href="#what-is-mongodb"><i class="bi bi-question-circle"></i>What is MongoDB?</a>
+      <a href="#sql-vs-nosql"><i class="bi bi-table"></i>SQL vs NoSQL</a>
+      <a href="#mongoose"><i class="bi bi-link-45deg"></i>What is Mongoose?</a>
+      <a href="#connect"><i class="bi bi-plug"></i>Connect to DB</a>
+      <a href="#erd"><i class="bi bi-diagram-3"></i>ER Diagram</a>
+      <a href="#schema"><i class="bi bi-file-code"></i>Schema &amp; Model</a>
+      <a href="#queries"><i class="bi bi-search"></i>Useful Queries</a>
+      <a href="#preview"><i class="bi bi-eye"></i>Preview</a>
+      <a href="#testing"><i class="bi bi-bug"></i>Testing</a>
+      <a href="#git"><i class="bi bi-git"></i>Git Commands</a>
+    </nav>
+    <div class="progress-card">
+      <h6>Course Progress</h6>
+      <div class="progress mb-2" style="height:7px">
+        <div class="progress-bar bg-success" style="width:40%"></div>
+      </div>
+      <small class="text-muted">Module 4 / 10 — 40%</small>
+    </div>
+  </aside>
+
+  <main>
+
+    <!-- OBJECTIVES -->
+    <div class="content-card" id="objectives">
+      <div class="section-eyebrow"><i class="bi bi-bullseye"></i>Learning Objectives</div>
+      <h2>What you will learn</h2>
+      <div class="obj-grid">
+        <div class="obj-card"><i class="bi bi-database"></i><p>Understand what MongoDB is and why we use it</p></div>
+        <div class="obj-card"><i class="bi bi-plug"></i><p>Connect your Express server to MongoDB Atlas</p></div>
+        <div class="obj-card"><i class="bi bi-file-code"></i><p>Define a Mongoose schema and model for Student data</p></div>
+        <div class="obj-card"><i class="bi bi-search"></i><p>Run basic queries to read and write data</p></div>
+      </div>
+    </div>
+
+    <!-- WHAT IS MONGODB -->
+    <div class="content-card" id="what-is-mongodb">
+      <div class="section-eyebrow"><i class="bi bi-question-circle"></i>Concept</div>
+      <h2>What is MongoDB?</h2>
+
+      <div class="beginner-box">
+        <div class="bb-title"><i class="bi bi-lightbulb-fill"></i>Think of MongoDB like a notebook</div>
+        <p>A traditional database stores data in rigid <strong>tables with rows and columns</strong> — like a spreadsheet. MongoDB stores data as <strong>flexible documents</strong> — like pages in a notebook. Each page (document) can look slightly different, which makes it very flexible and easy to work with when your data changes over time.</p>
+      </div>
+
+      <p>In MongoDB, data is organized like this:</p>
+      <div class="row g-3 mt-1 mb-2">
+        <div class="col-md-4">
+          <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:18px;text-align:center;height:100%;">
+            <div style="font-size:1.6rem;margin-bottom:8px;">🏢</div>
+            <div style="font-weight:700;color:#15803d;margin-bottom:5px;">Database</div>
+            <div style="font-size:0.82rem;color:#166534;">The whole building<br/>e.g. <code>studentdb</code></div>
+          </div>
         </div>
-        <div class="all-modules-card">
-          <div class="p-2" style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#6c757d;padding:.6rem .85rem .2rem!important;">All Modules</div>
-          <a class="mod-link" href="module1.html"><span class="mod-num">01</span>Introduction to MERN</a>
-          <a class="mod-link" href="module2.html"><span class="mod-num">02</span>Dev Environment</a>
-          <a class="mod-link" href="module3.html"><span class="mod-num">03</span>Node.js &amp; Express</a>
-          <a class="mod-link current" href="module4.html"><span class="mod-num">04</span>MongoDB</a>
-          <a class="mod-link" href="module5.html"><span class="mod-num">05</span>REST API</a>
+        <div class="col-md-4">
+          <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:18px;text-align:center;height:100%;">
+            <div style="font-size:1.6rem;margin-bottom:8px;">📁</div>
+            <div style="font-weight:700;color:#1e40af;margin-bottom:5px;">Collection</div>
+            <div style="font-size:0.82rem;color:#1d4ed8;">A folder/group of similar items<br/>e.g. <code>students</code></div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:18px;text-align:center;height:100%;">
+            <div style="font-size:1.6rem;margin-bottom:8px;">📄</div>
+            <div style="font-weight:700;color:#c2410c;margin-bottom:5px;">Document</div>
+            <div style="font-size:0.82rem;color:#9a3412;">One record (one student)<br/>looks like JSON</div>
+          </div>
         </div>
       </div>
-    </aside>
 
-    <main class="col-lg-9">
+      <p>A document in MongoDB looks exactly like JSON you already know from JavaScript:</p>
+      <div class="code-block">
+        <div class="code-block-header"><span>One document in the students collection</span></div>
+        <pre><code>{
+  <span class="prop">"_id"</span>: <span class="str">"64a1b2c3d4e5f6789abc1234"</span>,  <span class="cm">// auto-generated unique ID</span>
+  <span class="prop">"name"</span>: <span class="str">"Kaveesha Jagoda"</span>,
+  <span class="prop">"email"</span>: <span class="str">"kaveesha@university.lk"</span>,
+  <span class="prop">"course"</span>: <span class="str">"Information Technology"</span>,
+  <span class="prop">"age"</span>: <span class="num">21</span>,
+  <span class="prop">"isActive"</span>: <span class="kw">true</span>,
+  <span class="prop">"createdAt"</span>: <span class="str">"2024-01-15T08:30:00.000Z"</span>
+}</code></pre>
+      </div>
+    </div>
 
-      <!-- OBJECTIVES -->
-      <section class="content-section" id="objectives">
-        <h2><i class="bi bi-bullseye"></i>Learning Objectives</h2>
-        <ul class="objective-list">
-          <li><div class="obj-num">1</div><span>Explain the difference between a relational SQL database and a NoSQL document database like MongoDB.</span></li>
-          <li><div class="obj-num">2</div><span>Connect an Express application to MongoDB Atlas using the Mongoose <code>connect()</code> method.</span></li>
-          <li><div class="obj-num">3</div><span>Define a Mongoose schema with correct data types, required fields, unique constraints, and custom validation messages.</span></li>
-          <li><div class="obj-num">4</div><span>Use Mongoose methods: <code>find()</code>, <code>findById()</code>, <code>create()</code>, <code>findByIdAndUpdate()</code>, <code>findByIdAndDelete()</code>.</span></li>
-          <li><div class="obj-num">5</div><span>Write Jest tests that create, read, and validate a Student model against a test MongoDB database.</span></li>
-        </ul>
-      </section>
+    <!-- SQL VS NOSQL -->
+    <div class="content-card" id="sql-vs-nosql">
+      <div class="section-eyebrow"><i class="bi bi-table"></i>Comparison</div>
+      <h2>SQL vs NoSQL — What's the Difference?</h2>
+      <div class="beginner-box">
+        <div class="bb-title"><i class="bi bi-lightbulb-fill"></i>Don't worry — you don't need to know SQL for this course</div>
+        <p>But understanding the difference helps you know <em>why</em> we chose MongoDB. SQL databases store data like strict spreadsheets. MongoDB (NoSQL) stores data like flexible JSON objects. For JavaScript apps, MongoDB feels very natural because you're already writing JSON everywhere.</p>
+      </div>
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th class="th-sql">SQL (e.g. MySQL)</th>
+            <th class="th-mongo">NoSQL (MongoDB)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Stores data in <strong>tables with fixed columns</strong></td><td>Stores data as <strong>flexible JSON documents</strong></td></tr>
+          <tr><td>Every row must match the same structure</td><td>Each document can have different fields</td></tr>
+          <tr><td>Good for very structured data (e.g. banking)</td><td>Good for flexible, changing data (e.g. apps)</td></tr>
+          <tr><td>Uses SQL query language</td><td>Uses JavaScript-like queries</td></tr>
+          <tr><td>Examples: MySQL, PostgreSQL</td><td>Examples: MongoDB, Firebase</td></tr>
+        </tbody>
+      </table>
+    </div>
 
-      <!-- WHAT IS MONGODB -->
-      <section class="content-section" id="what-mongo">
-        <h2><i class="bi bi-database-fill"></i>What is MongoDB? � Beginner Explanation</h2>
-        <p>MongoDB is a <strong>NoSQL database</strong> that stores data as <strong>documents</strong> (JSON-like objects) inside <strong>collections</strong> (similar to folders). Unlike SQL databases, there are no fixed columns � each document can have different fields.</p>
-        <div class="row g-3">
-          <div class="col-sm-6">
-            <div class="card border-0 shadow-sm h-100" style="border-left:4px solid #a16207!important;">
-              <div class="card-body p-3">
-                <strong class="small d-block mb-2" style="color:#a16207;">?? SQL Term ? MongoDB Term</strong>
-                <div style="font-size:.8rem;line-height:2.2;">
-                  <div class="d-flex justify-content-between border-bottom pb-1"><span class="text-muted">Database</span><span class="fw-600">? Database</span></div>
-                  <div class="d-flex justify-content-between border-bottom pb-1"><span class="text-muted">Table</span><span class="fw-600">? Collection</span></div>
-                  <div class="d-flex justify-content-between border-bottom pb-1"><span class="text-muted">Row</span><span class="fw-600">? Document</span></div>
-                  <div class="d-flex justify-content-between border-bottom pb-1"><span class="text-muted">Column</span><span class="fw-600">? Field</span></div>
-                  <div class="d-flex justify-content-between"><span class="text-muted">Primary Key</span><span class="fw-600">? _id</span></div>
-                </div>
-              </div>
-            </div>
+    <!-- WHAT IS MONGOOSE -->
+    <div class="content-card" id="mongoose">
+      <div class="section-eyebrow"><i class="bi bi-link-45deg"></i>Concept</div>
+      <h2>What is Mongoose?</h2>
+
+      <div class="beginner-box">
+        <div class="bb-title"><i class="bi bi-lightbulb-fill"></i>Mongoose = a translator between Node.js and MongoDB</div>
+        <p>MongoDB understands its own language. Mongoose is a library that lets you talk to MongoDB using normal JavaScript. It also lets you define a <strong>schema</strong> — a set of rules that says what each document must look like (required fields, data types, validation).</p>
+      </div>
+
+      <ul>
+        <li>Mongoose lets you define <strong>schemas</strong> — rules for your data shape</li>
+        <li>Mongoose gives you easy <strong>methods</strong> like <code>.find()</code>, <code>.save()</code>, <code>.delete()</code></li>
+        <li>Mongoose automatically <strong>validates</strong> data before saving it</li>
+        <li>Mongoose adds <strong>timestamps</strong> (createdAt, updatedAt) automatically</li>
+      </ul>
+    </div>
+
+    <!-- CONNECT TO DB -->
+    <div class="content-card" id="connect">
+      <div class="section-eyebrow"><i class="bi bi-plug"></i>Setup</div>
+      <h2>Connect Express to MongoDB</h2>
+
+      <p>First, create your <code>.env</code> file in the <code>backend/</code> folder to store your secret connection string:</p>
+      <div class="code-block">
+        <div class="code-block-header"><span>backend/.env</span></div>
+        <pre><code>PORT=5000
+MONGO_URI=mongodb+srv://yourUsername:yourPassword@cluster0.xxxxx.mongodb.net/studentdb</code></pre>
+      </div>
+
+      <div class="tip-box">
+        <div class="tip-title"><i class="bi bi-shield-exclamation"></i>Never share your .env file!</div>
+        <p>The <code>.env</code> file contains your database password. Never commit it to GitHub. Make sure <code>.env</code> is listed in your <code>.gitignore</code> file.</p>
+      </div>
+
+      <p>Now create <code>backend/config/db.js</code> to handle the connection:</p>
+      <div class="code-block">
+        <div class="code-block-header"><span>backend/config/db.js</span><button onclick="navigator.clipboard.writeText(this.closest('.code-block').querySelector('code').innerText)">Copy</button></div>
+        <pre><code><span class="kw">const</span> mongoose = <span class="fn">require</span>(<span class="str">'mongoose'</span>);
+
+<span class="kw">const</span> <span class="fn">connectDB</span> = <span class="kw">async</span> () => {
+  <span class="kw">try</span> {
+    <span class="cm">// Connect to MongoDB using the URI from .env</span>
+    <span class="kw">await</span> mongoose.<span class="fn">connect</span>(process.env.MONGO_URI);
+    console.<span class="fn">log</span>(<span class="str">'✅ MongoDB Connected!'</span>);
+  } <span class="kw">catch</span> (error) {
+    <span class="cm">// If connection fails, print the error and stop the server</span>
+    console.<span class="fn">error</span>(<span class="str">'❌ MongoDB connection failed:'</span>, error.message);
+    process.<span class="fn">exit</span>(<span class="num">1</span>); <span class="cm">// exit with failure</span>
+  }
+};
+
+module.exports = connectDB;</code></pre>
+      </div>
+
+      <p>Then call <code>connectDB()</code> in your <code>server.js</code>:</p>
+      <div class="code-block">
+        <div class="code-block-header"><span>backend/server.js — add these lines</span></div>
+        <pre><code><span class="kw">const</span> connectDB = <span class="fn">require</span>(<span class="str">'./config/db'</span>);
+
+<span class="cm">// Call connectDB when the server starts</span>
+<span class="fn">connectDB</span>();</code></pre>
+      </div>
+    </div>
+
+    <!-- ER DIAGRAM -->
+    <div class="content-card" id="erd">
+      <div class="section-eyebrow"><i class="bi bi-diagram-3"></i>ER Diagram</div>
+      <h2>Entity Relationship (ER) Diagram</h2>
+
+      <div class="beginner-box">
+        <div class="bb-title"><i class="bi bi-lightbulb-fill"></i>What is an ER Diagram?</div>
+        <p>An ER Diagram shows the structure of your data — what fields exist, what type they are, and which ones are required. Think of it like a blueprint before you build a house. For our simple app, we have one entity: <strong>Student</strong>.</p>
+      </div>
+
+      <div class="erd-box">
+        <div class="erd-header">
+          <i class="bi bi-person-circle" style="color:#15803d;"></i>
+          Student Entity
+        </div>
+        <div class="erd-fields">
+          <div class="erd-field">
+            <span class="erd-pk">PK</span>
+            <span class="erd-fname">_id</span>
+            <span class="erd-type">ObjectId</span>
+            <span style="font-size:0.8rem;color:#475569;">Auto-generated unique identifier by MongoDB</span>
           </div>
-          <div class="col-sm-6">
-            <div class="card border-0 shadow-sm h-100 border-success-subtle">
-              <div class="card-body p-3">
-                <strong class="text-success small d-block mb-2">? Why MongoDB for MERN?</strong>
-                <ul class="small text-muted ps-3 mb-0" style="line-height:2;">
-                  <li>Data stored as JSON � same as React uses</li>
-                  <li>No strict schema � flexible structure</li>
-                  <li>Scales easily to millions of records</li>
-                  <li>Free M0 tier on Atlas is enough for projects</li>
-                  <li>JavaScript-friendly query API</li>
-                </ul>
-              </div>
-            </div>
+          <div class="erd-field">
+            <span class="erd-type">String</span>
+            <span class="erd-fname">name</span>
+            <span class="erd-req">required</span>
+            <span style="font-size:0.8rem;color:#475569;">Full name of the student</span>
+          </div>
+          <div class="erd-field">
+            <span class="erd-type">String</span>
+            <span class="erd-fname">email</span>
+            <span class="erd-req">required, unique</span>
+            <span style="font-size:0.8rem;color:#475569;">Student's email address — must be unique</span>
+          </div>
+          <div class="erd-field">
+            <span class="erd-type">String</span>
+            <span class="erd-fname">course</span>
+            <span class="erd-req">required</span>
+            <span style="font-size:0.8rem;color:#475569;">Course the student is enrolled in</span>
+          </div>
+          <div class="erd-field">
+            <span class="erd-type">Number</span>
+            <span class="erd-fname">age</span>
+            <span style="font-size:0.8rem;color:#475569;">Student's age (optional)</span>
+          </div>
+          <div class="erd-field">
+            <span class="erd-type">Boolean</span>
+            <span class="erd-fname">isActive</span>
+            <span style="font-size:0.8rem;color:#475569;">Default: true. Whether student is currently enrolled</span>
+          </div>
+          <div class="erd-field">
+            <span class="erd-type">Date</span>
+            <span class="erd-fname">createdAt</span>
+            <span style="font-size:0.8rem;color:#475569;">Auto-added by Mongoose timestamps</span>
+          </div>
+          <div class="erd-field">
+            <span class="erd-type">Date</span>
+            <span class="erd-fname">updatedAt</span>
+            <span style="font-size:0.8rem;color:#475569;">Auto-updated by Mongoose timestamps</span>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
 
-      <!-- SQL VS NOSQL -->
-      <section class="content-section" id="sql-vs-nosql">
-        <h2><i class="bi bi-table"></i>SQL vs NoSQL � Side by Side</h2>
-        <div class="row g-3">
-          <div class="col-sm-6">
-            <div class="card border-warning-subtle h-100">
-              <div class="card-header py-2 fw-700 small" style="background:#fefce8;color:#a16207;">SQL Table (MySQL)</div>
-              <div class="card-body p-3">
-                <div class="table-responsive">
-                  <table class="table table-sm mb-0" style="font-size:.75rem;">
-                    <thead><tr class="table-secondary"><th>id</th><th>name</th><th>email</th><th>course</th></tr></thead>
-                    <tbody>
-                      <tr><td>1</td><td>Kaveesha</td><td>k@lk</td><td>IT</td></tr>
-                      <tr><td>2</td><td>Nuwan</td><td>n@lk</td><td>CS</td></tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="card border-success-subtle h-100">
-              <div class="card-header py-2 fw-700 small" style="background:#f0fdf4;color:#15803d;">MongoDB Collection (JSON)</div>
-              <div class="card-body p-3">
-                <pre class="code-block" style="border-radius:6px;padding:.75rem;font-size:.73rem;line-height:1.7;">{ _id: ObjectId("..."),
-  name: <span class="str">"Kaveesha"</span>,
-  email: <span class="str">"k@lk"</span>,
-  age: <span class="nm">21</span>,
-  course: <span class="str">"IT"</span> }</pre>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    <!-- SCHEMA AND MODEL -->
+    <div class="content-card" id="schema">
+      <div class="section-eyebrow"><i class="bi bi-file-code"></i>Code</div>
+      <h2>Creating the Schema &amp; Model</h2>
 
-      <!-- ER DIAGRAM -->
-      <section class="content-section" id="erd">
-        <h2><i class="bi bi-diagram-2-fill"></i>Entity Relationship (ER) Diagram</h2>
-        <p>Our Student Management System has one entity. The ER diagram shows all fields, their types, and constraints:</p>
-        <div class="erd-wrapper">
-          <div class="d-flex justify-content-center">
-            <div class="erd-entity">
-              <div class="erd-title">?? STUDENT Entity</div>
-              <div class="erd-field"><span class="erd-fname erd-pk">?? _id</span><span class="erd-ftype">ObjectId � Primary Key � Auto-generated by MongoDB</span></div>
-              <div class="erd-field"><span class="erd-fname">name</span><span class="erd-ftype">String � required � trim � minLength:2 � maxLength:50</span></div>
-              <div class="erd-field"><span class="erd-fname">email</span><span class="erd-ftype">String � required � unique � lowercase � regex validated</span></div>
-              <div class="erd-field"><span class="erd-fname">age</span><span class="erd-ftype">Number � min:1 � max:120</span></div>
-              <div class="erd-field"><span class="erd-fname">course</span><span class="erd-ftype">String � required � enum: [IT, CS, Engineering, Business, Other]</span></div>
-              <div class="erd-field"><span class="erd-fname">createdAt</span><span class="erd-ftype">Date � Auto-added by timestamps:true</span></div>
-              <div class="erd-field"><span class="erd-fname">updatedAt</span><span class="erd-ftype">Date � Auto-updated by timestamps:true</span></div>
-            </div>
-          </div>
-          <div class="text-center mt-3 small text-muted">
-            MongoDB collection: <code>students</code> &nbsp;�&nbsp; Database: <code>studentDB</code> &nbsp;�&nbsp; Single-entity model for beginners
-          </div>
-        </div>
-      </section>
+      <div class="beginner-box">
+        <div class="bb-title"><i class="bi bi-lightbulb-fill"></i>Schema vs Model — what's the difference?</div>
+        <p>A <strong>schema</strong> is the blueprint — it defines the rules (field names, types, required or not). A <strong>model</strong> is the actual tool you use in your code — it reads the schema and gives you methods to create, read, update, and delete documents. You define the schema once and create the model from it.</p>
+      </div>
 
-      <!-- MONGOOSE -->
-      <section class="content-section" id="mongoose">
-        <h2><i class="bi bi-link-45deg"></i>What is Mongoose?</h2>
-        <p>Mongoose is an <strong>ODM (Object Document Mapper)</strong>. It acts as a bridge between Node.js and MongoDB � you define schemas and models in JavaScript, and Mongoose handles the translation to MongoDB commands.</p>
-        <div class="callout callout-info">
-          <i class="bi bi-lightbulb-fill"></i>
-          <div><strong>Simple analogy:</strong> Mongoose is like a form template for your database. Instead of storing any random data, you define the exact shape first (schema) and Mongoose enforces it � rejecting invalid data before it reaches MongoDB.</div>
-        </div>
-      </section>
+      <p>Create the file <code>backend/models/Student.js</code>:</p>
+      <div class="code-block">
+        <div class="code-block-header"><span>backend/models/Student.js</span><button onclick="navigator.clipboard.writeText(this.closest('.code-block').querySelector('code').innerText)">Copy</button></div>
+        <pre><code><span class="kw">const</span> mongoose = <span class="fn">require</span>(<span class="str">'mongoose'</span>);
 
-      <!-- STUDENT MODEL -->
-      <section class="content-section" id="model">
-        <h2><i class="bi bi-file-earmark-code-fill"></i>Student Model � Full Mongoose Schema</h2>
-        <div class="code-wrapper">
-          <div class="code-header"><span class="filename"><i class="bi bi-file-earmark-code me-1"></i>backend/models/Student.js</span><span class="lang-tag">JS</span></div>
-          <pre class="code-block"><span class="kw">const</span> mongoose = <span class="fn">require</span>(<span class="str">'mongoose'</span>);
-
-<span class="cm">/**
- * Student Schema
- * Defines structure + validation for student documents
- */</span>
+<span class="cm">// Step 1 — Define the schema (rules for our data)</span>
 <span class="kw">const</span> studentSchema = <span class="kw">new</span> mongoose.<span class="fn">Schema</span>(
   {
     name: {
       type: String,
-      required: [<span class="kw">true</span>, <span class="str">'Student name is required'</span>],
-      trim: <span class="kw">true</span>,
-      minlength: [<span class="nm">2</span>,  <span class="str">'Name must be at least 2 characters'</span>],
-      maxlength: [<span class="nm">50</span>, <span class="str">'Name cannot exceed 50 characters'</span>],
+      <span class="prop">required</span>: [<span class="kw">true</span>, <span class="str">'Name is required'</span>],  <span class="cm">// must be provided</span>
+      <span class="prop">trim</span>: <span class="kw">true</span>,                                <span class="cm">// removes extra spaces</span>
     },
-
     email: {
       type: String,
-      required: [<span class="kw">true</span>, <span class="str">'Email address is required'</span>],
-      unique: <span class="kw">true</span>,      <span class="cm">// no duplicate emails in DB</span>
-      lowercase: <span class="kw">true</span>,   <span class="cm">// auto-converts to lowercase on save</span>
-      match: [
-        <span class="op">/^\S+@\S+\.\S+$/</span>,
-        <span class="str">'Please provide a valid email address'</span>,
-      ],
+      <span class="prop">required</span>: [<span class="kw">true</span>, <span class="str">'Email is required'</span>],
+      <span class="prop">unique</span>: <span class="kw">true</span>,    <span class="cm">// no two students can have the same email</span>
+      <span class="prop">lowercase</span>: <span class="kw">true</span>, <span class="cm">// auto-converts to lowercase before saving</span>
     },
-
-    age: {
-      type: Number,
-      min: [<span class="nm">1</span>,   <span class="str">'Age must be at least 1'</span>],
-      max: [<span class="nm">120</span>, <span class="str">'Age cannot exceed 120'</span>],
-    },
-
     course: {
       type: String,
-      required: [<span class="kw">true</span>, <span class="str">'Course is required'</span>],
-      enum: {
-        values: [<span class="str">'IT'</span>, <span class="str">'CS'</span>, <span class="str">'Engineering'</span>, <span class="str">'Business'</span>, <span class="str">'Medicine'</span>, <span class="str">'Other'</span>],
-        message: <span class="str">'{VALUE} is not a valid course option'</span>,
-      },
+      <span class="prop">required</span>: [<span class="kw">true</span>, <span class="str">'Course is required'</span>],
+    },
+    age: {
+      type: Number,
+      <span class="prop">min</span>: [<span class="num">16</span>, <span class="str">'Age must be at least 16'</span>], <span class="cm">// validation</span>
+      <span class="prop">max</span>: [<span class="num">100</span>, <span class="str">'Age cannot exceed 100'</span>],
+    },
+    isActive: {
+      type: Boolean,
+      <span class="prop">default</span>: <span class="kw">true</span>, <span class="cm">// auto set to true if not provided</span>
     },
   },
   {
-    timestamps: <span class="kw">true</span>,  <span class="cm">// adds createdAt & updatedAt automatically</span>
+    <span class="prop">timestamps</span>: <span class="kw">true</span>, <span class="cm">// auto-adds createdAt and updatedAt</span>
   }
 );
 
+<span class="cm">// Step 2 — Create the model from the schema</span>
+<span class="cm">// 'Student' becomes the collection name 'students' in MongoDB</span>
 <span class="kw">const</span> Student = mongoose.<span class="fn">model</span>(<span class="str">'Student'</span>, studentSchema);
-module.exports = Student;</pre>
-        </div>
-        <div class="callout callout-info">
-          <i class="bi bi-info-circle-fill"></i>
-          <div><code>mongoose.model('Student', studentSchema)</code> creates a model named "Student". Mongoose automatically creates a MongoDB collection called <code>students</code> (lowercase + pluralized). You never create the collection manually.</div>
-        </div>
-      </section>
 
-      <!-- DB CONNECTION -->
-      <section class="content-section" id="db-connect">
-        <h2><i class="bi bi-cloud-check-fill"></i>Database Connection File</h2>
-        <div class="code-wrapper">
-          <div class="code-header"><span class="filename"><i class="bi bi-file-earmark-code me-1"></i>backend/config/db.js</span><span class="lang-tag">JS</span></div>
-          <pre class="code-block"><span class="kw">const</span> mongoose = <span class="fn">require</span>(<span class="str">'mongoose'</span>);
-
-<span class="kw">const</span> <span class="fn">connectDB</span> = <span class="kw">async</span> () => {
-  <span class="kw">try</span> {
-    <span class="kw">const</span> conn = <span class="kw">await</span> mongoose.<span class="fn">connect</span>(process.env.MONGO_URI);
-    console.<span class="fn">log</span>(<span class="str">`? MongoDB connected: ${conn.connection.host}`</span>);
-  } <span class="kw">catch</span> (error) {
-    console.<span class="fn">error</span>(<span class="str">`? MongoDB error: ${error.message}`</span>);
-    process.<span class="fn">exit</span>(<span class="nm">1</span>); <span class="cm">// stop app if DB fails � can't run without it</span>
-  }
-};
-
-module.exports = connectDB;</pre>
-        </div>
-        <p>In <code>server.js</code>, call it at the top:</p>
-        <div class="code-wrapper">
-          <div class="code-header"><span class="filename"><i class="bi bi-file-code me-1"></i>backend/server.js (add to top)</span><span class="lang-tag">JS</span></div>
-          <pre class="code-block"><span class="fn">require</span>(<span class="str">'dotenv'</span>).<span class="fn">config</span>();
-<span class="kw">const</span> connectDB = <span class="fn">require</span>(<span class="str">'./config/db'</span>);
-<span class="fn">connectDB</span>();  <span class="cm">// call before anything else</span></pre>
-        </div>
-      </section>
-
-      <!-- QUERIES -->
-      <section class="content-section" id="queries">
-        <h2><i class="bi bi-search"></i>Common Mongoose Queries</h2>
-        <p>These are the 5 Mongoose methods you will use in the controller:</p>
-        <div class="code-wrapper">
-          <div class="code-header"><span class="filename"><i class="bi bi-file-code me-1"></i>Mongoose Query Reference</span><span class="lang-tag">JS</span></div>
-          <pre class="code-block"><span class="cm">// -- CREATE --------------------------------------</span>
-<span class="kw">const</span> student = <span class="kw">await</span> Student.<span class="fn">create</span>({ name, email, age, course });
-<span class="cm">// Returns the saved document including _id and timestamps</span>
-
-<span class="cm">// -- READ ALL ------------------------------------</span>
-<span class="kw">const</span> all     = <span class="kw">await</span> Student.<span class="fn">find</span>().<span class="fn">sort</span>({ createdAt: <span class="op">-</span><span class="nm">1</span> });
-<span class="cm">// Returns array of all documents, newest first</span>
-
-<span class="kw">const</span> itOnly  = <span class="kw">await</span> Student.<span class="fn">find</span>({ course: <span class="str">'IT'</span> });
-<span class="cm">// Returns only IT students (filter)</span>
-
-<span class="cm">// -- READ ONE ------------------------------------</span>
-<span class="kw">const</span> one     = <span class="kw">await</span> Student.<span class="fn">findById</span>(<span class="str">'64f2a1b3...'</span>);
-<span class="cm">// Returns one document by _id, or null if not found</span>
-
-<span class="cm">// -- UPDATE --------------------------------------</span>
-<span class="kw">const</span> updated = <span class="kw">await</span> Student.<span class="fn">findByIdAndUpdate</span>(
-  id,
-  req.body,
-  { <span class="kw">new</span>: <span class="kw">true</span>, runValidators: <span class="kw">true</span> }
-  <span class="cm">// new: true ? returns UPDATED doc, not the old one</span>
-  <span class="cm">// runValidators ? applies schema validation on update</span>
-);
-
-<span class="cm">// -- DELETE --------------------------------------</span>
-<span class="kw">const</span> deleted = <span class="kw">await</span> Student.<span class="fn">findByIdAndDelete</span>(id);
-<span class="cm">// Returns the deleted document, or null if not found</span></pre>
-        </div>
-      </section>
-
-      <!-- VALIDATION -->
-      <section class="content-section" id="validation">
-        <h2><i class="bi bi-shield-check-fill"></i>Validation &amp; Error Handling</h2>
-        <p>Mongoose validates data before saving. Catch errors in your controller and send the right status code back:</p>
-        <div class="code-wrapper">
-          <div class="code-header"><span class="filename"><i class="bi bi-file-code me-1"></i>Controller error handling pattern</span><span class="lang-tag">JS</span></div>
-          <pre class="code-block"><span class="kw">const</span> <span class="fn">createStudent</span> = <span class="kw">async</span> (req, res) => {
-  <span class="kw">try</span> {
-    <span class="kw">const</span> student = <span class="kw">await</span> Student.<span class="fn">create</span>(req.body);
-    res.<span class="fn">status</span>(<span class="nm">201</span>).<span class="fn">json</span>({ success: <span class="kw">true</span>, data: student });
-
-  } <span class="kw">catch</span> (error) {
-    <span class="cm">// Missing required field or failed validation rule</span>
-    <span class="kw">if</span> (error.name === <span class="str">'ValidationError'</span>) {
-      <span class="kw">const</span> msgs = Object.<span class="fn">values</span>(error.errors).<span class="fn">map</span>(e => e.message);
-      <span class="kw">return</span> res.<span class="fn">status</span>(<span class="nm">400</span>).<span class="fn">json</span>({ success: <span class="kw">false</span>, errors: msgs });
-    }
-    <span class="cm">// Duplicate email (unique: true violated)</span>
-    <span class="kw">if</span> (error.code === <span class="nm">11000</span>) {
-      <span class="kw">return</span> res.<span class="fn">status</span>(<span class="nm">409</span>).<span class="fn">json</span>({
-        success: <span class="kw">false</span>,
-        message: <span class="str">'A student with this email already exists'</span>,
-      });
-    }
-    res.<span class="fn">status</span>(<span class="nm">500</span>).<span class="fn">json</span>({ success: <span class="kw">false</span>, message: error.message });
-  }
-};</pre>
-        </div>
-      </section>
-
-      <!-- TESTING -->
-      <section class="content-section" id="testing">
-        <h2><i class="bi bi-bug-fill"></i>Testing the Student Model</h2>
-        <div class="code-wrapper">
-          <div class="code-header"><span class="filename"><i class="bi bi-bug me-1"></i>backend/tests/student.model.test.js</span><span class="lang-tag">JS</span></div>
-          <pre class="code-block"><span class="kw">const</span> mongoose = <span class="fn">require</span>(<span class="str">'mongoose'</span>);
-<span class="kw">const</span> Student  = <span class="fn">require</span>(<span class="str">'../models/Student'</span>);
-
-<span class="fn">beforeAll</span>(<span class="kw">async</span> () => {
-  <span class="kw">await</span> mongoose.<span class="fn">connect</span>(
-    process.env.MONGO_URI_TEST || <span class="str">'mongodb://localhost:27017/studentTest'</span>
-  );
-});
-<span class="fn">afterEach</span> (<span class="kw">async</span> () => { <span class="kw">await</span> Student.<span class="fn">deleteMany</span>({}); });
-<span class="fn">afterAll</span>  (<span class="kw">async</span> () => { <span class="kw">await</span> mongoose.connection.<span class="fn">close</span>(); });
-
-<span class="fn">describe</span>(<span class="str">'Student Model'</span>, () => {
-
-  <span class="fn">it</span>(<span class="str">'creates a valid student'</span>, <span class="kw">async</span> () => {
-    <span class="kw">const</span> s = <span class="kw">await</span> Student.<span class="fn">create</span>({
-      name: <span class="str">'Kaveesha Silva'</span>, email: <span class="str">'k@test.com'</span>,
-      age: <span class="nm">21</span>, course: <span class="str">'IT'</span>,
-    });
-    <span class="fn">expect</span>(s.name).<span class="fn">toBe</span>(<span class="str">'Kaveesha Silva'</span>);
-    <span class="fn">expect</span>(s._id).<span class="fn">toBeDefined</span>();
-    <span class="fn">expect</span>(s.createdAt).<span class="fn">toBeDefined</span>();
-  });
-
-  <span class="fn">it</span>(<span class="str">'fails when name is missing'</span>, <span class="kw">async</span> () => {
-    <span class="kw">let</span> err;
-    <span class="kw">try</span> { <span class="kw">await</span> Student.<span class="fn">create</span>({ email: <span class="str">'x@t.com'</span>, course: <span class="str">'IT'</span> }); }
-    <span class="kw">catch</span> (e) { err = e; }
-    <span class="fn">expect</span>(err.name).<span class="fn">toBe</span>(<span class="str">'ValidationError'</span>);
-  });
-
-  <span class="fn">it</span>(<span class="str">'rejects duplicate email'</span>, <span class="kw">async</span> () => {
-    <span class="kw">const</span> data = { name: <span class="str">'A'</span>, email: <span class="str">'dup@t.com'</span>, course: <span class="str">'IT'</span> };
-    <span class="kw">await</span> Student.<span class="fn">create</span>(data);
-    <span class="kw">let</span> err;
-    <span class="kw">try</span> { <span class="kw">await</span> Student.<span class="fn">create</span>(data); } <span class="kw">catch</span> (e) { err = e; }
-    <span class="fn">expect</span>(err.code).<span class="fn">toBe</span>(<span class="nm">11000</span>); <span class="cm">// MongoDB duplicate key code</span>
-  });
-
-});</pre>
-        </div>
-        <div class="git-cmd">npm test</div>
-        <div class="callout callout-success">
-          <i class="bi bi-check-circle-fill"></i>
-          <div><code>PASS tests/student.model.test.js � 3 tests passing ?</code></div>
-        </div>
-      </section>
-
-      <!-- GIT -->
-      <section class="content-section" id="git-cmds">
-        <h2><i class="bi bi-git"></i>Git Commands � Module 4</h2>
-        <div class="git-cmd">git add backend/models/ backend/config/</div>
-        <p class="git-comment">Stage only the new database files</p>
-        <div class="git-cmd">git add .</div>
-        <p class="git-comment">Or stage everything</p>
-        <div class="git-cmd">git commit -m "feat: add Student Mongoose model with validation and DB connection"</div>
-        <div class="git-cmd">git push origin main</div>
-        <div class="git-cmd">git log --oneline</div>
-        <p class="git-comment">You should now have 3+ commits in history</p>
-      </section>
-
-      <div class="module-nav-bar">
-        <a class="btn-mod-prev" href="module3.html"><i class="bi bi-arrow-left"></i> Module 3: Node.js</a>
-        <div class="mod-progress-badge">Module 4 of 5<div class="mod-prog-bar"><div class="mod-prog-fill" style="width:80%"></div></div></div>
-        <a class="btn-mod-next" href="module5.html">Module 5: REST API <i class="bi bi-arrow-right"></i></a>
+module.exports = Student;</code></pre>
       </div>
-    </main>
-  </div>
+    </div>
+
+    <!-- QUERIES -->
+    <div class="content-card" id="queries">
+      <div class="section-eyebrow"><i class="bi bi-search"></i>Mongoose Queries</div>
+      <h2>Useful Mongoose Queries</h2>
+      <p>These are the most common operations you will use. Each one talks to MongoDB for you.</p>
+
+      <div class="query-card">
+        <div class="query-card-head">GET — Find all students</div>
+        <div class="code-block" style="margin:0;border-radius:0;">
+          <pre><code><span class="kw">const</span> students = <span class="kw">await</span> Student.<span class="fn">find</span>();
+<span class="cm">// Returns an array of ALL student documents</span></code></pre>
+        </div>
+      </div>
+
+      <div class="query-card">
+        <div class="query-card-head">GET — Find one student by ID</div>
+        <div class="code-block" style="margin:0;border-radius:0;">
+          <pre><code><span class="kw">const</span> student = <span class="kw">await</span> Student.<span class="fn">findById</span>(id);
+<span class="cm">// Returns ONE student matching the ID, or null if not found</span></code></pre>
+        </div>
+      </div>
+
+      <div class="query-card">
+        <div class="query-card-head">POST — Create a new student</div>
+        <div class="code-block" style="margin:0;border-radius:0;">
+          <pre><code><span class="kw">const</span> student = <span class="kw">new</span> <span class="fn">Student</span>({ name, email, course });
+<span class="kw">await</span> student.<span class="fn">save</span>(); <span class="cm">// saves to MongoDB</span></code></pre>
+        </div>
+      </div>
+
+      <div class="query-card">
+        <div class="query-card-head">PUT — Update a student</div>
+        <div class="code-block" style="margin:0;border-radius:0;">
+          <pre><code><span class="kw">const</span> student = <span class="kw">await</span> Student.<span class="fn">findByIdAndUpdate</span>(
+  id,
+  { name, email, course }, <span class="cm">// new values</span>
+  { <span class="prop">new</span>: <span class="kw">true</span> }           <span class="cm">// returns the UPDATED document</span>
+);</code></pre>
+        </div>
+      </div>
+
+      <div class="query-card">
+        <div class="query-card-head">DELETE — Remove a student</div>
+        <div class="code-block" style="margin:0;border-radius:0;">
+          <pre><code><span class="kw">await</span> Student.<span class="fn">findByIdAndDelete</span>(id);
+<span class="cm">// Permanently removes the student from MongoDB</span></code></pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- PREVIEW -->
+    <div class="content-card" id="preview">
+      <div class="section-eyebrow"><i class="bi bi-eye"></i>Preview</div>
+      <h2>What Your MongoDB Atlas Looks Like</h2>
+      <p>After connecting and saving your first student, you can log into MongoDB Atlas and see your data stored in the cloud:</p>
+
+      <div class="preview-section">
+        <div class="preview-bar">
+          <span class="dot" style="background:#ff5f57;"></span>
+          <span class="dot" style="background:#ffbd2e;"></span>
+          <span class="dot" style="background:#28ca41;"></span>
+          <span class="url">MongoDB Atlas — studentdb &gt; students</span>
+        </div>
+        <div class="preview-content">
+          <div style="background:#0f172a;border-radius:8px;padding:20px;font-family:'Fira Code',monospace;font-size:0.82rem;line-height:2;">
+            <div style="color:#94a3b8;font-size:0.7rem;margin-bottom:10px;">3 documents in students collection</div>
+            <div style="color:#fbbf24;margin-bottom:6px;">▼ Document 1</div>
+            <div style="padding-left:14px;">
+              <span style="color:#c084fc;">_id:</span> <span style="color:#86efac;">"64a1b2c3d4e5f6789abc1234"</span><br/>
+              <span style="color:#c084fc;">name:</span> <span style="color:#86efac;">"Kaveesha Jagoda"</span><br/>
+              <span style="color:#c084fc;">email:</span> <span style="color:#86efac;">"kaveesha@uni.lk"</span><br/>
+              <span style="color:#c084fc;">course:</span> <span style="color:#86efac;">"Information Technology"</span><br/>
+              <span style="color:#c084fc;">isActive:</span> <span style="color:#60a5fa;">true</span><br/>
+              <span style="color:#c084fc;">createdAt:</span> <span style="color:#86efac;">"2024-01-15T08:30:00.000Z"</span>
+            </div>
+            <div style="color:#64748b;margin-top:10px;font-size:0.72rem;">+ 2 more documents...</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="mt-3">And in your terminal when the server starts, you will see:</p>
+      <div class="preview-section">
+        <div class="preview-bar">
+          <span class="dot" style="background:#ff5f57;"></span>
+          <span class="dot" style="background:#ffbd2e;"></span>
+          <span class="dot" style="background:#28ca41;"></span>
+          <span class="url">Terminal — VS Code</span>
+        </div>
+        <div class="preview-content">
+          <div style="background:#0f172a;border-radius:8px;padding:16px;font-family:'Fira Code',monospace;font-size:0.85rem;line-height:2;">
+            <div style="color:#60a5fa;">$ node server.js</div>
+            <div style="color:#86efac;">✅ MongoDB Connected!</div>
+            <div style="color:#e2e8f0;">Server running on port 5000</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TESTING -->
+    <div class="content-card" id="testing">
+      <div class="section-eyebrow"><i class="bi bi-bug"></i>Software Testing</div>
+      <h2>Testing the Student Model</h2>
+      <p>We test the model to make sure validation rules work correctly. A good test checks both the happy path (valid data) and the sad path (invalid/missing data).</p>
+
+      <div class="code-block">
+        <div class="code-block-header"><span>backend/tests/student.test.js</span><button onclick="navigator.clipboard.writeText(this.closest('.code-block').querySelector('code').innerText)">Copy</button></div>
+        <pre><code><span class="kw">const</span> Student = <span class="fn">require</span>(<span class="str">'../models/Student'</span>);
+
+<span class="cm">// Test 1: Valid student should pass validation</span>
+<span class="fn">test</span>(<span class="str">'creates a valid student'</span>, () => {
+  <span class="kw">const</span> student = <span class="kw">new</span> <span class="fn">Student</span>({
+    name: <span class="str">'Kaveesha'</span>,
+    email: <span class="str">'k@uni.lk'</span>,
+    course: <span class="str">'IT'</span>,
+  });
+  <span class="kw">const</span> err = student.<span class="fn">validateSync</span>(); <span class="cm">// check for errors</span>
+  expect(err).<span class="fn">toBeUndefined</span>();           <span class="cm">// no errors = pass</span>
+});
+
+<span class="cm">// Test 2: Missing name should fail</span>
+<span class="fn">test</span>(<span class="str">'fails without a name'</span>, () => {
+  <span class="kw">const</span> student = <span class="kw">new</span> <span class="fn">Student</span>({
+    email: <span class="str">'k@uni.lk'</span>,
+    course: <span class="str">'IT'</span>,
+  });
+  <span class="kw">const</span> err = student.<span class="fn">validateSync</span>();
+  expect(err.errors.name).<span class="fn">toBeDefined</span>(); <span class="cm">// name error should exist</span>
+});
+
+<span class="cm">// Test 3: isActive should default to true</span>
+<span class="fn">test</span>(<span class="str">'isActive defaults to true'</span>, () => {
+  <span class="kw">const</span> student = <span class="kw">new</span> <span class="fn">Student</span>({
+    name: <span class="str">'Nisal'</span>, email: <span class="str">'n@uni.lk'</span>, course: <span class="str">'CS'</span>,
+  });
+  expect(student.isActive).<span class="fn">toBe</span>(<span class="kw">true</span>);
+});</code></pre>
+      </div>
+
+      <div class="git-cmd">npm test</div>
+      <small class="text-muted d-block">↳ All 3 tests should show ✓ (green) if your schema is correct</small>
+    </div>
+
+    <!-- GIT -->
+    <div class="content-card" id="git">
+      <div class="section-eyebrow"><i class="bi bi-git"></i>Git Commands</div>
+      <h2>Save Your Progress</h2>
+      <div class="git-cmd">git add .</div>
+      <div class="git-cmd">git commit -m "feat: add MongoDB connection and Student model"</div>
+      <div class="git-cmd">git push origin main</div>
+      <div class="tip-box">
+        <div class="tip-title"><i class="bi bi-lightbulb"></i>Clean code tip</div>
+        <p>Never put your MongoDB URI directly in your code. Always use <code>process.env.MONGO_URI</code> from the <code>.env</code> file. This keeps your passwords safe and makes it easy to use different databases for development and production.</p>
+      </div>
+    </div>
+
+    <div class="module-nav">
+      <a href="module3.html"><i class="bi bi-arrow-left"></i>Module 3 — Node.js &amp; Express</a>
+      <a href="module5.html" class="next">Module 5 — REST API<i class="bi bi-arrow-right"></i></a>
+    </div>
+
+  </main>
 </div>
 
-<footer class="footer">
-  <div class="container">
-    <div class="row g-4">
-      <div class="col-md-4">
-        <h5><i class="bi bi-braces-asterisk me-1"></i>EgoTECH<span style="color:var(--primary)">World</span></h5>
-        <p class="small" style="color:rgba(255,255,255,.55);">Free beginner-focused MERN tutorials. Build real projects from scratch.</p>
-        <div class="footer-social mt-3">
-          <a href="https://egotechworld.com"><i class="bi bi-globe2"></i></a>
-          <a href="#"><i class="bi bi-github"></i></a>
-          <a href="#"><i class="bi bi-youtube"></i></a>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <h5>Course Modules</h5>
-        <ul class="list-unstyled" style="font-size:.85rem;">
-          <li class="mb-1"><a href="module1.html"><i class="bi bi-arrow-right-short"></i> Module 1: Introduction to MERN</a></li>
-          <li class="mb-1"><a href="module2.html"><i class="bi bi-arrow-right-short"></i> Module 2: Dev Environment</a></li>
-          <li class="mb-1"><a href="module3.html"><i class="bi bi-arrow-right-short"></i> Module 3: Node.js &amp; Express</a></li>
-          <li class="mb-1"><a href="module4.html"><i class="bi bi-arrow-right-short"></i> Module 4: MongoDB</a></li>
-          <li><a href="module5.html"><i class="bi bi-arrow-right-short"></i> Module 5: REST API</a></li>
-        </ul>
-      </div>
-      <div class="col-md-4">
-        <h5>In This Module</h5>
-        <ul class="list-unstyled" style="font-size:.85rem;">
-          <li class="mb-1"><a href="#sql-vs-nosql"><i class="bi bi-arrow-right-short"></i> SQL vs NoSQL</a></li>
-          <li class="mb-1"><a href="#erd"><i class="bi bi-arrow-right-short"></i> ER Diagram</a></li>
-          <li class="mb-1"><a href="#model"><i class="bi bi-arrow-right-short"></i> Student Model Code</a></li>
-          <li><a href="#testing"><i class="bi bi-arrow-right-short"></i> Testing the Model</a></li>
-        </ul>
-      </div>
-    </div>
-    <hr class="footer-divider"/>
-    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2" style="font-size:.82rem;">
-      <span style="color:rgba(255,255,255,.45);">
-        <i class="bi bi-stars me-1" style="color:#fbbf24;"></i>
-        Designed &amp; developed by <strong style="color:rgba(255,255,255,.75);">EgoTECHWorld</strong> &nbsp;�&nbsp;
-        <a href="https://egotechworld.com" style="color:rgba(255,255,255,.6);">egotechworld.com</a> &nbsp;�&nbsp;
-        Member 2 � Modules 1�5 &nbsp;�&nbsp; &copy; 2025
-      </span>
-    </div>
-  </div>
-</footer>
-<button id="scrollTop" aria-label="Scroll to top"><i class="bi bi-arrow-up"></i></button>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<div id="footer-placeholder"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="assets/js/script.js"></script>
 <script>
-  const btn = document.getElementById('scrollTop');
-  window.addEventListener('scroll', () => btn.classList.toggle('show', scrollY > 400));
-  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  const sections=document.querySelectorAll('.content-card[id]');
+  const navLinks=document.querySelectorAll('.sidebar-nav a');
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        navLinks.forEach(l=>l.classList.remove('active'));
+        const a=document.querySelector(`.sidebar-nav a[href="#${e.target.id}"]`);
+        if(a)a.classList.add('active');
+      }
+    });
+  },{threshold:0.35});
+  sections.forEach(s=>observer.observe(s));
 </script>
 </body>
 </html>
