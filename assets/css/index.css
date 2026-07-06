@@ -224,13 +224,8 @@ body {
   margin-bottom: .15rem;
 }
 
-/* Square module & requirements cards */
-#modules .col-md-6 {
-  aspect-ratio: 1 / 1;
-}
-#modules .col-md-6 .card {
-  height: 100%;
-  overflow: hidden;
+/* Module cards — natural height, no forced aspect ratio */
+#modules .card {
   display: flex;
   flex-direction: column;
 }
