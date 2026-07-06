@@ -5,31 +5,16 @@
 
 /* ── FOOTER BASE ── */
 .footer {
-  background: #1e2028;
-  color: rgba(255,255,255,.55);
-  padding: 1.1rem 0 1rem;
-}
-
-/* Copyright line */
-.footer-copy {
-  font-size: .8rem;
+  background: var(--dark);
   color: rgba(255,255,255,.75);
-  margin: 0 0 .35rem;
+  padding: 1.5rem 0;
 }
 
-/* Links row */
-.footer-links {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-}
-.footer-links a {
-  font-size: .78rem;
-  color: rgba(255,255,255,.5);
+.footer a {
+  color: rgba(255,255,255,.6);
   text-decoration: none;
   transition: color var(--transition);
 }
-.footer-links a:hover { color: #fff; }
 
 /* ── SCROLL-TO-TOP ── */
 #scrollTop {
